@@ -4,11 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Models // Space Surfers</title>
-<meta name="description" content="3D models in Space Surfers and their authors.">
+<meta name="description" content="Every 3D model in Space Surfers, rendered from the game files, with its author and license.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Alegreya+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#ebe6dc;--paper2:#e1dacd;--card:#f4f0e8;--ink:#1c2326;--mute:#4b5457;--dim:#6f7679;--line:rgba(28,35,38,.16);--rust:#a4532e;--teal:#2b7774;
+--f-display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;--f-body:"Alegreya Sans","Gill Sans","Trebuchet MS",system-ui,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;padding:0 16px 64px}
+.wrap{max-width:1200px;margin:0 auto}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--rust)}
+header.bar,footer.bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--dim);padding:18px 0;border-bottom:2px solid var(--ink)}
+header.bar a{color:var(--mute);text-decoration:none}
+header.bar a:hover,header.bar a[aria-current]{color:var(--rust)}
+header.bar nav{display:flex;gap:14px;flex-wrap:wrap}
+footer.bar{border-bottom:0;border-top:2px solid var(--ink);margin-top:64px}
+h1,h2,h3{font-family:var(--f-display);margin:0;font-weight:800;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
+h1{font-size:clamp(56px,10vw,120px);line-height:.85;margin-top:40px}
+h2{font-size:clamp(32px,5vw,50px);line-height:1}
+h3{font-size:21px;font-weight:600;line-height:1.15;letter-spacing:.03em}
+h3 a{color:inherit;text-decoration:none} h3 a:hover{color:var(--rust)}
+p{margin:0;max-width:66ch}
+.eyebrow{font:500 12px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--rust)}
+.lede{font-size:19px;color:var(--mute);max-width:62ch}
+.intro{display:grid;gap:14px;padding-top:12px}
+section{padding-top:64px;display:grid;gap:26px}
+.sec-head{display:grid;gap:12px;border-top:2px solid var(--ink);padding-top:22px}
+.plates{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.plate{display:grid;gap:10px;align-content:start;min-width:0}
+.plate p{font-size:16px;color:var(--mute)}
+.view{position:relative;border-radius:3px;overflow:hidden;background:linear-gradient(#cfe3dd,#7fa9a3 60%,#4c6966);aspect-ratio:1/1;box-shadow:0 1px 0 var(--line),0 10px 28px -18px rgba(28,35,38,.6)}
+.view img{display:block;width:100%;height:100%;object-fit:contain;padding:6%}
+.view .tag{position:absolute;left:10px;top:10px;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#f4f0e8;background:rgba(28,35,38,.72);padding:3px 7px;border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:500 12px var(--f-mono);padding:3px 8px;border-radius:999px;border:1px solid var(--line);background:var(--card)}
+.chip.keep{background:var(--teal);border-color:var(--teal);color:#f4f0e8}
+.chip.ref{border-color:var(--rust);color:var(--rust)}
+.credits{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:18px 22px;display:grid;gap:10px}
+.credits ul{margin:0;padding-left:18px;display:grid;gap:4px;color:var(--mute);font-size:16px}
+.note{font-size:15px;color:var(--dim)}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -17,38 +54,69 @@
     <nav><a href="../play/">Play</a><a href="../video/">Video</a><a href="../docs/">Docs</a><a href="../lookbook/">Look book</a><a href="../models/" aria-current="page">Models</a><a href="../sound/">Sound</a><a href="../install/">Install</a></nav>
   </header>
 
-  <h1>MODELS</h1>
-  <p class="tag">What the city is built from</p>
-  <p class="lead">The board, boost pads, catwalks, signs and crates are our own. The rest of the city is open-licensed models, placed by the song. Every author is also credited in the game (press C on the start screen).</p>
-
-  <h2>Ours</h2>
-  <div class="grid">
-    <div class="card"><h3>Hoverboard</h3><p>Sven Culjak</p></div>
-    <div class="card"><h3>Boost pad</h3><p>Sven Culjak</p></div>
-    <div class="card"><h3>Catwalk</h3><p>Sven Culjak</p></div>
-    <div class="card"><h3>RIT neon signs</h3><p>Sven Culjak</p></div>
-    <div class="card"><h3>Storage crate</h3><p>Sven Culjak</p></div>
+  <div class="intro">
+    <h1>Models</h1>
+    <span class="eyebrow">What the city is built from</span>
+    <p class="lede">Every model in Space Surfers, rendered straight from the game files in Godot. The board, boost pad, catwalk, neon signs and tiger crate are made by our team. The rest of the city is open-licensed models, placed by the song. Every author is also credited in the game (press C on the start screen).</p>
   </div>
 
-  <h2>Open-licensed</h2>
-  <div class="table-wrap"><table>
-    <tr><th>Model</th><th>Author</th><th>License</th></tr>
-    <tr><td>Detailed 12 storey panel apartment building</td><td>bean (alwayshasbean)</td><td>CC BY 4.0</td></tr>
-    <tr><td>Old Apartment Building</td><td>jimbogies</td><td>CC BY 4.0</td></tr>
-    <tr><td>Industrial Utility Building (Game-Ready)</td><td>Xicor Devstar</td><td>CC BY 4.0</td></tr>
-    <tr><td>Large Industrial Storage Tanks</td><td>Duane's Mind</td><td>CC BY 4.0</td></tr>
-    <tr><td>Old Pipes Bundle, Modular Industrial Pack</td><td>Alex Krush</td><td>CC BY 4.0</td></tr>
-    <tr><td>Japanese Neon Street Sign</td><td>Jackmcm</td><td>CC BY 4.0</td></tr>
-    <tr><td>Rooftop Utility Pole</td><td>TomasKiniulis</td><td>CC BY 4.0</td></tr>
-    <tr><td>Freight shipping container, Rusted</td><td>Sousinho</td><td>CC BY 4.0</td></tr>
-    <tr><td>SciFi Walkways Grunge Steps Top Platform</td><td>The Elliseran Modeller</td><td>CC BY 4.0</td></tr>
-    <tr><td>Tung Chung Cable Car 9-SE-3D</td><td>patrick.young</td><td>CC BY 4.0</td></tr>
-    <tr><td>CT NR 47 Atmospheric transport</td><td>WhiteOak</td><td>CC BY 4.0</td></tr>
-    <tr><td><a href="https://sketchfab.com/3d-models/rubble-pile-game-ready-2k-pbr-0e6f85da3433468db226866bd43a43e7">Rubble Pile (Game Ready / 2K PBR)</a></td><td>Meerschaum Digital</td><td>CC BY 4.0</td></tr>
-    <tr><td><a href="https://sketchfab.com/3d-models/pile-of-trash-and-garbage-3-piece-set-a441c0d002bc49a59237f8003b5a7eb8">Pile of Trash and Garbage, 3 Piece Set</a></td><td>Sunbox Games</td><td>CC BY 4.0</td></tr>
-    <tr><td>Overhead crane, modular fire escape, aircon unit, air ducts, wooden crate, barrel, cardboard box</td><td><a href="https://polyhaven.com">Poly Haven</a></td><td>CC0</td></tr>
-  </table></div>
-  <p class="note" style="margin-top:14px">Sketchfab models are licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Some were scaled, retextured or cut for the game.</p>
+  <section aria-labelledby="h-ours">
+    <div class="sec-head"><span class="eyebrow">Made by us</span><h2 id="h-ours">Our models</h2></div>
+    <div class="plates">
+    <article class="plate"><div class="view"><img src="img/hoverboard.webp" alt="Render of the hoverboard model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Hoverboard</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>The board you ride. It runs on the orb's energy, and the glowing dust you collect fills it.</p></article>
+    <article class="plate"><div class="view"><img src="img/boost_pad.webp" alt="Render of the boost pad model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Boost pad</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>The only pickup. Ride through it for a few seconds of extra speed, and the song speeds up with you.</p></article>
+    <article class="plate"><div class="view"><img src="img/catwalk.webp" alt="Render of the catwalk model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Catwalk</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>Metal catwalks built off the tower walls, part of the obstacle course.</p></article>
+    <article class="plate"><div class="view"><img src="img/neon_rit1.webp" alt="Render of the rit sign model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>RIT sign</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>Neon RIT sign for the canyon walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/neon_rit2.webp" alt="Render of the rochester sign model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Rochester sign</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>Tall neon Rochester sign for the canyon walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/neon_rit3.webp" alt="Render of the tiger sign model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Tiger sign</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>Round neon sign with the RIT tiger.</p></article>
+    <article class="plate"><div class="view"><img src="img/storage_crate.webp" alt="Render of the tiger crate model" loading="lazy" width="720" height="720"><span class="tag">Ours</span></div><h3>Tiger crate</h3><div class="chips"><span class="chip keep">Sven Culjak</span></div><p>Storage crate with the RIT tiger on its side.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cc">
+    <div class="sec-head"><span class="eyebrow">Sketchfab, CC BY 4.0</span><h2 id="h-cc">Open-licensed models</h2><p class="lede">These authors must be credited wherever the game or this page is shown. Some models were scaled, retextured or cut for the game.</p></div>
+    <div class="plates">
+    <article class="plate"><div class="view"><img src="img/panel_block.webp" alt="Render of the model Detailed 12 storey panel apartment building" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/cb7064bec48845fea62a830b2c692fb1">Detailed 12 storey panel apartment building</a></h3><div class="chips"><span class="chip ref">by bean (alwayshasbean)</span></div><p>Main wall of the canyon, stacked two high.</p></article>
+    <article class="plate"><div class="view"><img src="img/old_apartment.webp" alt="Render of the model Old Apartment Building" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/a2a27bec2e364496b34ae399ee93cb67">Old Apartment Building</a></h3><div class="chips"><span class="chip ref">by jimbogies</span></div><p>Brick tenements on top of the stacks.</p></article>
+    <article class="plate"><div class="view"><img src="img/tanks.webp" alt="Render of the model Large Industrial Storage Tanks" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/bd3ac97071104b64bc388a155b64f79e">Large Industrial Storage Tanks</a></h3><div class="chips"><span class="chip ref">by Duane's Mind</span></div><p>Sphere tanks, a long tank and the big pipes.</p></article>
+    <article class="plate"><div class="view"><img src="img/pipes.webp" alt="Render of the model Old Pipes Bundle, Modular Industrial Pack" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/fbe3129ea77243ca92c8219f269ac5cf">Old Pipes Bundle, Modular Industrial Pack</a></h3><div class="chips"><span class="chip ref">by Alex Krush</span></div><p>Downpipes on the tower walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/container.webp" alt="Render of the model Freight shipping container, Rusted" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/2b787d1a02174d0bbca9eac34eb3a486">Freight shipping container, Rusted</a></h3><div class="chips"><span class="chip ref">by Sousinho</span></div><p>The crane's cargo.</p></article>
+    <article class="plate"><div class="view"><img src="img/cable_car.webp" alt="Render of the model Tung Chung Cable Car 9-SE-3D" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/3bc24d655278474f9b34a77de7dd3b49">Tung Chung Cable Car 9-SE-3D</a></h3><div class="chips"><span class="chip ref">by patrick.young</span></div><p>Hanging cabins and the pylons that hold the cable.</p></article>
+    <article class="plate"><div class="view"><img src="img/walkway.webp" alt="Render of the model SciFi Walkways Grunge Steps Top Platform" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/5c9d3776343f40a384aa4e519d5367e9">SciFi Walkways Grunge Steps Top Platform</a></h3><div class="chips"><span class="chip ref">by The Elliseran Modeller</span></div><p>Platforms joined end to end.</p></article>
+    <article class="plate"><div class="view"><img src="img/neon_sign.webp" alt="Render of the model Japanese Neon Street Sign" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/c91524e74c8c463ca3ddf71bc73911db">Japanese Neon Street Sign</a></h3><div class="chips"><span class="chip ref">by Jackmcm</span></div><p>Neon signs on the walls and the hanging sign obstacle.</p></article>
+    <article class="plate"><div class="view"><img src="img/utility_pole.webp" alt="Render of the model Rooftop Utility Pole" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/9ed483258b8b45a898783270a6544286">Rooftop Utility Pole</a></h3><div class="chips"><span class="chip ref">by TomasKiniulis</span></div><p>Poles and cables on the rooftops.</p></article>
+    <article class="plate"><div class="view"><img src="img/rubble_pile.webp" alt="Render of the model Rubble Pile (Game Ready / 2K PBR)" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/rubble-pile-game-ready-2k-pbr-0e6f85da3433468db226866bd43a43e7">Rubble Pile (Game Ready / 2K PBR)</a></h3><div class="chips"><span class="chip ref">by Meerschaum Digital</span></div><p>Rubble on the ledges.</p></article>
+    <article class="plate"><div class="view"><img src="img/trash_pile.webp" alt="Render of the model Pile of Trash and Garbage, 3 Piece Set" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/pile-of-trash-and-garbage-3-piece-set-a441c0d002bc49a59237f8003b5a7eb8">Pile of Trash and Garbage, 3 Piece Set</a></h3><div class="chips"><span class="chip ref">by Sunbox Games</span></div><p>Trash on the ledges.</p></article>
+    <article class="plate"><div class="view"><img src="img/utility_building.webp" alt="Render of the model Industrial Utility Building (Game-Ready)" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3>Industrial Utility Building (Game-Ready)</h3><div class="chips"><span class="chip ref">by Xicor Devstar</span></div><p>Downloaded for the city, not placed yet.</p></article>
+    <article class="plate"><div class="view"><img src="img/ct_nr_47.webp" alt="Render of the model CT NR 47 Atmospheric transport" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/ct-nr-47-atmospheric-transport-bda694736bb64f2c8244110986bf466a">CT NR 47 Atmospheric transport</a></h3><div class="chips"><span class="chip ref">by WhiteOak</span></div><p>Airship from the look book scenes.</p></article>
+    <article class="plate"><div class="view"><img src="img/scifi_hoverboard.webp" alt="Render of the model Sci-fi Hoverboard" loading="lazy" width="720" height="720"><span class="tag">CC BY 4.0</span></div><h3><a href="https://sketchfab.com/3d-models/28f5794c789140259a9078a89f24b703">Sci-fi Hoverboard</a></h3><div class="chips"><span class="chip ref">by soykanmg</span></div><p>Stand-in board in the early prototypes, before ours was made.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-ph">
+    <div class="sec-head"><span class="eyebrow">Poly Haven, CC0</span><h2 id="h-ph">Props and kits</h2><p class="lede">Public domain models from <a href="https://polyhaven.com">Poly Haven</a>. No credit is required, we credit them anyway. Some are kits of loose parts that get assembled in the game.</p></div>
+    <div class="plates">
+    <article class="plate"><div class="view"><img src="img/overhead_crane.webp" alt="Render of the model Overhead Crane" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Overhead Crane</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Crane gantry over the route.</p></article>
+    <article class="plate"><div class="view"><img src="img/fire_escape.webp" alt="Render of the model Modular Fire Escape" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Modular Fire Escape</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Fire escapes on the tower walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/aircon.webp" alt="Render of the model Exterior Aircon Unit" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Exterior Aircon Unit</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Aircon units on the walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/duct_rect.webp" alt="Render of the model Modular Airduct, Rectangular" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Modular Airduct, Rectangular</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Air ducts on the walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/duct_circ.webp" alt="Render of the model Modular Airduct, Circular" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Modular Airduct, Circular</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Air ducts on the walls.</p></article>
+    <article class="plate"><div class="view"><img src="img/wooden_crate.webp" alt="Render of the model Wooden Crate 02" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Wooden Crate 02</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Clutter on the ledges.</p></article>
+    <article class="plate"><div class="view"><img src="img/barrel.webp" alt="Render of the model Barrel 03" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Barrel 03</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Clutter on the ledges.</p></article>
+    <article class="plate"><div class="view"><img src="img/cardboard_box.webp" alt="Render of the model Cardboard Box 01" loading="lazy" width="720" height="720"><span class="tag">CC0</span></div><h3>Cardboard Box 01</h3><div class="chips"><span class="chip ref">Poly Haven</span></div><p>Clutter on the ledges.</p></article>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-credits">
+    <div class="sec-head"><span class="eyebrow">Credits</span><h2 id="h-credits">Authors and licenses</h2></div>
+    <div class="credits">
+      <ul>
+        <li>Hoverboard, boost pad, catwalk, RIT neon signs and tiger crate by Sven Culjak</li>
+        <li><a href="https://sketchfab.com/3d-models/cb7064bec48845fea62a830b2c692fb1">Detailed 12 storey panel apartment building</a> by bean (alwayshasbean), <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/a2a27bec2e364496b34ae399ee93cb67">Old Apartment Building</a> by jimbogies, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/bd3ac97071104b64bc388a155b64f79e">Large Industrial Storage Tanks</a> by Duane's Mind, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/fbe3129ea77243ca92c8219f269ac5cf">Old Pipes Bundle, Modular Industrial Pack</a> by Alex Krush, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/2b787d1a02174d0bbca9eac34eb3a486">Freight shipping container, Rusted</a> by Sousinho, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/3bc24d655278474f9b34a77de7dd3b49">Tung Chung Cable Car 9-SE-3D</a> by patrick.young, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/5c9d3776343f40a384aa4e519d5367e9">SciFi Walkways Grunge Steps Top Platform</a> by The Elliseran Modeller, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/c91524e74c8c463ca3ddf71bc73911db">Japanese Neon Street Sign</a> by Jackmcm, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/9ed483258b8b45a898783270a6544286">Rooftop Utility Pole</a> by TomasKiniulis, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/rubble-pile-game-ready-2k-pbr-0e6f85da3433468db226866bd43a43e7">Rubble Pile (Game Ready / 2K PBR)</a> by Meerschaum Digital, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/pile-of-trash-and-garbage-3-piece-set-a441c0d002bc49a59237f8003b5a7eb8">Pile of Trash and Garbage, 3 Piece Set</a> by Sunbox Games, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li>Industrial Utility Building (Game-Ready) by Xicor Devstar, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/ct-nr-47-atmospheric-transport-bda694736bb64f2c8244110986bf466a">CT NR 47 Atmospheric transport</a> by WhiteOak, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li><li><a href="https://sketchfab.com/3d-models/28f5794c789140259a9078a89f24b703">Sci-fi Hoverboard</a> by soykanmg, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></li>
+        <li>Overhead Crane, Modular Fire Escape, Exterior Aircon Unit, Modular Airducts, Wooden Crate 02, Barrel 03 and Cardboard Box 01 from <a href="https://polyhaven.com">Poly Haven</a>, <a href="https://polyhaven.com/license">CC0</a></li>
+      </ul>
+    </div>
+  </section>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>
