@@ -6,14 +6,14 @@
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --bg: #120c08; --panel: #1c140e; --frame: linear-gradient(#2a1d14, #120c08);
+  --bg: #120c08; --panel: #1c140e; --frame: radial-gradient(circle at 50% 45%, #4a3626, #1c140e 75%);
   --ink: #f0e2ce; --dim: #b8a892; --rule: rgba(240, 138, 36, 0.25);
   --orange: #f08a24; --link: #7fe9ff;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #120c08; --panel: #1c140e; --frame: linear-gradient(#2a1d14, #120c08);
+    --bg: #120c08; --panel: #1c140e; --frame: radial-gradient(circle at 50% 45%, #4a3626, #1c140e 75%);
     --ink: #f0e2ce; --dim: #b8a892; --rule: rgba(240, 138, 36, 0.25);
     --orange: #f08a24; --link: #7fe9ff;
     color-scheme: dark;
