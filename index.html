@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Surfers</title>
+<meta name="description" content="Ride a hoverboard down a trail made from a song. A body-controlled game by Sven Culjak, Dinmukhamed Beisenov and Nora Miskulin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #120c08;
+    --panel: rgba(18, 11, 7, 0.86);
+    --orange: #f08a24;
+    --blue: #7fe9ff;
+    --ink: #f0e2ce;
+    --dim: rgba(240, 226, 206, 0.6);
+    --rule: rgba(240, 138, 36, 0.35);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image:
+      linear-gradient(rgba(240, 138, 36, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(240, 138, 36, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    color: var(--ink);
+    font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+  }
+  a { color: var(--blue); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  header.bar, footer.bar {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-size: 12px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.18em;
+    padding: 18px 0; border-bottom: 1px solid var(--rule);
+  }
+  footer.bar { border-bottom: 0; border-top: 1px solid var(--rule); margin-top: 64px; }
+  h1, h2, h3 { font-family: "Chakra Petch", sans-serif; font-style: italic; font-weight: 700; color: var(--orange); margin: 0; letter-spacing: 0.01em; }
+  h1 { font-size: clamp(48px, 10vw, 112px); line-height: 1; margin-top: 56px; }
+  h2 { font-size: clamp(28px, 5vw, 44px); margin: 72px 0 18px; }
+  h3 { font-size: 20px; color: var(--blue); }
+  .tag { font-size: 13px; color: var(--blue); text-transform: uppercase; letter-spacing: 0.2em; margin: 14px 0 0; }
+  .lead { max-width: 640px; font-size: 16px; margin: 22px 0 0; }
+  .cta { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 32px; }
+  .btn {
+    display: inline-block; font-family: "Chakra Petch", sans-serif; font-weight: 700; font-size: 20px;
+    letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    color: var(--bg); background: var(--blue); padding: 14px 28px; border-radius: 3px;
+    box-shadow: 0 0 22px rgba(127, 233, 255, 0.35);
+  }
+  .btn:hover { filter: brightness(1.1); }
+  .note { font-size: 13px; color: var(--dim); }
+  .hero-shot { margin-top: 40px; border: 1px solid var(--rule); width: 100%; height: auto; display: block; }
+  .notice {
+    margin-top: 40px; border: 1px solid var(--orange); background: var(--panel); padding: 18px 22px;
+    display: grid; grid-template-columns: 14px 1fr; gap: 18px;
+  }
+  .notice .stripe { background: repeating-linear-gradient(-45deg, #e8c23a 0 6px, #d2442c 6px 12px); }
+  .notice p { margin: 6px 0 0; }
+  .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .card { border: 1px solid var(--rule); background: var(--panel); padding: 18px 20px; }
+  .card p { margin: 8px 0 0; }
+  .keys { display: grid; grid-template-columns: max-content 1fr; gap: 10px 22px; align-items: baseline; }
+  kbd {
+    font-family: inherit; font-size: 13px; color: var(--blue); border: 1px solid var(--blue);
+    padding: 2px 8px; border-radius: 3px; white-space: nowrap;
+  }
+  ol.steps { padding-left: 22px; margin: 0; }
+  ol.steps li { margin: 0 0 10px; padding-left: 6px; }
+  .shots { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  figure { margin: 0; }
+  figure img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; border: 1px solid var(--rule); }
+  figcaption { font-size: 12px; color: var(--dim); text-transform: uppercase; letter-spacing: 0.16em; margin-top: 6px; }
+  .team-names { font-size: 18px; font-weight: 600; margin: 0; }
+  @media (max-width: 560px) {
+    .keys { grid-template-columns: 1fr; gap: 2px; }
+    .keys > span { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <span>Space Surfers</span>
+    <span>Interactive IV // Project 02 // Much Ado About Music</span>
+  </header>
+
+  <h1>SPACE SURFERS</h1>
+  <p class="tag">Chase the orb through the hanging city</p>
+  <p class="lead">You stand on a real board and lean to steer a hoverboard down a trail made from a song. Stay on the trail and the music plays clean while you close in on the orb. Drift off and the song bends, slows and breaks up, and your power drains.</p>
+  <div class="cta">
+    <a class="btn" href="play/">Play in the browser</a>
+    <span class="note">Keyboard version. Chrome or Firefox on a laptop or desktop.</span>
+  </div>
+
+  <div class="notice">
+    <div class="stripe" aria-hidden="true"></div>
+    <div>
+      <h3>This is the keyboard version</h3>
+      <p>Space Surfers is made to be played with your body: you stand on a board in front of a Kinect v2 infrared camera, and the game reads how you lean. That needs the camera, a Mac, and our tracker software, so it only runs in our installation for now.</p>
+      <p>The browser version is the same game with the arrow keys standing in for your body. It shows the whole flow, from stepping on the board to catching the orb, but it can't give you the feeling of leaning to ride.</p>
+    </div>
+  </div>
+
+  <img class="hero-shot" src="img/ride.jpg" alt="Riding the blue trail between apartment blocks, with the power meter on the left and the song bar at the top" width="1280" height="720">
+
+  <h2>Controls</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Keyboard (browser)</h3>
+      <div class="keys" style="margin-top:12px">
+        <kbd>Enter</kbd><span>Step on or off the board</span>
+        <kbd>← →</kbd><span>Lean left and right to steer</span>
+        <kbd>↑ ↓</kbd><span>Lean to dive and climb</span>
+        <kbd>Hold ↑ 2 s</kbd><span>Confirm, for example to pick a difficulty</span>
+        <kbd>Hold H 2 s</kbd><span>Both hands up: restart</span>
+        <kbd>C</kbd><span>Credits, on the start screen</span>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Body (installation)</h3>
+      <div class="keys" style="margin-top:12px">
+        <kbd>Step on</kbd><span>Start</span>
+        <kbd>Lean</kbd><span>Toward and away from the screen to dive and climb, left and right to steer</span>
+        <kbd>Hold a lean</kbd><span>Confirm</span>
+        <kbd>Both hands up</kbd><span>Restart</span>
+        <kbd>Step off</kbd><span>Pause. Walk away to end</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>How a ride goes</h2>
+  <ol class="steps">
+    <li><b>Step on the board.</b> In the browser, press Enter.</li>
+    <li><b>Pick a difficulty.</b> Easy, Medium or Hard: the same song, but a busier city and less help staying on the trail.</li>
+    <li><b>Get ready, then 3, 2, 1.</b> The orb breaks loose and flies ahead along the trail.</li>
+    <li><b>Follow the trail.</b> Staying on it brings the orb closer. Drifting off, or hitting an obstacle, pushes it away and drains your power.</li>
+    <li><b>Catch the orb</b> before the song ends, or make it to the end with power left. Run out of power and the ride is over.</li>
+  </ol>
+
+  <h2>Screens</h2>
+  <div class="shots">
+    <figure><img src="img/start.jpg" alt="Start screen" loading="lazy" width="1280" height="720"><figcaption>Start</figcaption></figure>
+    <figure><img src="img/calibrate.jpg" alt="Calibration: lean toward the screen, with a live lean meter" loading="lazy" width="1280" height="720"><figcaption>Calibration (with the camera)</figcaption></figure>
+    <figure><img src="img/pick.jpg" alt="Pick a difficulty: Easy, Medium, Hard cards with the song's waveform" loading="lazy" width="1280" height="720"><figcaption>Pick a difficulty</figcaption></figure>
+    <figure><img src="img/offtrail.jpg" alt="Off the trail warning while riding" loading="lazy" width="1280" height="720"><figcaption>Off the trail</figcaption></figure>
+    <figure><img src="img/won.jpg" alt="You caught it: time, boosts and time on the trail" loading="lazy" width="1280" height="720"><figcaption>You caught it</figcaption></figure>
+  </div>
+
+  <h2>Team</h2>
+  <p class="team-names">Sven Culjak &nbsp;//&nbsp; Dinmukhamed Beisenov &nbsp;//&nbsp; Nora Miskulin</p>
+  <p class="note" style="margin-top:18px">City models from Sketchfab (CC BY 4.0) and Poly Haven (CC0); every author is listed on the in-game credits page (press C on the start screen). Fonts: Chakra Petch and IBM Plex Mono (SIL Open Font License). Built with Godot.</p>
+
+  <footer class="bar">
+    <span>RIT Croatia</span>
+    <span>Space Surfers // 2026</span>
+  </footer>
+</div>
+</body>
+</html>
