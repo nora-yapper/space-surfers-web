@@ -1,0 +1,60 @@
+/* Reading pages (models, docs, sound, install): site branding, calmer body, light and dark modes. */
+:root {
+  --bg: #f5f0e8; --panel: #ffffff; --frame: linear-gradient(#efe6d8, #d9cbb6);
+  --ink: #1f1a15; --dim: #5e554c; --rule: rgba(31, 26, 21, 0.14);
+  --orange: #b85a0c; --link: #0b6f86;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #120c08; --panel: #1c140e; --frame: linear-gradient(#2a1d14, #120c08);
+  --ink: #f0e2ce; --dim: #b8a892; --rule: rgba(240, 138, 36, 0.25);
+  --orange: #f08a24; --link: #7fe9ff;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #120c08; --panel: #1c140e; --frame: linear-gradient(#2a1d14, #120c08);
+    --ink: #f0e2ce; --dim: #b8a892; --rule: rgba(240, 138, 36, 0.25);
+    --orange: #f08a24; --link: #7fe9ff;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--link); text-underline-offset: 3px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+header.bar, footer.bar {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  font: 600 13px "Chakra Petch", sans-serif; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--dim); padding: 16px 0; border-bottom: 1px solid var(--rule);
+}
+header.bar a { color: var(--dim); text-decoration: none; }
+header.bar a:hover, header.bar a[aria-current] { color: var(--orange); }
+header.bar .home { margin-right: auto; }
+header.bar nav { display: flex; gap: 14px; flex-wrap: wrap; }
+button.theme {
+  font: 18px/1 system-ui, sans-serif; width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--rule); background: var(--panel); color: var(--ink); cursor: pointer;
+}
+button.theme:hover { border-color: var(--orange); color: var(--orange); }
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+footer.bar { justify-content: space-between; border-bottom: 0; border-top: 1px solid var(--rule); margin-top: 64px; }
+h1, h2, h3 { font-family: "Chakra Petch", sans-serif; margin: 0; line-height: 1.1; }
+h1 { font-style: italic; font-weight: 700; color: var(--orange); font-size: clamp(44px, 8vw, 80px); margin-top: 40px; }
+h2 { font-style: italic; font-weight: 700; color: var(--orange); font-size: clamp(26px, 4vw, 34px); }
+h3 { font-weight: 600; font-size: 17px; }
+p { margin: 0; max-width: 68ch; }
+.lead { font-size: 19px; color: var(--dim); margin-top: 12px; }
+section { margin-top: 56px; display: grid; gap: 14px; }
+section > p { color: var(--dim); }
+.grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 8px; }
+.card { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; display: grid; }
+.card .frame, .card model-viewer { aspect-ratio: 1 / 1; width: 100%; height: auto; background: var(--frame); display: block; }
+.card img { display: block; width: 100%; height: 100%; object-fit: contain; padding: 6%; }
+.card figcaption { padding: 12px 14px 14px; display: grid; gap: 4px; }
+.meta { font-size: 14px; color: var(--dim); }
+ul.credits { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.note { font-size: 15px; color: var(--dim); }
