@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install // Space Surfers</title>
+<meta name="description" content="How to set up the Space Surfers installation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a href="../">Space Surfers</a>
+    <nav><a href="../play/">Play</a><a href="../video/">Video</a><a href="../docs/">Docs</a><a href="../lookbook/">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/" aria-current="page">Install</a></nav>
+  </header>
+
+  <h1>INSTALL</h1>
+  <p class="tag">Playing with your body</p>
+  <p class="lead">The real Space Surfers is played standing on a board in front of a big screen. A Kinect v2 camera watches you from the front and the game reads how you lean.</p>
+
+  <h2>What you need</h2>
+  <div class="grid">
+    <div class="card"><h3>Camera</h3><p>A Kinect v2 with its USB adapter, facing the board.</p></div>
+    <div class="card"><h3>Computer</h3><p>A Mac running our tracker and the Godot build of the game.</p></div>
+    <div class="card"><h3>Screen</h3><p>A projector or large screen in front of the rider.</p></div>
+    <div class="card"><h3>Board</h3><p>A floor board inside a 1.4 by 1.0 m zone the camera can see. Riders 160 cm and up.</p></div>
+  </div>
+
+  <h2>Running it</h2>
+  <ol class="steps">
+    <li><b>Start the tracker.</b> It reads the infrared camera, finds your shoulders, hips and hands, and sends your lean to the game.</li>
+    <li><b>Start the game.</b> It waits on the start screen until someone steps on the board.</li>
+    <li><b>Calibrate.</b> The game walks each new rider through every lean twice, in about a minute and a half, with a live meter.</li>
+    <li><b>Ride.</b> Lean to steer, hold a lean to confirm, raise both hands to restart, step off to pause.</li>
+  </ol>
+  <p class="note" style="margin-top:18px">Dark clothing can hide from the depth sensor, so the tracker works from the infrared image. A download kit with the tracker is not ready yet. Until then, the <a href="../play/">browser version</a> plays the same game with the arrow keys.</p>
+
+  <footer class="bar">
+    <span>RIT Croatia // Interactive IV // Project 02</span>
+    <span>Space Surfers // 2026</span>
+  </footer>
+</div>
+</body>
+</html>
