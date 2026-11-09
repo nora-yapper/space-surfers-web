@@ -1,60 +1,138 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Look book // Space Surfers</title>
-<meta name="description" content="The visual direction of Space Surfers.">
+<meta name="description" content="The look of Space Surfers: mood board, painted style, palette, type and the UI design.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs.css">
+<style>
+/* Look book: always dark, with the game's grid behind the calm reading layout. */
+body { background-image: linear-gradient(rgba(240,138,36,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(240,138,36,.05) 1px, transparent 1px); background-size: 48px 48px; }
+.hero { margin-top: 20px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; display: block; width: 100%; height: auto; }
+.thesis { font-size: 21px; line-height: 1.45; max-width: 64ch; margin-top: 22px; }
+.thesis b { color: var(--orange); }
+.stripe { height: 10px; border-radius: 2px; background: repeating-linear-gradient(-45deg, #d9b23a 0 8px, #d8432f 8px 16px); margin-top: 56px; }
+.mood { display: grid; gap: 14px; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: start; }
+@media (max-width: 860px) { .mood { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+figure { margin: 0; display: grid; gap: 8px; min-width: 0; }
+figure img { display: block; width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--rule); }
+figcaption { font-size: 15px; color: var(--dim); }
+figcaption b { color: var(--ink); font-family: "Chakra Petch", sans-serif; font-weight: 600; margin-right: 6px; }
+.shots { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.strata { display: grid; gap: 14px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) { .strata { grid-template-columns: minmax(0, 1fr); } }
+.strata img { width: 100%; height: auto; display: block; }
+.swatches { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.swatch { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; display: grid; }
+.swatch i { display: block; height: 64px; border-bottom: 1px solid var(--rule); }
+.swatch b { font: 600 15px "Chakra Petch", sans-serif; padding: 8px 12px 0; }
+.swatch code { font: 13px "IBM Plex Mono", monospace; color: var(--dim); padding: 0 12px 10px; }
+.type { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.type .card { padding: 20px; }
+.type .sample1 { font: italic 700 46px/1 "Chakra Petch", sans-serif; color: var(--orange); }
+.type .sample2 { font: 600 22px/1.2 "Chakra Petch", sans-serif; text-transform: uppercase; letter-spacing: .04em; }
+.type .sample3 { font: 15px/1.5 "IBM Plex Mono", monospace; text-transform: uppercase; letter-spacing: .12em; color: var(--link); }
+.type .logo img { width: 100%; max-width: 360px; height: auto; }
+.kit { background: #2b2622; border: 1px solid var(--rule); border-radius: 6px; padding: 20px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+.kit img { height: 120px; width: auto; max-width: 100%; }
+.kit img.wide { height: 70px; }
+.kit img.tall { height: 190px; }
+.kit-group { display: grid; gap: 8px; }
+.kit-group h3 { color: var(--orange); }
+ul.refs { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
-    <a href="../">Space Surfers</a>
+    <a class="home" href="../">Space Surfers</a>
     <nav><a href="../play/">Play</a><a href="../video/">Video</a><a href="../docs/">Docs</a><a href="../lookbook/" aria-current="page">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/">Install</a></nav>
     <span class="theme-slot" aria-hidden="true"></span>
   </header>
 
-  <h1>LOOK BOOK</h1>
-  <p class="tag">An industrial city hanging in the dark</p>
-  <p class="lead">You ride through a stacked undercity of panel blocks, pipes, catwalks and neon, lit warm orange and sunk in haze. The trail and the orb are the only cool colour, so the way forward always reads first.</p>
+  <main>
+    <h1>Look book</h1>
+    <p class="tag">An industrial city hanging in the dark</p>
+    <img class="hero" src="img/ui_main.jpg" alt="The Space Surfers start screen: the logo over a hazy orange corridor, with a cyan Step on the board button" width="1280" height="720">
+    <p class="thesis">Cyberpunk with a half-Arcane painted finish: a dystopian city that is also <b>very high-tech</b>. You surf through one hazy orange city on a board powered by a single energy orb. The orb breaks away at the start, and you chase the glowing dust it leaves behind until the song ends.</p>
 
-  <h2>Colour</h2>
-  <div class="swatches">
-    <div class="swatch"><i style="background:#120c08"></i><span>Night #120c08</span></div>
-    <div class="swatch"><i style="background:#f08a24"></i><span>City orange #f08a24</span></div>
-    <div class="swatch"><i style="background:#e8c23a"></i><span>Easy yellow #e8c23a</span></div>
-    <div class="swatch"><i style="background:#d2442c"></i><span>Hard red #d2442c</span></div>
-    <div class="swatch"><i style="background:#7fe9ff"></i><span>Trail and orb #7fe9ff</span></div>
-    <div class="swatch"><i style="background:#f0e2ce"></i><span>Text #f0e2ce</span></div>
-  </div>
-  <div class="grid" style="margin-top:24px">
-    <div class="card"><h3>One orange world</h3><p>No zones. The whole city shares one warm palette that leans yellow on Easy and red on Hard.</p></div>
-    <div class="card"><h3>Blue means go</h3><p>Only the trail, the orb and the boost pads are blue. Everything else is something to read past or dodge.</p></div>
-    <div class="card"><h3>You, in infrared</h3><p>There is no player model. The camera's live silhouette of your body stands in for you: orange on the board in the city, blue on the calibration screens.</p></div>
-    <div class="card"><h3>Retro terminal UI</h3><p>Hard edges, hazard stripes and monospaced readouts, in Chakra Petch and IBM Plex Mono. Only text that means something to the player.</p></div>
-  </div>
+    <div class="stripe" role="presentation"></div>
 
-  <h2>In the game</h2>
-  <div class="shots">
-    <figure><img src="../img/ride.jpg" alt="Riding the blue trail between apartment blocks" loading="lazy" width="1280" height="720"><figcaption>The ride</figcaption></figure>
-    <figure><img src="../img/tram_easy.jpg" alt="Easy: a calmer, yellower city" loading="lazy" width="1280" height="720"><figcaption>Easy: calmer, more yellow</figcaption></figure>
-    <figure><img src="../img/tram_hard.jpg" alt="Hard: a busier, redder city" loading="lazy" width="1280" height="720"><figcaption>Hard: busier, more red</figcaption></figure>
-    <figure><img src="../img/wide_view.jpg" alt="Wide camera view of the trail" loading="lazy" width="1280" height="720"><figcaption>Wide camera, so curves read early</figcaption></figure>
-    <figure><img src="../img/boost.jpg" alt="Picking up a boost pad" loading="lazy" width="1280" height="720"><figcaption>Boost pad</figcaption></figure>
-  </div>
+    <section aria-labelledby="h-mood">
+      <h2 id="h-mood">Mood board</h2>
+      <p>Stacked, vertical, warm and hazy. The places we want the ride to feel like.</p>
+      <div class="mood"><figure class=""><img src="img/mood1.jpg" alt="Reference image: Panel blocks stacked into a deep canyon" loading="lazy"><figcaption>The canyon</figcaption></figure><figure class=""><img src="img/mood2.jpg" alt="Reference image: A narrow street under signs and cables" loading="lazy"><figcaption>The street</figcaption></figure><figure class=""><img src="img/mood3.jpg" alt="Reference image: Buildings hanging over the void" loading="lazy"><figcaption>Hanging blocks</figcaption></figure><figure class=""><img src="img/mood4.jpg" alt="Reference image: A dense tangle of industrial pipes" loading="lazy"><figcaption>Pipe forest</figcaption></figure><figure class=""><img src="img/mood5.jpg" alt="Reference image: A neon-lit back alley" loading="lazy"><figcaption>The alley</figcaption></figure></div>
+    </section>
 
-  <h2>Screens</h2>
-  <div class="shots">
-    <figure><img src="../img/start.jpg" alt="Start screen" loading="lazy" width="1280" height="720"><figcaption>Start</figcaption></figure>
-    <figure><img src="../img/calibrate.jpg" alt="Calibration: lean toward the screen, with a live lean meter" loading="lazy" width="1280" height="720"><figcaption>Calibration</figcaption></figure>
-    <figure><img src="../img/pick.jpg" alt="Pick a difficulty: Easy, Medium, Hard cards with the song's waveform" loading="lazy" width="1280" height="720"><figcaption>Pick a difficulty</figcaption></figure>
-    <figure><img src="../img/offtrail.jpg" alt="Off the trail warning while riding" loading="lazy" width="1280" height="720"><figcaption>Off the trail</figcaption></figure>
-    <figure><img src="../img/won.jpg" alt="You caught it: time, boosts and time on the trail" loading="lazy" width="1280" height="720"><figcaption>You caught it</figcaption></figure>
-  </div>
+    <section aria-labelledby="h-arcane">
+      <h2 id="h-arcane">Painted, not rendered</h2>
+      <p>The only thing we take from Arcane is how it is painted. Each point is what its makers say they do, turned into a rule for our game.</p>
+      <div class="grid"><div class="card"><h3>Paint the textures</h3><p>Hand-painted albedo maps with the light already in them.</p></div><div class="card"><h3>Simplify real detail</h3><p>Believable proportions and materials, but big readable shapes.</p></div><div class="card"><h3>Detail where it matters</h3><p>Obstacles and the board are sharp. The walls behind them stay loose and painterly.</p></div><div class="card"><h3>2D effects over 3D</h3><p>Flipbook smoke, sparks and impact flashes on 2s, for a staccato feel.</p></div><div class="card"><h3>Real models, painted over</h3><p>Real-world panel blocks, tenements, tanks and pipes, with the painterly finish on top.</p></div><div class="card"><h3>Only the brushwork</h3><p>We take Arcane's painting style only: no Zaun or Piltover designs, characters or logos.</p></div></div>
+    </section>
+
+    <section aria-labelledby="h-world">
+      <h2 id="h-world">One world, tinted by difficulty</h2>
+      <p>There are no separate zones. The whole song stays in one orange city, and the difficulty sets how warm it is: more yellow on Easy, more red on Hard.</p>
+      <div class="strata">
+        <img src="img/kit_difficulty_easy.png" alt="Easy: golden haze, calm">
+        <img src="img/kit_difficulty_medium.png" alt="Medium: full orange haze">
+        <img src="img/kit_difficulty_hard.png" alt="Hard: red heat, heavy shadow">
+      </div>
+      <div class="shots"><figure class=""><img src="../img/ride.jpg" alt="Riding the blue trail between apartment blocks" loading="lazy"><figcaption>The ride</figcaption></figure><figure class=""><img src="../img/tram_easy.jpg" alt="Easy: a calmer, yellower city" loading="lazy"><figcaption>Easy: calmer, more yellow</figcaption></figure><figure class=""><img src="../img/tram_hard.jpg" alt="Hard: a busier, redder city" loading="lazy"><figcaption>Hard: busier, more red</figcaption></figure><figure class=""><img src="../img/wide_view.jpg" alt="Wide camera view of the trail" loading="lazy"><figcaption>Wide camera, so curves read early</figcaption></figure><figure class=""><img src="../img/boost.jpg" alt="Picking up a boost pad" loading="lazy"><figcaption>Boost pad</figcaption></figure></div>
+    </section>
+
+    <section aria-labelledby="h-palette">
+      <h2 id="h-palette">Palette</h2>
+      <p>The world is warm. Gameplay colors stay strict, so the trail, danger and results always read through the haze.</p>
+      <div class="swatches"><div class="swatch"><i style="background:#120c08"></i><b>Night</b><code>#120c08</code></div><div class="swatch"><i style="background:#f08a24"></i><b>City orange</b><code>#f08a24</code></div><div class="swatch"><i style="background:#e8c23a"></i><b>Easy yellow</b><code>#e8c23a</code></div><div class="swatch"><i style="background:#d2442c"></i><b>Hard red</b><code>#d2442c</code></div><div class="swatch"><i style="background:#f0e2ce"></i><b>Text</b><code>#f0e2ce</code></div><div class="swatch"><i style="background:#7fe9ff"></i><b>Trail, orb, UI</b><code>#7fe9ff</code></div><div class="swatch"><i style="background:#7dff6a"></i><b>Caught it</b><code>#7dff6a</code></div><div class="swatch"><i style="background:#ff7a62"></i><b>Danger, out of power</b><code>#ff7a62</code></div><div class="swatch"><i style="background:#d9b23a"></i><b>Hazard yellow</b><code>#d9b23a</code></div></div>
+      <div class="grid">
+        <div class="card"><h3>One orange world</h3><p>No zones. The whole city shares one warm palette that leans yellow on Easy and red on Hard.</p></div>
+        <div class="card"><h3>Blue means go</h3><p>Only the trail, the orb and the boost pads are blue. Everything else is something to read past or dodge.</p></div>
+        <div class="card"><h3>You, in infrared</h3><p>There is no player model. The camera's live silhouette of your body stands in for you: orange on the board in the city, blue on the calibration screens.</p></div>
+        <div class="card"><h3>Retro terminal UI</h3><p>Hard edges, hazard stripes and monospaced readouts. Only text that means something to the player.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-type">
+      <h2 id="h-type">Type</h2>
+      <div class="type">
+        <div class="card"><span class="sample1">Chakra Petch</span><p>Display: titles, big numbers and buttons. Squared, a little mechanical.</p></div>
+        <div class="card"><span class="sample3">IBM Plex Mono // 1:18 left</span><span class="sample2">Song card, warning</span><p>Plex Mono for small readouts and labels, Chakra Petch caps for UI headings.</p></div>
+        <div class="card logo"><img src="img/kit_logo_space_surfers.png" alt="Space Surfers logo with a red and cyan color split"><p>The logo and big words get a red and cyan color split, like a slightly misaligned screen.</p></div>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-ui">
+      <h2 id="h-ui">UI design</h2>
+      <p>Designed in Figma by our team. The screens in the order a player meets them.</p>
+      <div class="shots"><figure class=""><img src="img/ui_main.jpg" alt="UI design: Start screen" loading="lazy"><figcaption><b>01 Start</b> Step on the board to play.</figcaption></figure><figure class=""><img src="img/ui_calibrate.jpg" alt="UI design: Calibrate screen" loading="lazy"><figcaption><b>02 Calibrate</b> Stand still while the ring fills and the camera finds you.</figcaption></figure><figure class=""><img src="img/ui_song.jpg" alt="UI design: Pick a song screen" loading="lazy"><figcaption><b>03 Pick a song</b> Lean to browse, hold a forward lean to choose.</figcaption></figure><figure class=""><img src="img/ui_level.jpg" alt="UI design: Pick a difficulty screen" loading="lazy"><figcaption><b>04 Pick a difficulty</b> Easy, Medium or Hard sets how warm the city is.</figcaption></figure><figure class=""><img src="img/ui_countdown.jpg" alt="UI design: Countdown screen" loading="lazy"><figcaption><b>05 Countdown</b> 3, 2, 1, and the orb breaks loose.</figcaption></figure><figure class=""><img src="img/ui_game.jpg" alt="UI design: The ride screen" loading="lazy"><figcaption><b>06 The ride</b> Power meter, song progress and boost timer, nothing else.</figcaption></figure><figure class=""><img src="img/ui_warning.jpg" alt="UI design: Off the trail screen" loading="lazy"><figcaption><b>07 Off the trail</b> Power drains until you steer back.</figcaption></figure><figure class=""><img src="img/ui_pause.jpg" alt="UI design: Paused screen" loading="lazy"><figcaption><b>08 Paused</b> Step back on to continue, raise both hands to restart.</figcaption></figure><figure class=""><img src="img/ui_win.jpg" alt="UI design: You caught it screen" loading="lazy"><figcaption><b>09 You caught it</b> Your time against the best time.</figcaption></figure><figure class=""><img src="img/ui_lose.jpg" alt="UI design: Out of power screen" loading="lazy"><figcaption><b>10 Out of power</b> Raise both hands to try again.</figcaption></figure></div>
+    </section>
+
+    <section aria-labelledby="h-kit">
+      <h2 id="h-kit">UI kit</h2>
+      <p>The pieces the screens are built from.</p>
+      <div class="kit-group"><h3>Menus</h3><div class="kit"><img class="wide" src="img/kit_logo_space_surfers.png" style="height:90px" alt="Space Surfers logo" loading="lazy"><img class="wide" src="img/kit_button_start.png" style="height:64px" alt="Step on the board button" loading="lazy"><img class="" src="img/kit_difficulty_easy.png" alt="Easy card" loading="lazy"><img class="" src="img/kit_difficulty_medium.png" alt="Medium card" loading="lazy"><img class="" src="img/kit_difficulty_hard.png" alt="Hard card" loading="lazy"><img class="" src="img/kit_song_card_01.png" alt="Song card" loading="lazy"><img class="" src="img/kit_song_card_selected.png" alt="Selected song card" loading="lazy"></div></div>
+      <div class="kit-group"><h3>Hold to choose</h3><p>Every choice is a held lean, and this ring fills while you hold it.</p><div class="kit"><img class="" src="img/kit_hold_ring_0.png" alt="Hold ring empty" loading="lazy"><img class="" src="img/kit_hold_ring_33.png" alt="Hold ring a third full" loading="lazy"><img class="" src="img/kit_hold_ring_66.png" alt="Hold ring two thirds full" loading="lazy"><img class="" src="img/kit_hold_ring_100.png" alt="Hold ring full" loading="lazy"></div></div>
+      <div class="kit-group"><h3>In the ride</h3><div class="kit"><img class="tall" src="img/kit_power_meter_100.png" alt="Power meter full" loading="lazy"><img class="tall" src="img/kit_power_meter_62.png" alt="Power meter 62 percent" loading="lazy"><img class="tall" src="img/kit_power_meter_32.png" alt="Power meter 32 percent" loading="lazy"><img class="tall" src="img/kit_power_meter_12.png" alt="Power meter 12 percent" loading="lazy"><img class="" src="img/kit_boost_timer_3s.png" style="height:64px" alt="Boost timer" loading="lazy"><img class="" src="img/kit_stat_card.png" style="height:90px" alt="Time card" loading="lazy"><img class="" src="img/kit_song_progress.png" style="height:56px" alt="Song progress bar" loading="lazy"></div></div>
+      <div class="kit-group"><h3>Warnings and countdown</h3><div class="kit"><img class="wide" src="img/kit_warning_off_the_trail.png" style="height:52px" alt="Off the trail warning" loading="lazy"><img class="wide" src="img/kit_warning_low_power.png" style="height:52px" alt="Low power warning" loading="lazy"><img class="wide" src="img/kit_hazard_stripe_strip.png" style="height:24px" alt="Hazard stripe" loading="lazy"><img class="" src="img/kit_countdown_3.png" style="height:100px" alt="Countdown 3" loading="lazy"><img class="" src="img/kit_countdown_go.png" style="height:100px" alt="Countdown GO" loading="lazy"></div></div>
+    </section>
+
+    <section aria-labelledby="h-built">
+      <h2 id="h-built">Screens in the game</h2>
+      <p>The same screens as built in Godot.</p>
+      <div class="shots"><figure class=""><img src="../img/start.jpg" alt="Start screen" loading="lazy"><figcaption>Start</figcaption></figure><figure class=""><img src="../img/calibrate.jpg" alt="Calibration: lean toward the screen, with a live lean meter" loading="lazy"><figcaption>Calibration</figcaption></figure><figure class=""><img src="../img/pick.jpg" alt="Pick a difficulty: Easy, Medium, Hard cards with the song's waveform" loading="lazy"><figcaption>Pick a difficulty</figcaption></figure><figure class=""><img src="../img/offtrail.jpg" alt="Off the trail warning while riding" loading="lazy"><figcaption>Off the trail</figcaption></figure><figure class=""><img src="../img/won.jpg" alt="You caught it: time, boosts and time on the trail" loading="lazy"><figcaption>You caught it</figcaption></figure></div>
+    </section>
+
+    <section aria-labelledby="h-refs">
+      <h2 id="h-refs">References</h2>
+      <ul class="refs"><li><a href="https://redsharknews.com/why-netflixs-arcane-looks-so-good-how-fortiche-ramped-up-the-animation-pipeline">Why Arcane looks so good</a> (RedShark News)</li><li><a href="https://blog.syncsketch.com/?p=75788">Alexis Wanneroy interview</a> (SyncSketch)</li><li><a href="https://80.lv/articles/arcane-artists-show-how-they-combine-traditional-art-3d-for-backgrounds">Traditional art and 3D in Arcane backgrounds</a> (80 Level)</li><li><a href="https://www.creativebloq.com/art/2d-animation/how-the-creative-team-behind-netflixs-arcane-pushed-the-animation-even-further-for-the-second-season">Arcane season two</a> (Creative Bloq)</li><li><a href="https://80.lv/articles/firelights-base-from-arcane-recreated-in-unreal-engine-5">Firelights' Den in Unreal 5, Fausta Gunawan</a> (80 Level)</li><li><a href="https://80.lv/articles/artist-created-stylish-arcane-inspired-fps-set-in-zaun-using-ue5">Arcane-inspired Zaun game in Unreal 5, Stephen Chin</a> (80 Level)</li></ul>
+      <p class="note">Mood board images are reference photos collected by our team, used for inspiration only.</p>
+    </section>
+  </main>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>

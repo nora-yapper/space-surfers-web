@@ -84,3 +84,4 @@ td:first-child { font-weight: 600; }
 ol.steps { padding-left: 24px; margin: 0; display: grid; gap: 10px; max-width: 70ch; }
 code { font: 14px ui-monospace, Menlo, monospace; overflow-wrap: anywhere; }
 pre { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; overflow-x: auto; font-size: 14px; }
+header.bar .theme-slot { width: 36px; height: 36px; flex: none; }
