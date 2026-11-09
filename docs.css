@@ -60,7 +60,10 @@ ul.credits { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 .note { font-size: 15px; color: var(--dim); }
 .card .spin { aspect-ratio: 1 / 1; width: 100%; cursor: grab; touch-action: pan-y; }
 .card .spin:active { cursor: grabbing; }
-.card .spin canvas { display: block; width: 100%; height: 100%; }
+.card .spin canvas { display: block; width: 100%; height: 100%; animation: float 3.2s ease-in-out infinite alternate; }
+.card:nth-child(2n) .spin canvas { animation-delay: -1.6s; }
+@keyframes float { from { transform: translateY(2.5%); } to { transform: translateY(-2.5%); } }
+@media (prefers-reduced-motion: reduce) { .card .spin canvas { animation: none; } }
 
 /* Text pages (docs, sound, install) */
 .tag { font: 600 13px "Chakra Petch", sans-serif; color: var(--link); text-transform: uppercase; letter-spacing: 0.16em; margin: 12px 0 0; }
