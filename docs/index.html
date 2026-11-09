@@ -33,20 +33,94 @@
     <tr><td>Visual feedback explains, not decorates</td><td>Board tilt, still to design</td><td>Live infrared silhouette, board tilt, the orb distance, the power meter and the "off the trail" warning</td></tr>
     <tr><td>Understood without explanation</td><td>Surfing is a familiar metaphor</td><td>A guided calibration teaches each lean once, with a live meter</td></tr>
   </table></div>
-  <p class="note" style="margin-top:10px">Hand-ins: a working prototype shown live in a 7-minute presentation, a 2 to 5 minute <a href="../video/">video</a> as backup, and this documentation.</p>
 
   <h2 id="research">Research</h2>
-  <p>Five questions: what music and body-controlled games already solved, which tools get us to a prototype by week 2, what makes lean controls feel good, how to keep a moving camera comfortable on a big screen, and where the concept could fail the brief.</p>
-  <div class="table-wrap" style="margin-top:14px"><table>
-    <tr><th>Reference</th><th>What it does</th><th>What we took from it</th></tr>
-    <tr><td>Audiosurf</td><td>Builds a racetrack from any song</td><td>Our core idea works. Analyse the song offline instead of live, because live detection misses beats</td></tr>
-    <tr><td>Rez, Tetris Effect</td><td>The player builds the music by playing</td><td>Fail gently: playing badly should change the song, not play an error sound</td></tr>
-    <tr><td>Beat Saber, Synth Riders</td><td>Patterns that make you move fluidly, an easy mode for newcomers</td><td>Place obstacles so the right move feels good, and offer an Easy mode</td></tr>
-    <tr><td>Adrenalin Misfits (Kinect)</td><td>Lean to steer a snowboard</td><td>The warning case: players crashed because a light and a hard lean felt the same. Lean needs a dead zone, smoothing and a curve</td></tr>
-    <tr><td>Dragon Rider (Uni Hamburg)</td><td>Kinect leaning vs a balance board</td><td>Camera tracking felt more intuitive. Calibrate each player's own lean range</td></tr>
-    <tr><td>BVR_SND, DJ Light, Echo Temple</td><td>Body movement shapes sound in an installation</td><td>Keep the core song fixed and let the body change how it sounds. The walk-up format fits a live demo</td></tr>
+  <p>This research answers five questions:</p>
+  <ul style="margin:10px 0 0;max-width:68ch">
+    <li>What have existing music games and body-controlled games already solved, and where did they fail?</li>
+    <li>Which tracking and audio tools can get us to a working prototype by mid week 2?</li>
+    <li>What makes lean and balance controls feel good instead of frustrating?</li>
+    <li>How do we keep a moving 3D camera comfortable on a big screen?</li>
+    <li>Where does the concept risk failing the brief, and how do we fix that early?</li>
+  </ul>
+
+  <h3 style="margin-top:28px">Music games</h3>
+  <div class="table-wrap" style="margin-top:10px"><table>
+    <tr><th>Game</th><th>What it does</th><th>What we learn</th></tr>
+    <tr><td>Audiosurf</td><td>Analyses any song and builds a racetrack from it. Elevation and layout follow the music's dynamics, and blocks appear in sync. Reviewers noted blocks sometimes miss the beat, so it can feel like a random track with a song behind it (GameSpot).</td><td>The proven core of our idea. Calm sections climb slowly, intense sections drop fast. Pre-analyse the song offline and hand-tune note timing for the demo track rather than trusting live detection.</td></tr>
+    <tr><td>Tetris Effect</td><td>The soundtrack is composed in real time from the player's actions; moving and rotating pieces trigger sounds matched to the beat.</td><td>Each catch and each balance state should add or change a musical layer, quantised to the beat.</td></tr>
+    <tr><td>Rez</td><td>Effects and visuals sync with the music, so the player builds the song by playing; failing just makes the song less complex instead of discordant.</td><td>A great failure model. Falling off balance strips layers instead of playing a harsh error sound.</td></tr>
+    <tr><td>Beat Saber</td><td>Its scoring rewards broad, precise swings rather than timing; the analysis calls this instructed motion, with patterns that make players move fluidly.</td><td>Place notes so that catching them produces a pleasant body movement, like a surfer's arm sweep.</td></tr>
+    <tr><td>Synth Riders</td><td>Coloured orbs per hand plus rail-shaped hold notes; easy mode keeps the barrier low for newcomers.</td><td>Colour-code notes per hand and add rails as "surf along" notes. Offer an easy mode for the critique demo.</td></tr>
   </table></div>
-  <p style="margin-top:14px">The principles we kept: calibrate per player, a dead zone and smoothing, measure the torso (shoulders over hips) and not the hands, show the player that the system sees them, keep a fixed reference in view against motion sickness, and teach by doing.</p>
+
+  <h3 style="margin-top:28px">Body-controlled games</h3>
+  <div class="table-wrap" style="margin-top:10px"><table>
+    <tr><th>Game</th><th>What it does</th><th>What we learn</th></tr>
+    <tr><td>Child of Eden (Kinect)</td><td>Right hand guides a lock-on reticle, left hand a rapid-fire one; reviewers found hand tracking accurate.</td><td>Hands as two cursors works. One review flagged a sudden camera jump when switching hands (God is a Geek), so smooth the hand handover.</td></tr>
+    <tr><td>Adrenalin Misfits (Kinect snowboarding)</td><td>Lean to steer, twist to spin. Reviewers crashed constantly because a light lean and a hard turn were not distinguished.</td><td>The main warning for us. Lean needs a dead zone, smoothing and a response curve.</td></tr>
+    <tr><td>Dragon Rider (Uni Hamburg study)</td><td>Compared leaning with Kinect against a Wii Balance Board; Kinect was faster and rated more intuitive and fun.</td><td>Supports camera tracking over a balance board. Calibrate each player's own maximum lean angle.</td></tr>
+  </table></div>
+
+  <h3 style="margin-top:28px">Interactive music installations</h3>
+  <div class="table-wrap" style="margin-top:10px"><table>
+    <tr><th>Installation</th><th>What it does</th><th>What we learn</th></tr>
+    <tr><td>BVR_SND (TouchDesigner)</td><td>Camera tracking maps hand height to filter frequency, hand distance to sound layers, head to pulsation.</td><td>A ready mapping vocabulary. Lean could open a filter, hand spread could add a layer.</td></tr>
+    <tr><td>DJ Light (Cinimod Studio)</td><td>Visitors become guest DJs; body movement sets colours and ambient sound across the space.</td><td>Shows the turn-taking, walk-up format that suits a live critique demo.</td></tr>
+    <tr><td>Echo Temple (MPC Digital)</td><td>Body movement controls each instrument's volume, pitch or effect; a central tower holds the core mix.</td><td>Keep the core loop fixed and let the player control layers on top. That keeps it musical.</td></tr>
+  </table></div>
+
+  <h3 style="margin-top:28px">Principles: lean controls and comfort</h3>
+  <p style="margin-top:8px">The two things most likely to break the experience are twitchy lean controls and a camera that makes people dizzy. Both are well documented and both have known fixes.</p>
+  <p style="margin-top:12px"><b>Lean and balance controls</b></p>
+  <ul style="margin:6px 0 0;max-width:68ch">
+    <li><b>Calibrate per player.</b> Record each person's neutral stance and maximum comfortable lean in a 5 second setup pose, then map lean as a fraction of that range (the Dragon Rider method).</li>
+    <li><b>Dead zone plus smoothing.</b> Ignore small sway around neutral, then smooth the signal so a light lean and a hard turn feel different. This was the exact failure in Adrenalin Misfits.</li>
+    <li><b>Measure the torso, not the hands.</b> Use the angle of the shoulder line and hip midpoint for balance; keep hands free for catching. This also stops players faking balance with small movements.</li>
+    <li><b>Separate the two inputs clearly.</b> Body lean = balance, hands = catching. Two clear channels are easier to learn than one overloaded one.</li>
+  </ul>
+  <p style="margin-top:12px"><b>Comfort on a big screen</b></p>
+  <ul style="margin:6px 0 0;max-width:68ch">
+    <li>Visually induced motion sickness comes from vection: the feeling of moving that comes only from what you see. A wide field of view and fast-moving objects filling the view make it stronger (Arxiv survey).</li>
+    <li><b>Keep a static reference in view.</b> The surfboard and the player's avatar stay fixed in frame; a fixed HUD or frame helps reduce sickness (Stride docs).</li>
+    <li><b>Limit camera yaw and sudden acceleration.</b> Reducing turning and acceleration are standard comfort techniques (UploadVR).</li>
+    <li><b>Let the wave tilt the board, not the whole camera.</b></li>
+    <li><b>Smooth the space backdrop.</b> Less texture detail in the passing environment weakens vection (LaValle, Virtual Reality). Space with sparse stars suits this well.</li>
+    <li><b>No camera shake.</b> Avoid shaking or bobbing cameras, or offer a steady option (IxDF).</li>
+  </ul>
+
+  <h3 style="margin-top:28px">Principles: feedback and accessibility</h3>
+  <p style="margin-top:8px"><b>Feedback that explains</b></p>
+  <ul style="margin:6px 0 0;max-width:68ch">
+    <li><b>Balance meter on the board itself.</b> Board tilt and a colour shift (calm to warning) show how far off balance the player is.</li>
+    <li><b>Mirror the player.</b> A simple silhouette or skeleton shows the system sees them, which matters most in the first seconds.</li>
+    <li><b>Catch confirmation.</b> A caught note bursts in its hand's colour and plays a tone on the beat, like the tone confirmations in Child of Eden.</li>
+    <li><b>Fail gently.</b> Losing balance drops music layers and dims the wave instead of a game-over screen; regaining balance brings them back.</li>
+  </ul>
+  <p style="margin-top:12px"><b>Accessibility and onboarding</b></p>
+  <ul style="margin:6px 0 0;max-width:68ch">
+    <li><b>Seated mode.</b> Upper-body lean works sitting down, so players who cannot stand on a board can still play.</li>
+    <li><b>Difficulty by wave amplitude.</b> Easy mode flattens the waves; a beginner and an expert can play the same song.</li>
+    <li><b>Teach by doing.</b> The first 15 seconds use a flat wave and slow notes, so the brief's "understood without explanation" test is passed through play, not text.</li>
+    <li><b>Physical safety.</b> If a real board prop is used, keep it flat on the floor; balance comes from the screen wave, not a wobbling platform.</li>
+  </ul>
+
+  <h3 style="margin-top:28px">Risks we found early</h3>
+  <div class="table-wrap" style="margin-top:10px"><table>
+    <tr><th>Risk</th><th>Why it matters</th><th>Fix</th></tr>
+    <tr><td>Music plays the same regardless of the player</td><td>Fails "user's actions shape what happens"</td><td>Split the song into stems (drums, bass, melody, vocals). Good balance unlocks layers; catches add melodic tones on the beat; losing balance filters the music down.</td></tr>
+    <tr><td>Visuals look the same whatever the player does</td><td>Fails "visual feedback explains, not decorates"</td><td>Every visual change ties to an input: board tilt = lean, wave colour = balance state, note bursts = catches, missing layers = dimmer space.</td></tr>
+    <tr><td>Twitchy lean control</td><td>Frustration kills the test sessions</td><td>Calibration, dead zone, smoothing (see the principles above).</td></tr>
+    <tr><td>Motion sickness on a projector</td><td>Testers stop early</td><td>Fixed board in frame, no camera yaw, sparse backdrop.</td></tr>
+    <tr><td>Tracking fails during the live 7-minute demo</td><td>Prototype grade is 25 points</td><td>Fixed lighting and plain background, tested camera position, and the required backup video.</td></tr>
+    <tr><td>Scope: full 3D game in 4 weeks</td><td>Proof of concept is due mid week 2</td><td>Week 2 target: one lean value tilting a board on one wave, one stem muted and unmuted. Wizard of Oz the rest.</td></tr>
+    <tr><td>Off-beat notes</td><td>Audiosurf's main criticism</td><td>Pre-analyse the demo song and hand-check note positions.</td></tr>
+  </table></div>
+
+  <h3 style="margin-top:28px">Mood boards</h3>
+  <figure style="margin:10px 0 0"><img src="img/moodboard_1.jpg" alt="Mood board 1: Y2K posters, a chrome Nokia phone, a slime pager, holographic Y2K Explained cover, a Lemon Girl magazine" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy" width="1024" height="576"></figure>
+  <figure style="margin:14px 0 0"><img src="img/moodboard_2.jpg" alt="Mood board 2" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy" width="1024" height="576"></figure>
+  <p class="note" style="margin-top:10px">The research was written in week 1, for the first concept (Wave Rider): some fixes, like stems, hands catching notes and a space backdrop, changed later. The <a href="#log">decision log</a> says what and why.</p>
 
   <h2 id="concept">Concept</h2>
   <p>It started as <b>Wave Rider</b>: surfing an energy wave through space to the beat of a song, with hands catching notes, health, shields and three lanes. The interaction stayed, the story and the extras changed: it became <b>Space Surfers</b>, a lean-only ride chasing an orb through a hanging retro futuristic city.</p>
