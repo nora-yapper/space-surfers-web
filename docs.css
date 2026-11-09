@@ -58,5 +58,6 @@ section > p { color: var(--dim); }
 .meta { font-size: 14px; color: var(--dim); }
 ul.credits { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 .note { font-size: 15px; color: var(--dim); }
-.card .spin { aspect-ratio: 1 / 1; width: 100%; background-color: transparent; background-size: 1200% 1000%; background-repeat: no-repeat; cursor: grab; touch-action: pan-y; }
+.card .spin { aspect-ratio: 1 / 1; width: 100%; cursor: grab; touch-action: pan-y; }
 .card .spin:active { cursor: grabbing; }
+.card .spin canvas { display: block; width: 100%; height: 100%; }
