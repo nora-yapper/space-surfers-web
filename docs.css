@@ -25,15 +25,15 @@ body {
   font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 a { color: var(--link); text-underline-offset: 3px; }
-.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
 header.bar, footer.bar {
   display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  font: 600 13px "Chakra Petch", sans-serif; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--dim); padding: 16px 0; border-bottom: 1px solid var(--rule);
+  font: 12px/1.6 "IBM Plex Mono", ui-monospace, Menlo, monospace; text-transform: uppercase; letter-spacing: 0.18em;
+  color: var(--dim); padding: 12px 0; border-bottom: 1px solid var(--rule);
 }
 header.bar a { color: var(--dim); text-decoration: none; }
 header.bar a:hover, header.bar a[aria-current] { color: var(--orange); }
-header.bar .home { margin-right: auto; }
+header.bar nav { margin-left: auto; }
 header.bar nav { display: flex; gap: 14px; flex-wrap: wrap; }
 button.theme {
   font: 18px/1 system-ui, sans-serif; width: 36px; height: 36px; border-radius: 50%;

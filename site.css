@@ -62,3 +62,9 @@ ol.steps { padding-left: 22px; margin: 0; }
 ol.steps li { margin: 0 0 10px; padding-left: 6px; }
 code { color: var(--blue); font-size: 13px; overflow-wrap: anywhere; }
 pre { background: var(--panel); border: 1px solid var(--rule); padding: 12px 14px; overflow-x: auto; font-size: 13px; color: var(--blue); }
+
+/* Header lines up with the reading pages: nav on the right, a 36px slot where their mode button sits. */
+header.bar { justify-content: flex-start; align-items: center; padding: 12px 0; }
+header.bar nav { margin-left: auto; }
+header.bar .theme-slot { width: 36px; height: 36px; flex: none; }
+footer.bar { justify-content: space-between; }
