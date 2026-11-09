@@ -88,6 +88,9 @@
     .keys { grid-template-columns: 1fr; gap: 2px; }
     .keys > span { margin-bottom: 10px; }
   }
+  .explore a.card { text-decoration: none; color: var(--ink); display: block; }
+  .explore a.card:hover { border-color: var(--blue); }
+  .explore a.card h3 { color: var(--blue); }
 </style>
 </head>
 <body>
@@ -112,7 +115,7 @@
     <div>
       <h3>This is the keyboard version</h3>
       <p>Space Surfers is made to be played with your body: you stand on a board in front of a Kinect v2 infrared camera, and the game reads how you lean. That needs the camera, a Mac, and our tracker software, so it only runs in our installation for now.</p>
-      <p>The browser version is the same game with the arrow keys standing in for your body. It shows the whole flow, from stepping on the board to catching the orb, but it can't give you the feeling of leaning to ride.</p>
+      <p>The browser version is the same game with the arrow keys standing in for your body. It shows the whole flow, from stepping on the board to catching the orb, but it can't give you the feeling of leaning to ride. <a href="install/">How the installation works</a></p>
     </div>
   </div>
 
@@ -121,7 +124,7 @@
   <h2>Controls</h2>
   <div class="grid">
     <div class="card">
-      <h3>Keyboard (browser)</h3>
+      <h3>Keyboard</h3>
       <div class="keys" style="margin-top:12px">
         <kbd>Enter</kbd><span>Step on or off the board</span>
         <kbd>← →</kbd><span>Lean left and right to steer</span>
@@ -131,17 +134,8 @@
         <kbd>C</kbd><span>Credits, on the start screen</span>
       </div>
     </div>
-    <div class="card">
-      <h3>Body (installation)</h3>
-      <div class="keys" style="margin-top:12px">
-        <kbd>Step on</kbd><span>Start</span>
-        <kbd>Lean</kbd><span>Toward and away from the screen to dive and climb, left and right to steer</span>
-        <kbd>Hold a lean</kbd><span>Confirm</span>
-        <kbd>Both hands up</kbd><span>Restart</span>
-        <kbd>Step off</kbd><span>Pause. Walk away to end</span>
-      </div>
-    </div>
   </div>
+  <p class="note" style="margin-top:12px">Playing with your body instead? The body controls are on the <a href="install/">Install</a> page.</p>
 
   <h2>How a ride goes</h2>
   <ol class="steps">
@@ -152,18 +146,22 @@
     <li><b>Catch the orb</b> before the song ends, or make it to the end with power left. Run out of power and the ride is over.</li>
   </ol>
 
-  <h2>Screens</h2>
-  <div class="shots">
-    <figure><img src="img/start.jpg" alt="Start screen" loading="lazy" width="1280" height="720"><figcaption>Start</figcaption></figure>
-    <figure><img src="img/calibrate.jpg" alt="Calibration: lean toward the screen, with a live lean meter" loading="lazy" width="1280" height="720"><figcaption>Calibration (with the camera)</figcaption></figure>
-    <figure><img src="img/pick.jpg" alt="Pick a difficulty: Easy, Medium, Hard cards with the song's waveform" loading="lazy" width="1280" height="720"><figcaption>Pick a difficulty</figcaption></figure>
-    <figure><img src="img/offtrail.jpg" alt="Off the trail warning while riding" loading="lazy" width="1280" height="720"><figcaption>Off the trail</figcaption></figure>
-    <figure><img src="img/won.jpg" alt="You caught it: time, boosts and time on the trail" loading="lazy" width="1280" height="720"><figcaption>You caught it</figcaption></figure>
+  <h2>The game</h2>
+  <div class="grid explore">
+    <a class="card" href="video/"><h3>Demo video</h3><p>Watch a ride on the real board.</p></a>
+    <a class="card" href="lookbook/"><h3>Look book</h3><p>Palette, design rules and every screen.</p></a>
+    <a class="card" href="models/"><h3>Models</h3><p>What the city is built from, and who made it.</p></a>
+    <a class="card" href="sound/"><h3>Sound</h3><p>How the song becomes the level.</p></a>
+    <a class="card" href="install/"><h3>Install</h3><p>The board, the camera, and riding with your body.</p></a>
+  </div>
+
+  <h2>The process</h2>
+  <div class="grid explore">
+    <a class="card" href="docs/"><h3>Docs</h3><p>The brief, our research, every change and why, and who did what.</p></a>
   </div>
 
   <h2>Team</h2>
   <p class="team-names">Sven Culjak &nbsp;//&nbsp; Dinmukhamed Beisenov &nbsp;//&nbsp; Nora Miskulin</p>
-  <p class="note" style="margin-top:18px">City models from Sketchfab (CC BY 4.0) and Poly Haven (CC0); every author is listed on the in-game credits page (press C on the start screen). Fonts: Chakra Petch and IBM Plex Mono (SIL Open Font License). Built with Godot.</p>
 
   <footer class="bar">
     <span>RIT Croatia</span>
