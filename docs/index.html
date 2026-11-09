@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Docs // Space Surfers</title>
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<meta name="description" content="Space Surfers process book and documentation.">
+<meta name="description" content="Space Surfers documentation: the brief, research, concept, decision log, testing and team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;1,700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
@@ -20,9 +20,97 @@
   </header>
 
   <h1>Docs</h1>
-  <p class="tag">Research, concept, testing, iteration</p>
-  <p class="lead">The process book: our research, who the game is for, the concept, how every action maps to sound and visuals, and what we changed after testing.</p>
-  <div class="soon"><b>Coming soon</b><p>The process book PDF goes up here once it is final. This link will not change.</p></div>
+  <p class="tag">How we got here</p>
+  <p class="lead">The brief, our research, the first concept, and every change we made since, with the reason. The finished game is described on the other pages: <a href="../sound/">Sound</a>, <a href="../install/">Install</a>, <a href="../lookbook/">Look book</a> and <a href="../models/">Models</a>.</p>
+  <p class="note" style="margin-top:10px">Contents: <a href="#brief">Brief</a> · <a href="#research">Research</a> · <a href="#concept">Concept</a> · <a href="#now">How it works now</a> · <a href="#log">Decision log</a> · <a href="#testing">Testing</a> · <a href="#status">Where it's at</a> · <a href="#team">Team</a> · <a href="#pdf">Process book</a></p>
+
+  <h2 id="brief">The brief</h2>
+  <p><b>"What happens when hands are no longer our primary interface?"</b> Interactive IV, Project 02, Much Ado About Music. We had four weeks to build a working interactive system where music is an input, an output or both, and which answers with visual feedback that people understand without explanation.</p>
+  <div class="table-wrap" style="margin-top:14px"><table>
+    <tr><th>The brief asks</th><th>Early concept (Oct)</th><th>Space Surfers now</th></tr>
+    <tr><td>Music is an input, an output, or both</td><td>The song builds the level (input)</td><td>Both. The song builds the trail, the city and the obstacles, and the player bends, slows and speeds up the song</td></tr>
+    <tr><td>The user's actions noticeably change the visuals, the sound or both</td><td>Score changed, the music did not</td><td>Drifting off the trail pitches, pans, muffles and slows the song. Boosts speed it up. The board, the orb and the HUD react</td></tr>
+    <tr><td>Visual feedback explains, not decorates</td><td>Board tilt, still to design</td><td>Live infrared silhouette, board tilt, the orb distance, the power meter and the "off the trail" warning</td></tr>
+    <tr><td>Understood without explanation</td><td>Surfing is a familiar metaphor</td><td>A guided calibration teaches each lean once, with a live meter</td></tr>
+  </table></div>
+  <p class="note" style="margin-top:10px">Hand-ins: a working prototype shown live in a 7-minute presentation, a 2 to 5 minute <a href="../video/">video</a> as backup, and this documentation.</p>
+
+  <h2 id="research">Research</h2>
+  <p>Five questions: what music and body-controlled games already solved, which tools get us to a prototype by week 2, what makes lean controls feel good, how to keep a moving camera comfortable on a big screen, and where the concept could fail the brief.</p>
+  <div class="table-wrap" style="margin-top:14px"><table>
+    <tr><th>Reference</th><th>What it does</th><th>What we took from it</th></tr>
+    <tr><td>Audiosurf</td><td>Builds a racetrack from any song</td><td>Our core idea works. Analyse the song offline instead of live, because live detection misses beats</td></tr>
+    <tr><td>Rez, Tetris Effect</td><td>The player builds the music by playing</td><td>Fail gently: playing badly should change the song, not play an error sound</td></tr>
+    <tr><td>Beat Saber, Synth Riders</td><td>Patterns that make you move fluidly, an easy mode for newcomers</td><td>Place obstacles so the right move feels good, and offer an Easy mode</td></tr>
+    <tr><td>Adrenalin Misfits (Kinect)</td><td>Lean to steer a snowboard</td><td>The warning case: players crashed because a light and a hard lean felt the same. Lean needs a dead zone, smoothing and a curve</td></tr>
+    <tr><td>Dragon Rider (Uni Hamburg)</td><td>Kinect leaning vs a balance board</td><td>Camera tracking felt more intuitive. Calibrate each player's own lean range</td></tr>
+    <tr><td>BVR_SND, DJ Light, Echo Temple</td><td>Body movement shapes sound in an installation</td><td>Keep the core song fixed and let the body change how it sounds. The walk-up format fits a live demo</td></tr>
+  </table></div>
+  <p style="margin-top:14px">The principles we kept: calibrate per player, a dead zone and smoothing, measure the torso (shoulders over hips) and not the hands, show the player that the system sees them, keep a fixed reference in view against motion sickness, and teach by doing.</p>
+
+  <h2 id="concept">Concept</h2>
+  <p>It started as <b>Wave Rider</b>: surfing an energy wave through space to the beat of a song, with hands catching notes, health, shields and three lanes. The interaction stayed, the story and the extras changed: it became <b>Space Surfers</b>, a lean-only ride chasing an orb through a hanging retro futuristic city.</p>
+  <ul style="margin:12px 0 0;max-width:68ch">
+    <li><b>Who it's for:</b> students and visitors, about 16 to 35, who like music and casual games. No gaming or musical skill needed.</li>
+    <li><b>Where:</b> a walk-up installation in a gallery, open day or lab, one player at a time with others watching, one song per ride.</li>
+    <li><b>The goal:</b> catch the orb before the song ends by staying on its trail.</li>
+  </ul>
+
+  <h2 id="now">How it works now</h2>
+  <p>You stand sideways on a board in front of a Kinect v2. A tracker finds your feet, shoulders, hips and hands in the infrared image and sends your lean to the game. You pick a difficulty, each with its own song, and ride the trail that song builds. The full mapping is on <a href="../sound/">Sound</a>, the setup on <a href="../install/">Install</a>, the look on <a href="../lookbook/">Look book</a>, and the models on <a href="../models/">Models</a>.</p>
+
+  <h2 id="log">Decision log</h2>
+  <p>What changed, when, and why. Newest first.</p>
+  <div class="table-wrap" style="margin-top:14px"><table>
+    <tr><th>Date</th><th>Change</th><th>Why</th></tr>
+    <tr><td>9 Nov</td><td>One royalty-free Pixabay song per difficulty, each with its own trail and city</td><td>The demo song was not royalty free, as the brief requires</td></tr>
+    <tr><td>9 Nov</td><td>Sound effects and menu music, on their own channel under the song</td><td>Feedback for every action, without touching the song's distortion</td></tr>
+    <tr><td>9 Nov</td><td>A boost speeds the song up 1.5 times for 5 seconds</td><td>A small speed-up with the pitch kept was inaudible</td></tr>
+    <tr><td>9 Nov</td><td>Every obstacle hangs from a steel frame tied into the city</td><td>Obstacles were floating in the air</td></tr>
+    <tr><td>9 Nov</td><td>City rebuilt from stacked models, nothing floating, back rows, signs and crossings</td><td>Flat slabs, empty gaps, props hanging off roofs, and it looked monotone</td></tr>
+    <tr><td>8 Nov</td><td>Website with a playable keyboard version in the browser</td><td>A link anyone can open; browsers can't use the Kinect</td></tr>
+    <tr><td>8 Nov</td><td>The orb can really be caught by riding well</td><td>Before, it could never come closer than 3.5 s, so nobody could catch it</td></tr>
+    <tr><td>8 Nov</td><td>Ride screen redrawn from the team's Figma designs, with an "off the trail" warning</td><td>The first version was off centre and hard to read</td></tr>
+    <tr><td>8 Nov</td><td>Pick a difficulty, with the song's waveform on each card</td><td>Three cards of the same song were confusing</td></tr>
+    <tr><td>8 Nov</td><td>Guided calibration: stand sideways first, then each lean once, with a live meter and directions said relative to the screen</td><td>Testers didn't know what to do, and leaning "forward" while standing sideways meant left or right to them</td></tr>
+    <tr><td>8 Nov</td><td>MediaPipe body points on the infrared image</td><td>A black top returned no depth, so the tracker only saw the rider's legs</td></tr>
+    <tr><td>8 Nov</td><td>Bigger standing zone (1.4 by 1.0 m), no "fell off" state, a 1.5 s grace before pausing</td><td>It was very hard to stay tracked on the board</td></tr>
+    <tr><td>8 Nov</td><td>Riders 160 cm and up; calibration refused below 1.45 m</td><td>A bad calibration had recorded a rider as 22 cm tall and broke the lean</td></tr>
+    <tr><td>8 Nov</td><td>Raise both hands for 2 s to restart</td><td>A hands-free restart for the installation</td></tr>
+    <tr><td>8 Nov</td><td>Full game flow: idle, calibrate, pick, countdown, ride, pause, win and lose screens, power meter</td><td>From the game plan in Figma</td></tr>
+    <tr><td>6 Nov</td><td>Obstacles built off the walls, each following one sound; tram replaces the hauler; blue trail; one orange world, yellower on Easy, redder on Hard</td><td>The project is sound based; zones and extra pickups were too much for this stage</td></tr>
+    <tr><td>6 Nov</td><td>Shield cut; health cut earlier</td><td>The professor found health too complicated; boost is the only pickup</td></tr>
+    <tr><td>4 Nov</td><td>Easy, Medium, Hard; lean smoothing, a curve and a small assist; forward and back swapped</td><td>Far too hard and too twitchy, exactly the failure the research warned about</td></tr>
+    <tr><td>4 Nov</td><td>Lean measured as shoulders over hips, with a range per player</td><td>Raising an arm read as a lean, and everyone leans differently</td></tr>
+    <tr><td>1 to 2 Nov</td><td>Kinect v2 running on a Mac, our own tracker, first ride in Godot</td><td>The official Kinect software only runs on Windows</td></tr>
+    <tr><td>28 Oct</td><td>Godot instead of Unity</td><td>The tracking and the ride live there, with a working AI plugin</td></tr>
+    <tr><td>12 to 23 Oct</td><td>Browser prototype: follow a song-made path by ear, 5 pitched copies of the song</td><td>To test the core idea before touching the Kinect</td></tr>
+  </table></div>
+
+  <h2 id="testing">Testing</h2>
+  <p><b>Our own playtests</b> found most of the changes in the log above: the game was too hard, the lean too twitchy, tracking lost riders in dark clothes or off the board, onboarding was too fast, and directions confused people standing sideways.</p>
+  <div class="soon" style="padding:28px 22px"><b>Outside testing</b><p>The brief asks for tests with at least two people outside the team. Who tested, what they did, what they said and what we changed goes here.</p></div>
+
+  <h2 id="status">Where it's at</h2>
+  <p>A playable prototype: full Kinect tracking, a guided calibration, three songs and difficulties, a city and obstacles built from each song, and a browser version for keyboard play.</p>
+  <ul style="margin:12px 0 0;max-width:68ch">
+    <li>Test with people outside the team</li>
+    <li>Ride the newest build on the Kinect, and listen to the new songs and sounds</li>
+    <li>Update the browser version with the new city, obstacles, sounds and songs</li>
+    <li>Record the demo video</li>
+    <li>Later: hands as a second input, the zones, and a download kit for the tracker</li>
+  </ul>
+
+  <h2 id="team">Team</h2>
+  <div class="table-wrap" style="margin-top:6px"><table>
+    <tr><th>Who</th><th>What they did</th></tr>
+    <tr><td>Sven Culjak</td><td>Mood boards, 3D design and modeling</td></tr>
+    <tr><td>Dinmukhamed Beisenov</td><td>Research, the first documentation, the demo</td></tr>
+    <tr><td>Nora Miskulin</td><td>Putting the gameplay together, mapping actions to sound, project management</td></tr>
+  </table></div>
+
+  <h2 id="pdf">Process book</h2>
+  <div class="soon"><b>Coming soon</b><p>The process book as a PDF, with the slides, goes up here once it is final. This link will not change.</p></div>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>
