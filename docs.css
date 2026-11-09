@@ -2,7 +2,7 @@
 :root {
   --bg: #f5f0e8; --panel: #ffffff; --frame: linear-gradient(#efe6d8, #d9cbb6);
   --ink: #1f1a15; --dim: #5e554c; --rule: rgba(31, 26, 21, 0.14);
-  --orange: #b85a0c; --link: #0b6f86;
+  --orange: #9e4c08; --link: #0b6f86;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
@@ -61,3 +61,23 @@ ul.credits { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 .card .spin { aspect-ratio: 1 / 1; width: 100%; cursor: grab; touch-action: pan-y; }
 .card .spin:active { cursor: grabbing; }
 .card .spin canvas { display: block; width: 100%; height: 100%; }
+
+/* Text pages (docs, sound, install) */
+.tag { font: 600 13px "Chakra Petch", sans-serif; color: var(--link); text-transform: uppercase; letter-spacing: 0.16em; margin: 12px 0 0; }
+.wrap > h2 { margin: 48px 0 14px; }
+.lead + h2, .lead + .soon { margin-top: 40px; }
+div.card { padding: 16px 18px; gap: 6px; align-content: start; }
+div.card h3 { color: var(--orange); }
+div.card p { color: var(--dim); }
+.soon { margin-top: 36px; border: 1px dashed var(--orange); border-radius: 6px; background: var(--panel); padding: 48px 22px; text-align: center; }
+.soon b { font: italic 700 26px "Chakra Petch", sans-serif; color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; }
+.soon p { margin: 10px auto 0; color: var(--dim); }
+.table-wrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 600 13px "Chakra Petch", sans-serif; color: var(--orange); text-transform: uppercase; letter-spacing: 0.12em; }
+td:first-child { font-weight: 600; }
+ol.steps { padding-left: 24px; margin: 0; display: grid; gap: 10px; max-width: 70ch; }
+code { font: 14px ui-monospace, Menlo, monospace; overflow-wrap: anywhere; }
+pre { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; overflow-x: auto; font-size: 14px; }
