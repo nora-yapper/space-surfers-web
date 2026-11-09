@@ -23,6 +23,6 @@
       if (e.key === "ArrowLeft") { touched = true; show(frame - 1); e.preventDefault(); }
       if (e.key === "ArrowRight") { touched = true; show(frame + 1); e.preventDefault(); }
     });
-    if (!still) setInterval(function () { if (!touched && !held) show(frame + 1); }, 140);
+    if (!still) setInterval(function () { if (!touched && !held) show(frame + 1); }, 320);
   });
 })();
