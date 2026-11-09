@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sound // Space Surfers</title>
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<meta name="description" content="How Space Surfers turns a song into a level.">
+<meta name="description" content="How Space Surfers turns a song into a level, and how sound guides the ride.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;1,700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
@@ -38,11 +38,58 @@
   <p class="note" style="margin-top:14px">Harder difficulties add more sound layers as obstacles and space them closer, on the same song. The sounds are estimated from frequency bands, without separating instruments.</p>
 
   <h2>Body to sound</h2>
-  <div class="grid">
-    <div class="card"><h3>On the trail</h3><p>The song plays clean and you close in on the orb.</p></div>
-    <div class="card"><h3>Off the trail</h3><p>The song distorts and your power drains. Steer back and it comes back.</p></div>
-    <div class="card"><h3>Hit something</h3><p>No crash. You lose power and the orb pulls away.</p></div>
-  </div>
+  <p>The song tells you where the trail is, so you can ride by ear. All five versions of the song play in sync, each shifted in pitch, and the game blends between them as you move.</p>
+  <div class="table-wrap"><table>
+    <tr><th>What you do</th><th>What you hear</th></tr>
+    <tr><td>Ride on the trail</td><td>The song plays clean, and you close in on the orb</td></tr>
+    <tr><td>Drift above the trail</td><td>The pitch bends up, up to two semitones</td></tr>
+    <tr><td>Drift below the trail</td><td>The pitch bends down</td></tr>
+    <tr><td>Drift left</td><td>The song sounds muffled and moves to the right, toward the trail</td></tr>
+    <tr><td>Drift right</td><td>The song sounds thin and moves to the left, toward the trail</td></tr>
+    <tr><td>Drift far off</td><td>The song saturates and slows down, and your power drains</td></tr>
+    <tr><td>Ride over a boost pad</td><td>The song speeds up 1.5 times for 5 seconds, tape style, and the city rushes by with it</td></tr>
+  </table></div>
+
+  <h2>Sound effects</h2>
+  <p>Sound effects play on their own channel, under the song, so the boost speed-up and the drift distortion never touch them.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Moment</th><th>Sound</th></tr>
+    <tr><td>Calibration lean reached</td><td>A short rewarding chime</td></tr>
+    <tr><td>Song picker opens</td><td>Holographic menu opening</td></tr>
+    <tr><td>Switching difficulty</td><td>Sci-fi hover</td></tr>
+    <tr><td>Holding a gesture to confirm</td><td>A glitchy charge that plays while you hold and stops the moment you let go. Used for picking a difficulty and for raising both hands to restart</td></tr>
+    <tr><td>Difficulty picked</td><td>Confirm tone</td></tr>
+    <tr><td>3, 2, 1</td><td>A beep on each number, then a higher one to go</td></tr>
+    <tr><td>Clearing an obstacle</td><td>The rewarding chime</td></tr>
+    <tr><td>Hitting an obstacle</td><td>Impact thud</td></tr>
+    <tr><td>Boost pickup</td><td>Boost whoosh</td></tr>
+    <tr><td>Back on the trail after the "off the trail" warning</td><td>Energy charge. Leaving the trail has no sound, since the song already tells you</td></tr>
+    <tr><td>Stepping off and back on</td><td>Pause and unpause</td></tr>
+    <tr><td>Catching the orb</td><td>Level complete</td></tr>
+    <tr><td>Running out of power</td><td>Charging up, then failing</td></tr>
+  </table></div>
+
+  <h2>Menu music</h2>
+  <p>Everything that is not the ride has its own looping music: idle, onboarding, the song picker, the get ready screen, pause and the end screens. It fades out over the 3, 2, 1 count, so in the ride you only hear the song, and it comes back after.</p>
+  <h2>Credits</h2>
+  <p>All sound effects and the menu music are from Pixabay, under the Pixabay Content License. The chime and the countdown beeps are made in code.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Sound</th><th>Used for</th><th>By</th><th>Pixabay ID</th></tr>
+    <tr><td>Gamer Menu</td><td>Menu music</td><td>backgroundmusicmaster</td><td>431351</td></tr>
+    <tr><td>Futuristic Holographic Interface Menu Opening</td><td>Song picker opens</td><td>vadim_makes_sound</td><td>566063</td></tr>
+    <tr><td>Sci-Fi UI Hover</td><td>Switching difficulty</td><td>soundshelfstudio</td><td>596257</td></tr>
+    <tr><td>Sci-Fi UI Click</td><td>Stepping on the board</td><td>soundshelfstudio</td><td>596258</td></tr>
+    <tr><td>UI Alert Menu Modern Interface Confirm Medium</td><td>Difficulty picked</td><td>rescopicsound</td><td>230479</td></tr>
+    <tr><td>SFX20 Glitch Restart</td><td>Holding a gesture</td><td>yarzur_ofc</td><td>338384</td></tr>
+    <tr><td>Impact Thud</td><td>Hitting an obstacle</td><td>universfield</td><td>291047</td></tr>
+    <tr><td>Boost</td><td>Boost pickup</td><td>freesound_community</td><td>100537</td></tr>
+    <tr><td>Energy Charge 1</td><td>Back on the trail</td><td>yodguard</td><td>482503</td></tr>
+    <tr><td>Pause</td><td>Stepping off</td><td>freesound_community</td><td>89443</td></tr>
+    <tr><td>Unpause</td><td>Stepping back on</td><td>freesound_community</td><td>106278</td></tr>
+    <tr><td>Level Complete</td><td>Catching the orb</td><td>universfield</td><td>143022</td></tr>
+    <tr><td>Charging Up Fail</td><td>Running out of power</td><td>quantumprix</td><td>593885</td></tr>
+  </table></div>
+  <p class="note" style="margin-top:14px">The browser version does not have the sound effects or menu music yet.</p>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>
