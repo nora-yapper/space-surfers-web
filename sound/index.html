@@ -26,14 +26,14 @@
   <h2>Song to world</h2>
   <div class="table-wrap"><table>
     <tr><th>In the song</th><th>In the game</th></tr>
-    <tr><td>Loudness</td><td>How high the trail rides, and how tall and busy the city gets</td></tr>
-    <tr><td>Brightness (timbre)</td><td>How far the trail bends left and right</td></tr>
-    <tr><td>Kick</td><td>Catwalks across the trail: dive under</td></tr>
-    <tr><td>Snare</td><td>Pipe bundles across the trail: rise over</td></tr>
-    <tr><td>Hi-hat</td><td>Trams hanging from cables across the street</td></tr>
-    <tr><td>Bar starts</td><td>Containers swinging from cranes</td></tr>
-    <tr><td>Lead melody</td><td>Neon signs sticking out from the walls</td></tr>
-    <tr><td>The whole song</td><td>Haze thickens and the flying space slowly climbs, so you rise away from the ground</td></tr>
+    <tr><td><strong>Loudness</strong><br><span class="note">How strong the sound is at each moment. Quiet verses, loud choruses and drops.</span></td><td>How high the trail rides, and how tall and busy the city gets</td></tr>
+    <tr><td><strong>Brightness (timbre)</strong><br><span class="note">Whether the sound is dark and deep, or sharp and sparkly. Lots of high notes and cymbals sound bright; bass and pads sound dark.</span></td><td>How far the trail bends left and right</td></tr>
+    <tr><td><strong>Kick</strong><br><span class="note">The big low drum, the "boom" you feel in your chest. In dance music it usually hits on every beat.</span></td><td>Catwalks across the trail: dive under</td></tr>
+    <tr><td><strong>Snare</strong><br><span class="note">The sharp "crack" drum, usually on the second and fourth beat. It is what you clap along to.</span></td><td>Pipe bundles across the trail: rise over</td></tr>
+    <tr><td><strong>Hi-hat</strong><br><span class="note">The small, fast "tss tss" cymbal that keeps the rhythm ticking between the drums.</span></td><td>Trams hanging from cables across the street</td></tr>
+    <tr><td><strong>Bar starts</strong><br><span class="note">Music is counted in groups of four beats, called bars. "One, two, three, four, one..." This is every "one".</span></td><td>Containers swinging from cranes</td></tr>
+    <tr><td><strong>Lead melody</strong><br><span class="note">The main tune you could hum along to, played by a singer or a lead synth.</span></td><td>Neon signs sticking out from the walls</td></tr>
+    <tr><td><strong>The whole song</strong><br><span class="note">From the first second to the last, how far along you are.</span></td><td>Haze thickens and the flying space slowly climbs, so you rise away from the ground</td></tr>
   </table></div>
   <p class="note" style="margin-top:14px">Each difficulty has its own song, and so its own trail and city: Easy rides "Synthwave", Medium "Stranger" and Hard "Hard Cyberpunk". Harder difficulties also add more sound layers as obstacles and space them closer. The sounds are estimated from frequency bands, without separating instruments, so "lead melody" means sustained melody in the voice range.</p>
 
@@ -69,28 +69,35 @@
     <tr><td>Running out of power</td><td>Charging up, then failing</td></tr>
   </table></div>
 
+  <h3 style="margin-top:22px">Made in code</h3>
+  <p>Two of the sounds are not files: the game builds them from sine tones when it starts. Listen to them here.</p>
+  <div class="grid">
+    <div class="card"><h3>Rewarding chime</h3><p>Two quick rising notes, E6 then B6. Plays when you clear an obstacle and when a calibration lean is reached.</p><audio controls preload="none" src="audio/clear.mp3" style="width:100%;margin-top:8px"></audio></div>
+    <div class="card"><h3>Countdown</h3><p>A beep (A5) on each of 3, 2 and 1, then a higher, longer one (A6) to go.</p><audio controls preload="none" src="audio/countdown.mp3" style="width:100%;margin-top:8px"></audio></div>
+  </div>
+
   <h2>Menu music</h2>
   <p>Everything that is not the ride has its own looping music: idle, onboarding, the song picker, the get ready screen, pause and the end screens. It fades out over the 3, 2, 1 count, so in the ride you only hear the song, and it comes back after.</p>
   <h2>Credits</h2>
-  <p>The songs, sound effects and menu music are all from Pixabay, under the Pixabay Content License. The chime and the countdown beeps are made in code.</p>
+  <p>The songs, sound effects and menu music are all from Pixabay, under the Pixabay Content License. Each one links to its Pixabay page, where you can listen to it. The chime and the countdown beeps are made in code.</p>
   <div class="table-wrap"><table>
-    <tr><th>Sound</th><th>Used for</th><th>By</th><th>Pixabay ID</th></tr>
-    <tr><td>Synthwave</td><td>Easy song</td><td>AlexGrohl</td><td>393606</td></tr>
-    <tr><td>Stranger (Cyberpunk Action Powerful Background Music)</td><td>Medium song</td><td>SoulProdMusic</td><td>127450</td></tr>
-    <tr><td>Hard Cyberpunk</td><td>Hard song</td><td>Kulakovka</td><td>281149</td></tr>
-    <tr><td>Gamer Menu</td><td>Menu music</td><td>backgroundmusicmaster</td><td>431351</td></tr>
-    <tr><td>Futuristic Holographic Interface Menu Opening</td><td>Song picker opens</td><td>vadim_makes_sound</td><td>566063</td></tr>
-    <tr><td>Sci-Fi UI Hover</td><td>Switching difficulty</td><td>soundshelfstudio</td><td>596257</td></tr>
-    <tr><td>Sci-Fi UI Click</td><td>Stepping on the board</td><td>soundshelfstudio</td><td>596258</td></tr>
-    <tr><td>UI Alert Menu Modern Interface Confirm Medium</td><td>Difficulty picked</td><td>rescopicsound</td><td>230479</td></tr>
-    <tr><td>SFX20 Glitch Restart</td><td>Holding a gesture</td><td>yarzur_ofc</td><td>338384</td></tr>
-    <tr><td>Impact Thud</td><td>Hitting an obstacle</td><td>universfield</td><td>291047</td></tr>
-    <tr><td>Boost</td><td>Boost pickup</td><td>freesound_community</td><td>100537</td></tr>
-    <tr><td>Energy Charge 1</td><td>Back on the trail</td><td>yodguard</td><td>482503</td></tr>
-    <tr><td>Pause</td><td>Stepping off</td><td>freesound_community</td><td>89443</td></tr>
-    <tr><td>Unpause</td><td>Stepping back on</td><td>freesound_community</td><td>106278</td></tr>
-    <tr><td>Level Complete</td><td>Catching the orb</td><td>universfield</td><td>143022</td></tr>
-    <tr><td>Charging Up Fail</td><td>Running out of power</td><td>quantumprix</td><td>593885</td></tr>
+    <tr><th>Sound</th><th>Used for</th><th>By</th><th>On Pixabay</th></tr>
+    <tr><td>Synthwave</td><td>Easy song</td><td>AlexGrohl</td><td><a href="https://pixabay.com/music/upbeat-synthwave-393606/" target="_blank" rel="noopener" title="Pixabay 393606" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Stranger (Cyberpunk Action Powerful Background Music)</td><td>Medium song</td><td>SoulProdMusic</td><td><a href="https://pixabay.com/music/upbeat-stranger-cyberpunk-action-powerful-background-music-127450/" target="_blank" rel="noopener" title="Pixabay 127450" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Hard Cyberpunk</td><td>Hard song</td><td>Kulakovka</td><td><a href="https://pixabay.com/music/upbeat-hard-cyberpunk-281149/" target="_blank" rel="noopener" title="Pixabay 281149" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Gamer Menu</td><td>Menu music</td><td>backgroundmusicmaster</td><td><a href="https://pixabay.com/music/video-games-gamer-menu-431351/" target="_blank" rel="noopener" title="Pixabay 431351" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Futuristic Holographic Interface Menu Opening</td><td>Song picker opens</td><td>vadim_makes_sound</td><td><a href="https://pixabay.com/sound-effects/technology-futuristic-holographic-interface-menu-opening-566063/" target="_blank" rel="noopener" title="Pixabay 566063" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Sci-Fi UI Hover</td><td>Switching difficulty</td><td>soundshelfstudio</td><td><a href="https://pixabay.com/sound-effects/technology-sci-fi-ui-hover-596257/" target="_blank" rel="noopener" title="Pixabay 596257" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Sci-Fi UI Click</td><td>Stepping on the board</td><td>soundshelfstudio</td><td><a href="https://pixabay.com/sound-effects/technology-sci-fi-ui-click-sound-596258/" target="_blank" rel="noopener" title="Pixabay 596258" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>UI Alert Menu Modern Interface Confirm Medium</td><td>Difficulty picked</td><td>rescopicsound</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-ui-alert-menu-modern-interface-confirm-medium-230479/" target="_blank" rel="noopener" title="Pixabay 230479" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>SFX20 Glitch Restart</td><td>Holding a gesture</td><td>yarzur_ofc</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-sfx20-glitch-restart-338384/" target="_blank" rel="noopener" title="Pixabay 338384" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Impact Thud</td><td>Hitting an obstacle</td><td>universfield</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-impact-thud-291047/" target="_blank" rel="noopener" title="Pixabay 291047" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Boost</td><td>Boost pickup</td><td>freesound_community</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-boost-100537/" target="_blank" rel="noopener" title="Pixabay 100537" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Energy Charge 1</td><td>Back on the trail</td><td>yodguard</td><td><a href="https://pixabay.com/sound-effects/technology-energy-charge-1-482503/" target="_blank" rel="noopener" title="Pixabay 482503" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Pause</td><td>Stepping off</td><td>freesound_community</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-pause-89443/" target="_blank" rel="noopener" title="Pixabay 89443" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Unpause</td><td>Stepping back on</td><td>freesound_community</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-unpause-106278/" target="_blank" rel="noopener" title="Pixabay 106278" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Level Complete</td><td>Catching the orb</td><td>universfield</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-level-complete-143022/" target="_blank" rel="noopener" title="Pixabay 143022" style="white-space:nowrap">Listen</a></td></tr>
+    <tr><td>Charging Up Fail</td><td>Running out of power</td><td>quantumprix</td><td><a href="https://pixabay.com/sound-effects/film-special-effects-charging-up-fail-593885/" target="_blank" rel="noopener" title="Pixabay 593885" style="white-space:nowrap">Listen</a></td></tr>
   </table></div>
   <p class="note" style="margin-top:14px">The browser version does not have the new songs, the sound effects or the menu music yet.</p>
 
