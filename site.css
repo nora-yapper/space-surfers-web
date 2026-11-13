@@ -68,3 +68,4 @@ header.bar { justify-content: flex-start; align-items: center; padding: 12px 0; 
 header.bar nav { margin-left: auto; }
 header.bar .theme-slot { width: 36px; height: 36px; flex: none; }
 footer.bar { justify-content: space-between; }
+video.demo { display: block; width: 100%; height: auto; margin-top: 32px; border: 1px solid var(--rule); background: #000; }
