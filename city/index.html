@@ -197,12 +197,12 @@ const GROUND=[
  ['pipes','G3','Pipe deck','','pipes bundle, scaled up',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(const [x,y,r] of [[10,16,4],[21,18,5],[31,15,3.5]])C(s,x,y,r);Tx(s,6,28,'big pipes, gaps between',MU,2);}],
  ['rubble','G4','Rubble street','','rubble pile, trash pile, crate, barrel, box',s=>{R(s,0,0,4,30);R(s,36,0,4,30);L(s,4,20,36,20);el(s,'path',{d:'M6 20 L9 16 L12 18 L15 15 L18 20',fill:'none',stroke:OR,'stroke-width':.35});R(s,22,17,3,3);C(s,29,18.5,1.5);C(s,32,18.5,1.5);Tx(s,6,26,'scrap on a solid street',MU,2);}],
 ];
-function list(id,group,items,vb,shape){
+function list(id,group,items,vb,shape,noHead){
  const box=document.getElementById(id);
  for(const [key,code,name,desc,uses,draw] of items){
   const n=COUNTS[group+':'+key]||[0,0,0];
   const a=document.createElement('article');a.className='piece '+shape;
-  a.innerHTML=`<header><span class="code">${code}</span><h3>${name}</h3>${desc?`<p>${desc}</p>`:""}<p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
+  a.innerHTML=`<header>${noHead?"":`<span class="code">${code}</span><h3>${name}</h3>`}${desc?`<p>${desc}</p>`:""}<p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
   <div class="trio"><figure><div class="pic sketch"><button class="zoom" type="button" aria-label="Enlarge sketch"></button></div><figcaption>Sketch</figcaption></figure>
   <figure><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></button></div><figcaption>Built by the game</figcaption></figure>
   <figure class="game"><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></button></div><figcaption>In the game</figcaption></figure></div>`;
@@ -210,7 +210,7 @@ function list(id,group,items,vb,shape){
   a.querySelector('.sketch .zoom').append(s);box.append(a);
  }
 }
-list('walls-list','wall',WALLS,'0 0 40 60','tall');
+list('walls-list','wall',WALLS,'0 0 40 60','tall',true);  // Jane 2026-11-15: no code and name lines on the wall chunks
 list('spans-list','span',SPANS,'0 0 40 60','wide');
 list('cross-list','cross',CROSS,'0 0 40 60','wide');
 list('ground-list','ground',GROUND,'0 0 40 30','wide');
