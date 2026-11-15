@@ -45,12 +45,13 @@ figcaption b { color: var(--ink); font-family: "Chakra Petch", sans-serif; font-
 .kit-group h3 { color: var(--orange); }
 ul.refs { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 </style>
+<link rel="stylesheet" href="../nav.css">
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
     <a class="home" href="../">Space Surfers</a>
-    <nav><a href="../play/">Play</a><a href="../video/">Trailer</a><a href="../docs/">Docs</a><a href="../lookbook/" aria-current="page">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/">Setup</a></nav>
+    <nav class="sitenav" aria-label="Site"><a href="../video/">Trailer</a><details><summary class="here">Design</summary><div class="menu"><a href="../lookbook/" aria-current="page">Look book</a><a href="../city/">City</a><a href="../models/">Models</a><a href="../sound/">Sound</a></div></details><details><summary>About</summary><div class="menu"><a href="../docs/">Docs</a><a href="../install/">Setup</a></div></details><a class="play" href="../play/">Play</a></nav>
     <span class="theme-slot" aria-hidden="true"></span>
   </header>
 
@@ -133,5 +134,6 @@ ul.refs { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
     <span>Space Surfers // 2026</span>
   </footer>
 </div>
+<script src="../nav.js"></script>
 </body>
 </html>

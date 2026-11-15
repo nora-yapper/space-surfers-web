@@ -37,12 +37,13 @@
   .need .card p { font-size: 14px; }
   .key { font: 600 14px "Chakra Petch", sans-serif; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; }
 </style>
+<link rel="stylesheet" href="../nav.css">
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
     <a class="home" href="../">Space Surfers</a>
-    <nav><a href="../play/">Play</a><a href="../video/">Trailer</a><a href="../docs/">Docs</a><a href="../lookbook/">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/" aria-current="page">Setup</a></nav>
+    <nav class="sitenav" aria-label="Site"><a href="../video/">Trailer</a><details><summary>Design</summary><div class="menu"><a href="../lookbook/">Look book</a><a href="../city/">City</a><a href="../models/">Models</a><a href="../sound/">Sound</a></div></details><details><summary class="here">About</summary><div class="menu"><a href="../docs/">Docs</a><a href="../install/" aria-current="page">Setup</a></div></details><a class="play" href="../play/">Play</a></nav>
     <button class="theme" type="button" aria-label="Switch light or dark mode">◐</button>
   </header>
 
@@ -142,5 +143,6 @@
   </footer>
 </div>
 <script src="../theme.js"></script>
+<script src="../nav.js"></script>
 </body>
 </html>

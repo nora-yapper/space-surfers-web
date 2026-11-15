@@ -9,12 +9,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../site.css">
+<link rel="stylesheet" href="../nav.css">
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
     <a href="../">Space Surfers</a>
-    <nav><a href="../play/">Play</a><a href="../video/" aria-current="page">Trailer</a><a href="../docs/">Docs</a><a href="../lookbook/">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/">Setup</a></nav>
+    <nav class="sitenav" aria-label="Site"><a href="../video/" aria-current="page">Trailer</a><details><summary>Design</summary><div class="menu"><a href="../lookbook/">Look book</a><a href="../city/">City</a><a href="../models/">Models</a><a href="../sound/">Sound</a></div></details><details><summary>About</summary><div class="menu"><a href="../docs/">Docs</a><a href="../install/">Setup</a></div></details><a class="play" href="../play/">Play</a></nav>
     <span class="theme-slot" aria-hidden="true"></span>
   </header>
 
@@ -29,5 +30,6 @@
     <span>Space Surfers // 2026</span>
   </footer>
 </div>
+<script src="../nav.js"></script>
 </body>
 </html>

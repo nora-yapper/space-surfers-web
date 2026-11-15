@@ -1,0 +1,19 @@
+/* Site menu, shared by every page: Trailer, Design and About groups, and Play as a button. */
+.sitenav { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.sitenav details { position: relative; }
+.sitenav summary { list-style: none; cursor: pointer; color: var(--dim); }
+.sitenav summary::-webkit-details-marker { display: none; }
+.sitenav summary::after { content: " ▾"; font-size: 0.85em; }
+.sitenav summary:hover, .sitenav details[open] summary, .sitenav summary.here { color: var(--orange); }
+.sitenav .menu {
+  position: absolute; right: 0; top: calc(100% + 10px); z-index: 20; min-width: 170px;
+  display: grid; padding: 6px; background: var(--bg); border: 1px solid var(--rule); border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+.sitenav .menu a { padding: 8px 10px; border-radius: 4px; }
+.sitenav .menu a:hover, .sitenav .menu a[aria-current] { background: var(--panel); }
+.sitenav a.play { color: var(--orange); border: 1px solid var(--orange); border-radius: 4px; padding: 4px 12px; }
+.sitenav a.play:hover, .sitenav a.play[aria-current] { background: var(--orange); color: var(--bg); }
+@media (max-width: 520px) {
+  .sitenav { gap: 10px; }
+}

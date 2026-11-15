@@ -92,12 +92,13 @@
   .explore a.card:hover { border-color: var(--blue); }
   .explore a.card h3 { color: var(--blue); }
 </style>
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <div class="wrap">
   <header class="bar">
     <span>Space Surfers</span>
-    <nav class="topnav"><a href="play/">Play</a><a href="video/">Trailer</a><a href="docs/">Docs</a><a href="lookbook/">Look book</a><a href="models/">Models</a><a href="sound/">Sound</a><a href="install/">Setup</a></nav>
+    <nav class="sitenav topnav" aria-label="Site"><a href="video/">Trailer</a><details><summary>Design</summary><div class="menu"><a href="lookbook/">Look book</a><a href="city/">City</a><a href="models/">Models</a><a href="sound/">Sound</a></div></details><details><summary>About</summary><div class="menu"><a href="docs/">Docs</a><a href="install/">Setup</a></div></details><a class="play" href="play/">Play</a></nav>
     <span class="theme-slot" aria-hidden="true"></span>
   </header>
   <p class="note" style="margin:10px 0 0">Interactive IV // Project 02 // Much Ado About Music</p>
@@ -146,19 +147,19 @@
     <li><b>Catch the orb</b> before the song ends, or make it to the end with power left. Run out of power and the ride is over.</li>
   </ol>
 
-  <h2>The game</h2>
+  <h2>Design</h2>
   <div class="grid explore">
     <a class="card" href="video/"><h3>Trailer</h3><p>Space Surfers in under a minute.</p></a>
     <a class="card" href="lookbook/"><h3>Look book</h3><p>Palette, design rules and every screen.</p></a>
-    <a class="card" href="models/"><h3>Models</h3><p>What the city is built from, and who made it.</p></a>
     <a class="card" href="city/"><h3>City</h3><p>How the song builds the city, piece by piece.</p></a>
+    <a class="card" href="models/"><h3>Models</h3><p>What the city is built from, and who made it.</p></a>
     <a class="card" href="sound/"><h3>Sound</h3><p>How the song becomes the level.</p></a>
-    <a class="card" href="install/"><h3>Setup</h3><p>The camera, the board, and calibrating each rider.</p></a>
   </div>
 
-  <h2>The process</h2>
+  <h2>About</h2>
   <div class="grid explore">
     <a class="card" href="docs/"><h3>Docs</h3><p>The brief, our research, every change and why, and who did what.</p></a>
+    <a class="card" href="install/"><h3>Setup</h3><p>The camera, the board, and calibrating each rider.</p></a>
   </div>
 
   <h2>Team</h2>
@@ -169,5 +170,6 @@
     <span>Space Surfers // 2026</span>
   </footer>
 </div>
+<script src="nav.js"></script>
 </body>
 </html>
