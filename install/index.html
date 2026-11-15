@@ -5,11 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Install // Space Surfers</title>
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<meta name="description" content="How to set up the Space Surfers installation.">
+<meta name="description" content="How to set up the room, the camera and the board for Space Surfers, and how each rider is calibrated.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;1,700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../docs.css">
+<style>
+  .views { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .view { margin: 0; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 16px; display: grid; gap: 10px; }
+  .view svg { width: 100%; height: auto; display: block; }
+  .view figcaption { font-size: 15px; color: var(--dim); }
+  .view figcaption b { color: var(--ink); }
+  .view .line { stroke: var(--ink); stroke-width: 2; fill: none; }
+  .view .soft { stroke: var(--dim); stroke-width: 1.5; fill: none; stroke-dasharray: 5 5; }
+  .view .measure { stroke: var(--link); stroke-width: 1.5; fill: none; }
+  .view .zone { fill: var(--orange); fill-opacity: 0.16; stroke: var(--orange); stroke-width: 2; }
+  .view .band { fill: var(--link); fill-opacity: 0.12; }
+  .view .solid { fill: var(--ink); }
+  .view .accent { fill: var(--orange); }
+  .view text { font: 13px "IBM Plex Mono", ui-monospace, monospace; fill: var(--dim); }
+  .view text.label { fill: var(--ink); font-weight: 600; }
+  .view text.blue { fill: var(--link); }
+  .part { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: 56px 0 6px; }
+  .part h2 { margin: 0; }
+  .part .tag { margin: 0; }
+  .wrap > h3 { margin: 32px 0 12px; color: var(--orange); }
+  ol.steps li b { color: var(--ink); }
+  .key { font: 600 14px "Chakra Petch", sans-serif; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -21,15 +44,90 @@
 
   <h1>Install</h1>
   <p class="tag">Playing with your body</p>
-  <p class="lead">The real Space Surfers is played standing on a board in front of a big screen. A Kinect v2 camera watches you from the front and the game reads how you lean.</p>
+  <p class="lead">The real Space Surfers is played standing on a board in front of a big screen. A Kinect v2 camera under the screen watches the rider, and the game reads how they lean. Setting up takes two parts: the room, once, and a short calibration for every rider.</p>
 
   <h2>What you need</h2>
   <div class="grid">
-    <div class="card"><h3>Camera</h3><p>A Kinect v2 with its USB adapter, facing the board.</p></div>
-    <div class="card"><h3>Computer</h3><p>A Mac running our tracker and the Godot build of the game.</p></div>
-    <div class="card"><h3>Screen</h3><p>A projector or large screen in front of the rider.</p></div>
-    <div class="card"><h3>Board</h3><p>A floor board inside a 1.4 by 1.0 m zone the camera can see. Riders 160 cm and up.</p></div>
+    <div class="card"><h3>Camera</h3><p>A Kinect v2 with its adapter. It needs a USB 3 port and its own power plug.</p></div>
+    <div class="card"><h3>Computer</h3><p>A computer running our tracker and the game. Guides for Mac and Windows are on the way.</p></div>
+    <div class="card"><h3>Screen</h3><p>A projector or large screen. The rider faces it, so it can be in a dark room.</p></div>
+    <div class="card"><h3>Board</h3><p>A board sticker on the floor. The tracker watches a 1.4 by 1.0 m area around it. Riders 160 cm and up.</p></div>
   </div>
+
+  <div class="part"><h2>1. Set up the room</h2><p class="tag">Once per room, by whoever runs it</p></div>
+
+  <div class="views">
+    <figure class="view">
+      <svg viewBox="0 0 520 260" role="img" aria-label="Side view: the camera sits under the screen about 80 cm off the floor, facing straight ahead. The board is about 3 metres away, inside the best range of 2.3 to 3.6 metres.">
+        <rect class="band" x="290" y="30" width="130" height="190"/>
+        <line class="line" x1="20" y1="220" x2="500" y2="220"/>
+        <rect class="solid" x="24" y="40" width="12" height="180"/>
+        <text class="label" x="44" y="34">Screen</text>
+        <rect class="accent" x="40" y="132" width="34" height="14" rx="2"/>
+        <rect class="solid" x="52" y="146" width="10" height="74"/>
+        <line class="soft" x1="74" y1="139" x2="500" y2="139"/>
+        <line class="soft" x1="74" y1="139" x2="500" y2="16"/>
+        <line class="soft" x1="74" y1="139" x2="430" y2="220"/>
+        <line class="measure" x1="96" y1="146" x2="96" y2="218"/>
+        <text class="blue" x="102" y="190">about 80 cm</text>
+        <circle class="solid" cx="356" cy="60" r="11"/>
+        <rect class="solid" x="349" y="73" width="14" height="72" rx="5"/>
+        <rect class="solid" x="341" y="145" width="9" height="72" rx="3"/>
+        <rect class="solid" x="362" y="145" width="9" height="72" rx="3"/>
+        <rect class="accent" x="320" y="216" width="72" height="4"/>
+        <line class="measure" x1="57" y1="240" x2="356" y2="240"/>
+        <text class="blue" x="160" y="254">board centre about 3 m</text>
+        <text class="blue" x="292" y="24">board centre 2.3 to 3.6 m</text>
+        <text x="150" y="132">faces straight, no tilt</text>
+      </svg>
+      <figcaption><b>Side view.</b> Camera under the screen, about 80 cm up (75 to 85 cm works), pointing straight ahead. The rider stands about 3 m away.</figcaption>
+    </figure>
+    <figure class="view">
+      <svg viewBox="0 0 520 260" role="img" aria-label="Top view: the camera faces the board straight on. The tracked area is 1.4 metres long toward the screen and 1.0 metre wide. The rider stands sideways, with one foot nearer the screen.">
+        <rect class="band" x="290" y="20" width="130" height="220"/>
+        <rect class="solid" x="24" y="40" width="12" height="180"/>
+        <text class="label" x="30" y="30">Screen</text>
+        <rect class="accent" x="40" y="122" width="16" height="36" rx="2"/>
+        <line class="soft" x1="56" y1="140" x2="500" y2="10"/>
+        <line class="soft" x1="56" y1="140" x2="500" y2="250"/>
+        <rect class="zone" x="290" y="90" width="140" height="100" rx="4"/>
+        <ellipse class="solid" cx="330" cy="140" rx="14" ry="8"/>
+        <ellipse class="solid" cx="388" cy="140" rx="14" ry="8"/>
+        <line class="measure" x1="290" y1="204" x2="430" y2="204"/>
+        <text class="blue" x="338" y="222">1.4 m</text>
+        <line class="measure" x1="446" y1="90" x2="446" y2="190"/>
+        <text class="blue" x="454" y="144">1.0 m</text>
+        <text x="296" y="82">tracked area</text>
+        <text class="blue" x="292" y="16">board centre 2.3 to 3.6 m</text>
+      </svg>
+      <figcaption><b>Top view.</b> The board sits straight in front of the camera. Its long side points at the screen, because riders stand sideways with one foot nearer the screen.</figcaption>
+    </figure>
+  </div>
+
+  <h3>Step by step</h3>
+  <ol class="steps">
+    <li><b>Place the camera</b> under the screen, about 80 cm off the floor, facing straight ahead with no tilt. Plug it into a USB 3 port and into its power plug.</li>
+    <li><b>Stick the board on the floor</b> straight in front of the camera, with its centre about 3 m away (2.3 to 3.6 m). Keep the space around it clear. A dim room is fine, because the camera sees in infrared. Keep direct sunlight off the camera.</li>
+    <li><b>Start the tracker.</b> Its window shows what the camera sees, plus the camera height and how far away the board is.</li>
+    <li><b>Record the empty room.</b> Press <span class="key">B</span>. You have 8 seconds to leave the camera's view, so one person can do this alone. Everyone stays out of view until it says it is done.</li>
+    <li><b>Mark the board.</b> Press <span class="key">P</span>, then stand on the sticker within 8 seconds. The outline of the tracked area moves under your feet.</li>
+    <li><b>Check it.</b> The tracker should show a camera height of about 0.80 m and a board distance between 2.3 and 3.6 m. If it tells you to move the board, move it and press <span class="key">P</span> again. If the outline floats above the floor or sinks into it, <span class="key">[</span> and <span class="key">]</span> lower or raise the floor by 2 cm.</li>
+  </ol>
+  <p class="note" style="margin-top:14px">The setup is saved. Next time, only repeat it if the camera, the board or the furniture moved.</p>
+
+  <div class="part"><h2>2. Each rider</h2><p class="tag">Before every ride, guided by the game, about 80 s</p></div>
+  <p class="lead" style="margin-top:6px">When someone steps on the board, the game walks them through it on screen. Nobody needs to touch the computer. Directions always mean the screen, not the body, because the rider stands sideways.</p>
+  <div class="table-wrap" style="margin-top:18px"><table>
+    <tr><th>On screen</th><th>What the rider does</th></tr>
+    <tr><td>Welcome, rider</td><td>Steps on the board</td></tr>
+    <tr><td>Stand sideways</td><td>Turns left or right like on a surfboard, feet and shoulders sideways to the screen</td></tr>
+    <tr><td>You steer by leaning</td><td>Learns that their biggest safe lean becomes a full turn in the game</td></tr>
+    <tr><td>Stand still and relaxed</td><td>Feet on the board, arms down. The game records their neutral stance and height</td></tr>
+    <tr><td>Lean toward the screen</td><td>Moves the blue dot into the arrow. This makes the board dive</td></tr>
+    <tr><td>Lean away from the screen</td><td>Same, to make the board climb</td></tr>
+    <tr><td>Lean to the screen's left, then right</td><td>Same, to steer. After each lean they stand straight again</td></tr>
+    <tr><td>Now try it</td><td>Moves the dot freely. This is exactly how the board will move</td></tr>
+  </table></div>
 
   <h2>Body controls</h2>
   <div class="table-wrap"><table>
@@ -37,19 +135,16 @@
     <tr><td>Step on</td><td>Start</td></tr>
     <tr><td>Lean toward or away from the screen</td><td>Dive or climb</td></tr>
     <tr><td>Lean left or right</td><td>Steer</td></tr>
-    <tr><td>Hold a lean</td><td>Confirm, for example to pick a difficulty</td></tr>
+    <tr><td>Hold a lean</td><td>Confirm, for example to pick a song</td></tr>
     <tr><td>Both hands up for 2 s</td><td>Restart</td></tr>
     <tr><td>Step off</td><td>Pause. Walk away to end</td></tr>
   </table></div>
 
-  <h2>Running it</h2>
-  <ol class="steps">
-    <li><b>Start the tracker.</b> It reads the infrared camera, finds your shoulders, hips and hands, and sends your lean to the game.</li>
-    <li><b>Start the game.</b> It waits on the start screen until someone steps on the board.</li>
-    <li><b>Calibrate.</b> The game first has each new rider stand sideways on the board, then walks them through each lean once with a live meter. It takes about a minute.</li>
-    <li><b>Ride.</b> Lean to steer, hold a lean to confirm, raise both hands to restart, step off to pause.</li>
-  </ol>
-  <p class="note" style="margin-top:18px">Dark clothing can hide from the depth sensor, so the tracker works from the infrared image. A download kit with the tracker is not ready yet. Until then, the <a href="../play/">browser version</a> plays the same game with the arrow keys.</p>
+  <h2>Install the software</h2>
+  <div class="soon">
+    <b>Coming soon</b>
+    <p>Separate guides for Mac and Windows, with the tracker download. Until then, the <a href="../play/">browser version</a> plays the same game with the arrow keys.</p>
+  </div>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>
