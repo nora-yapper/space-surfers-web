@@ -202,15 +202,15 @@ function list(id,group,items,vb,shape,noHead){
  for(const [key,code,name,desc,uses,draw] of items){
   const n=COUNTS[group+':'+key]||[0,0,0];
   const a=document.createElement('article');a.className='piece '+shape;
-  a.innerHTML=`<header>${noHead?"":`<span class="code">${code}</span><h3>${name}</h3>`}${desc?`<p>${desc}</p>`:""}<p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
+  a.innerHTML=`<header><span class="code">${code}</span><p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
   <div class="trio"><figure><div class="pic sketch"><button class="zoom" type="button" aria-label="Enlarge sketch"></button></div><figcaption>Sketch</figcaption></figure>
-  <figure><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></button></div><figcaption>Built by the game</figcaption></figure>
+  <figure><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/r_${group}_${key}.jpg" alt="${name}, built in code" loading="lazy"></button></div><figcaption>Built in code</figcaption></figure>
   <figure class="game"><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></button></div><figcaption>In the game</figcaption></figure></div>`;
   const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',vb);s.setAttribute('role','img');s.setAttribute('aria-label',name+' sketch');draw(s);
   a.querySelector('.sketch .zoom').append(s);box.append(a);
  }
 }
-list('walls-list','wall',WALLS,'0 0 40 60','tall',true);  // Jane 2026-11-15: no code and name lines on the wall chunks
+list('walls-list','wall',WALLS,'0 0 40 60','tall');  // Jane 2026-11-15: every piece shows only its code, its models and its counts
 list('spans-list','span',SPANS,'0 0 40 60','wide');
 list('cross-list','cross',CROSS,'0 0 40 60','wide');
 list('ground-list','ground',GROUND,'0 0 40 30','wide');
