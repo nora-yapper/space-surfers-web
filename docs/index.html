@@ -22,18 +22,39 @@
 
   <h1>Docs</h1>
   <p class="tag">How we got here</p>
-  <p class="lead">The brief, our research, the first concept, and every change we made since, with the reason. The finished game is described on the other pages: <a href="../sound/">Sound</a>, <a href="../install/">Setup</a>, <a href="../lookbook/">Look book</a> and <a href="../models/">Models</a>.</p>
-  <p class="note" style="margin-top:10px">Contents: <a href="#brief">Brief</a> · <a href="#research">Research</a> · <a href="#concept">Concept</a> · <a href="#now">How it works now</a> · <a href="#log">Decision log</a> · <a href="#testing">Testing</a> · <a href="#status">Where it's at</a> · <a href="#team">Team</a> · <a href="#pdf">Process book</a></p>
+  <p class="lead">The brief, our research, the first concept, and every prototype since, with what we decided. The finished game is described on the other pages: <a href="../sound/">Sound</a>, <a href="../install/">Setup</a>, <a href="../lookbook/">Look book</a>, <a href="../models/">Models</a> and <a href="../city/">City</a>.</p>
+  <p class="note" style="margin-top:10px">Contents: <a href="#brief">Brief</a> · <a href="#research">Research</a> · <a href="#concept">Concept</a> · <a href="#now">How it works now</a> · <a href="#prototypes">Prototypes</a> · <a href="#testing">Testing</a> · <a href="#status">Where it's at</a> · <a href="#team">Team</a> · <a href="#pdf">Process book</a></p>
 
   <h2 id="brief">The brief</h2>
-  <p><b>"What happens when hands are no longer our primary interface?"</b> Interactive IV, Project 02, Much Ado About Music. We had four weeks to build a working interactive system where music is an input, an output or both, and which answers with visual feedback that people understand without explanation.</p>
-  <div class="table-wrap" style="margin-top:14px"><table>
-    <tr><th>The brief asks</th><th>Early concept (Oct)</th><th>Space Surfers now</th></tr>
-    <tr><td>Music is an input, an output, or both</td><td>The song builds the level (input)</td><td>Both. The song builds the trail, the city and the obstacles, and the player bends, slows and speeds up the song</td></tr>
-    <tr><td>The user's actions noticeably change the visuals, the sound or both</td><td>Score changed, the music did not</td><td>Drifting off the trail pitches, pans, muffles and slows the song. Boosts speed it up. The board, the orb and the HUD react</td></tr>
-    <tr><td>Visual feedback explains, not decorates</td><td>Board tilt, still to design</td><td>Live infrared silhouette, board tilt, the orb distance, the power meter and the "off the trail" warning</td></tr>
-    <tr><td>Understood without explanation</td><td>Surfing is a familiar metaphor</td><td>A guided calibration teaches each lean once, with a live meter</td></tr>
-  </table></div>
+  <p class="note">This is the brief we were given, copied from the class handout (Interactive IV, Project 02).</p>
+  <blockquote style="margin:14px 0 0;padding:4px 0 4px 18px;border-left:3px solid var(--accent, #f07c2a);max-width:68ch">
+    <p><b>Much Ado About Music.</b> Duration: 4 weeks. Group size: up to 3 students (solo work allowed, but be mindful of scope and complexity).</p>
+    <p style="margin-top:12px"><b>What happens when hands are no longer our primary interface?</b></p>
+    <p style="margin-top:8px">In this project, you will design and build a working interactive system in which music is at least one of the inputs or outputs, and which responds with visual feedback. The goal is to explore how action, sound and image work together, and to design interaction people understand without explanation.</p>
+    <p style="margin-top:8px">Your system can listen to music and respond visually, let people make music through a new kind of input, or answer them musically.</p>
+    <p style="margin-top:14px"><b>Requirements</b></p>
+    <ul style="margin:6px 0 0">
+      <li><b>Music is an input, an output, or both.</b> Music is meant broadly: melody, rhythm, a live instrument, singing, humming, or generated sound.</li>
+      <li><b>The user's actions shape what happens.</b> What someone does must noticeably change the visuals, sound or both. A visualiser that simply reacts to recorded music does not meet this requirement.</li>
+      <li><b>Visual feedback explains, not decorates.</b> It can be a screen, a projection, lights, or physical movement, but it must show that the system noticed the user's input, what it understood, or what their action changed. Visuals that would look the same whatever the person did count as decoration.</li>
+    </ul>
+    <p style="margin-top:14px"><b>Project phases and expectations</b></p>
+    <p style="margin-top:6px">This project follows the complete user-centered design process, compressed so you reach a working prototype early:</p>
+    <ul style="margin:6px 0 0">
+      <li><b>Research (days 1 and 2):</b> Investigate existing music interfaces and interactive music projects. Sketch at least five quick ideas each, then pick three as a team.</li>
+      <li><b>Concept and scenarios (rest of week 1):</b> Act out the three concepts with paper props and choose one. Define the user, the context, and your inputs and outputs. End the week with a 5-minute concept pitch.</li>
+      <li><b>Interaction mapping (week 2):</b> Map how each action changes the music and the visuals, and how the system shows it noticed the person.</li>
+      <li><b>Proof of concept (week 2):</b> By midweek, get the simplest version of input, music and visual feedback running together. Faking parts by hand (Wizard of Oz) is fine.</li>
+      <li><b>Build and testing (week 3):</b> Connect the parts and test with at least 2 people outside your team. Document findings and adjustments.</li>
+      <li><b>Refinement and final demonstration (week 4):</b> Improve the design based on testing, finish the documentation, and present a live demo at the final critique.</li>
+    </ul>
+    <p style="margin-top:14px"><b>Key deliverables</b></p>
+    <ul style="margin:6px 0 0">
+      <li><b>Working prototype:</b> a functioning system, demonstrated live in a 7-minute final presentation.</li>
+      <li><b>Interaction demonstration:</b> a short video (2 to 5 minutes) showing people using the system, as a backup if the live demo fails.</li>
+      <li><b>Project documentation</b> (submitted as a PDF), which must include: a research summary and a description of your user and context; a project concept overview; a diagram of how actions map to sound and visuals; testing insights and iteration notes; a reflection on designing for sound and sight together.</li>
+    </ul>
+  </blockquote>
 
   <h2 id="research">Research</h2>
   <p>This research answers five questions:</p>
@@ -121,7 +142,7 @@
   <h3 style="margin-top:28px">Mood boards</h3>
   <figure style="margin:10px 0 0"><img src="img/moodboard_1.jpg" alt="Mood board 1: Y2K posters, a chrome Nokia phone, a slime pager, holographic Y2K Explained cover, a Lemon Girl magazine" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy" width="1024" height="576"></figure>
   <figure style="margin:14px 0 0"><img src="img/moodboard_2.jpg" alt="Mood board 2" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy" width="1024" height="576"></figure>
-  <p class="note" style="margin-top:10px">The research was written in week 1, for the first concept (Wave Rider): some fixes, like stems, hands catching notes and a space backdrop, changed later. The <a href="#log">decision log</a> says what and why.</p>
+  <p class="note" style="margin-top:10px">The research was written in week 1, for the first concept (Wave Rider): some fixes, like stems, hands catching notes and a space backdrop, changed later. The <a href="#prototypes">prototypes</a> show what and why.</p>
 
   <h2 id="concept">Concept</h2>
   <p>It started as <b>Wave Rider</b>: surfing an energy wave through space to the beat of a song, with hands catching notes, health, shields and three lanes. The interaction stayed, the story and the extras changed: it became <b>Space Surfers</b>, a lean-only ride chasing an orb through a hanging retro futuristic city.</p>
@@ -134,37 +155,61 @@
   <h2 id="now">How it works now</h2>
   <p>You stand sideways on a board in front of a Kinect v2. A tracker finds your feet, shoulders, hips and hands in the infrared image and sends your lean to the game. You pick a difficulty, each with its own song, and ride the trail that song builds. The full mapping is on <a href="../sound/">Sound</a>, the setup on <a href="../install/">Setup</a>, the look on <a href="../lookbook/">Look book</a>, the models on <a href="../models/">Models</a>, and how they are put together into the city on <a href="../city/">City</a>.</p>
 
-  <h2 id="log">Decision log</h2>
-  <p>What changed, when, and why. Newest first.</p>
-  <div class="table-wrap" style="margin-top:14px"><table>
-    <tr><th>Date</th><th>Change</th><th>Why</th></tr>
-    <tr><td>9 Nov</td><td>One royalty-free Pixabay song per difficulty, each with its own trail and city</td><td>The demo song was not royalty free, as the brief requires</td></tr>
-    <tr><td>9 Nov</td><td>Sound effects and menu music, on their own channel under the song</td><td>Feedback for every action, without touching the song's distortion</td></tr>
-    <tr><td>9 Nov</td><td>A boost speeds the song up 1.5 times for 5 seconds</td><td>A small speed-up with the pitch kept was inaudible</td></tr>
-    <tr><td>9 Nov</td><td>Every obstacle hangs from a steel frame tied into the city</td><td>Obstacles were floating in the air</td></tr>
-    <tr><td>9 Nov</td><td>The Arcane-style painted finish gave way to real models, tinted and fogged into one orange world. Kept from Arcane: big readable shapes, sharp board and obstacles against a looser city, one warm haze</td><td>One week was too short to hand-paint textures and 2D effects, and the hazier, simpler look reads better on a projector at speed. Starting point: <a href="https://redsharknews.com/why-netflixs-arcane-looks-so-good-how-fortiche-ramped-up-the-animation-pipeline">Why Arcane looks so good</a> and <a href="https://80.lv/articles/arcane-artists-show-how-they-combine-traditional-art-3d-for-backgrounds">traditional art and 3D in Arcane backgrounds</a></td></tr>
-    <tr><td>9 Nov</td><td>City rebuilt from stacked models, nothing floating, back rows, signs and crossings</td><td>Flat slabs, empty gaps, props hanging off roofs, and it looked monotone</td></tr>
-    <tr><td>8 Nov</td><td>Website with a playable keyboard version in the browser</td><td>A link anyone can open; browsers can't use the Kinect</td></tr>
-    <tr><td>8 Nov</td><td>The orb can really be caught by riding well</td><td>Before, it could never come closer than 3.5 s, so nobody could catch it</td></tr>
-    <tr><td>8 Nov</td><td>Ride screen redrawn from the team's Figma designs, with an "off the trail" warning</td><td>The first version was off centre and hard to read</td></tr>
-    <tr><td>8 Nov</td><td>Pick a difficulty, with the song's waveform on each card</td><td>Three cards of the same song were confusing</td></tr>
-    <tr><td>8 Nov</td><td>Guided calibration: stand sideways first, then each lean once, with a live meter and directions said relative to the screen</td><td>Testers didn't know what to do, and leaning "forward" while standing sideways meant left or right to them</td></tr>
-    <tr><td>8 Nov</td><td>MediaPipe body points on the infrared image</td><td>A black top returned no depth, so the tracker only saw the rider's legs</td></tr>
-    <tr><td>8 Nov</td><td>Bigger standing zone (1.4 by 1.0 m), no "fell off" state, a 1.5 s grace before pausing</td><td>It was very hard to stay tracked on the board</td></tr>
-    <tr><td>8 Nov</td><td>Riders 160 cm and up; calibration refused below 1.45 m</td><td>A bad calibration had recorded a rider as 22 cm tall and broke the lean</td></tr>
-    <tr><td>8 Nov</td><td>Raise both hands for 2 s to restart</td><td>A hands-free restart for the installation</td></tr>
-    <tr><td>8 Nov</td><td>Full game flow: idle, calibrate, pick, countdown, ride, pause, win and lose screens, power meter</td><td>From the game plan in Figma</td></tr>
-    <tr><td>6 Nov</td><td>Obstacles built off the walls, each following one sound; tram replaces the hauler; blue trail; one orange world, yellower on Easy, redder on Hard</td><td>The project is sound based; zones and extra pickups were too much for this stage</td></tr>
-    <tr><td>6 Nov</td><td>Shield cut; health cut earlier</td><td>The professor found health too complicated; boost is the only pickup</td></tr>
-    <tr><td>4 Nov</td><td>Easy, Medium, Hard; lean smoothing, a curve and a small assist; forward and back swapped</td><td>Far too hard and too twitchy, exactly the failure the research warned about</td></tr>
-    <tr><td>4 Nov</td><td>Lean measured as shoulders over hips, with a range per player</td><td>Raising an arm read as a lean, and everyone leans differently</td></tr>
-    <tr><td>1 to 2 Nov</td><td>Kinect v2 running on a Mac, our own tracker, first ride in Godot</td><td>The official Kinect software only runs on Windows</td></tr>
-    <tr><td>28 Oct</td><td>Godot instead of Unity</td><td>The tracking and the ride live there, with a working AI plugin</td></tr>
-    <tr><td>12 to 23 Oct</td><td>Browser prototype: follow a song-made path by ear, 5 pitched copies of the song</td><td>To test the core idea before touching the Kinect</td></tr>
-  </table></div>
+  <h2 id="prototypes">Prototypes</h2>
+  <p>Every prototype is kept in its own folder, so each step can still be played. Oldest first. Each stage says what we built, and what we decided because of it.</p>
+  <h3 style="margin-top:30px">1. Concept prototype: Wave Rider</h3>
+  <p class="note" style="margin-top:4px">Early October</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/waverider.jpg" alt="Concept prototype: Wave Rider" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">A night run through a neon city on a hoverboard, chasing an energy ball. It had health, shields, speed bonuses, drones and three difficulties, with keyboard or webcam body tracking.</p>
+  <p style="margin-top:8px"><b>Decided:</b> The core stayed: ride a path, chase a ball, beat the song. The extras (health, shield, drones, hands catching notes) were too much for four weeks and were cut over the next prototypes.</p>
+  <h3 style="margin-top:30px">2. Browser prototype: follow the song by ear</h3>
+  <p class="note" style="margin-top:4px">12 to 23 October</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/web.jpg" alt="Browser prototype: follow the song by ear" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">Before touching the Kinect we tested the core idea in the browser. The song builds a path, and you steer with the keys. Five pitched copies of the song play at once: too high and the music bends up, too low and it bends down, off to the side and the sound pulls toward the path.</p>
+  <p style="margin-top:8px"><b>Decided:</b> Following a path by ear works and is the heart of the game. The song analysis (loudness and brightness shape the path) carried over to every later prototype.</p>
+  <h3 style="margin-top:30px">3. First ride in Godot with the Kinect</h3>
+  <p class="note" style="margin-top:4px">28 October to 2 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride.jpg" alt="First ride in Godot with the Kinect" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">The same idea rebuilt in Godot, steered by leaning on a board in front of a Kinect v2. On the trail the board speeds up, off the trail the song distorts and slows.</p>
+  <p style="margin-top:8px"><b>Decided:</b> Godot instead of Unity. Our own tracker, because the official Kinect software only runs on Windows. Lean is measured as shoulders over hips with a range per player, because raising an arm read as a lean.</p>
+  <h3 style="margin-top:30px">4. Difficulty modes</h3>
+  <p class="note" style="margin-top:4px">4 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_modes.jpg" alt="Difficulty modes" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">Easy, Medium and Hard, with lean smoothing, a response curve and a small assist.</p>
+  <p style="margin-top:8px"><b>Decided:</b> The first ride was far too hard and the lean too twitchy, exactly the failure the research warned about. Forward and back were also swapped.</p>
+  <h3 style="margin-top:30px">5. Wider camera and a taller space</h3>
+  <p class="note" style="margin-top:4px">4 to 6 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_wide.jpg" alt="Wider camera and a taller space" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">The camera pulled back so curves read earlier, and the ceiling doubled so the trail climbs and dives more.</p>
+  <p style="margin-top:8px"><b>Decided:</b> With the old camera you saw curves too late. We wanted more up and down riding, since that is what leaning forward and back is for.</p>
+  <h3 style="margin-top:30px">6. Obstacles that follow the song</h3>
+  <p class="note" style="margin-top:4px">6 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_music.jpg" alt="Obstacles that follow the song" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">Obstacles grow off the walls and ceiling, each one following one sound in the song. Harder songs add more sound layers and closer spacing; loud parts get busier. A hit slows you down; there is no crash.</p>
+  <p style="margin-top:8px"><b>Decided:</b> The project is sound based, so obstacles come from the music too. The shield was cut and health was cut earlier (the professor found health too complicated), leaving boost as the only pickup.</p>
+  <h3 style="margin-top:30px">7. One orange world</h3>
+  <p class="note" style="margin-top:4px">6 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_tram.jpg" alt="One orange world" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">A tram replaces the hauler, the trail turns blue, and the world becomes one orange haze, yellower on Easy and redder on Hard.</p>
+  <p style="margin-top:8px"><b>Decided:</b> Zones and extra pickups were too much for this stage. One colour per difficulty is enough to tell them apart.</p>
+  <h3 style="margin-top:30px">8. The city, built by the song</h3>
+  <p class="note" style="margin-top:4px">8 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_city.jpg" alt="The city, built by the song" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">A hanging city made of chunks the song places: louder parts are taller and busier. The team's models come in, with boost pads.</p>
+  <p style="margin-top:8px"><b>Decided:</b> The world runs at a fixed speed; riding well pulls the orb closer instead of making you faster. The flying space slowly climbs over the song, away from the ground.</p>
+  <h3 style="margin-top:30px">9. The full game</h3>
+  <p class="note" style="margin-top:4px">8 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/ride_full.jpg" alt="The full game" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">The whole flow from the Figma game plan: idle, calibrate, pick a song, countdown, ride, pause, win and lose, with a power meter and an "off the trail" warning. Raise both hands for 2 s to restart.</p>
+  <p style="margin-top:8px"><b>Decided:</b> Testers did not know what to do, so calibration became guided, with a live meter and directions said relative to the screen. A black top returned no depth, so the tracker switched to MediaPipe body points on the infrared image. The orb could never be caught before; now riding well catches it.</p>
+  <h3 style="margin-top:30px">10. Polish</h3>
+  <p class="note" style="margin-top:4px">9 to 15 November</p>
+  <figure style="margin:10px 0 0"><img src="img/proto/../../img/boost.jpg" alt="Polish" style="width:100%;height:auto;border-radius:6px;border:1px solid var(--rule)" loading="lazy"></figure>
+  <p style="margin-top:10px">The city was rebuilt from stacked models with nothing floating, every obstacle hangs from a steel frame, a boost speeds the song up 1.5 times for 5 seconds, each difficulty got its own royalty-free song, and calibration dropped to about 45 seconds.</p>
+  <p style="margin-top:8px"><b>Decided:</b> Flat slabs and floating props looked fake. A small speed-up with the pitch kept was inaudible. The first demo song was not royalty free. Calibration was too long for a walk-up installation.</p>
 
   <h2 id="testing">Testing</h2>
-  <p><b>Our own playtests</b> found most of the changes in the log above: the game was too hard, the lean too twitchy, tracking lost riders in dark clothes or off the board, onboarding was too fast, and directions confused people standing sideways.</p>
+  <p><b>Our own playtests</b> found most of the changes in the prototypes above: the game was too hard, the lean too twitchy, tracking lost riders in dark clothes or off the board, onboarding was too fast, and directions confused people standing sideways.</p>
   <div class="soon" style="padding:28px 22px"><b>Outside testing</b><p>The brief asks for tests with at least two people outside the team. Who tested, what they did, what they said and what we changed goes here.</p></div>
 
   <h2 id="status">Where it's at</h2>
