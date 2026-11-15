@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City // Space Surfers</title>
+<script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<meta name="description" content="How the Space Surfers city is built: the street, the wall chunks, the pieces that cross the street, the ground, and how many of each every song's city uses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;1,700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../docs.css">
+<style>
+  /* one row per piece: the sketch, the piece on its own, the piece in the game */
+  .piece { margin-top: 22px; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 18px; display: grid; gap: 14px; }
+  .piece header { display: grid; gap: 4px; }
+  .piece .code { font: 600 12px "Chakra Petch", sans-serif; color: var(--link); text-transform: uppercase; letter-spacing: 0.14em; }
+  .piece .meta { font-size: 14px; color: var(--dim); }
+  .trio { display: grid; gap: 12px; grid-template-columns: 1fr 1fr 1.6fr; align-items: stretch; }
+  .trio figure { margin: 0; display: grid; gap: 6px; grid-template-rows: 1fr auto; }
+  .trio .pic { background: #0d0906; border-radius: 4px; overflow: hidden; display: grid; place-items: center; min-height: 160px; }
+  .trio img, .trio svg { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .trio .game img { object-fit: cover; }
+  .trio figcaption { font: 600 11px "Chakra Petch", sans-serif; color: var(--dim); text-transform: uppercase; letter-spacing: 0.14em; }
+  .tall .pic { aspect-ratio: 4 / 5; }
+  .tall .game .pic { aspect-ratio: 16 / 9; }
+  .trio figure { align-content: start; }
+  .wide .pic { aspect-ratio: 16 / 9; }
+  .street svg { width: 100%; height: auto; background: #0d0906; border-radius: 6px; display: block; }
+  .cities { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 8px; }
+  .cities figure { margin: 0; display: grid; gap: 6px; }
+  .cities img { width: 100%; height: auto; border-radius: 6px; border: 1px solid var(--rule); display: block; }
+  .cities figcaption { font-size: 14px; color: var(--dim); }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: var(--dim); margin-top: 8px; }
+  .legend i { display: inline-block; width: 22px; height: 0; border-top: 2px solid; vertical-align: middle; margin-right: 6px; }
+  td.n { text-align: right; font-variant-numeric: tabular-nums; }
+  @media (max-width: 760px) { .trio { grid-template-columns: 1fr 1fr; } .trio .game { grid-column: 1 / -1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="bar">
+    <a class="home" href="../">Space Surfers</a>
+    <nav><a href="../play/">Play</a><a href="../video/">Trailer</a><a href="../docs/">Docs</a><a href="../lookbook/">Look book</a><a href="../models/">Models</a><a href="../sound/">Sound</a><a href="../install/">Install</a></nav>
+    <button class="theme" type="button" aria-label="Switch light or dark mode">◐</button>
+  </header>
+
+  <h1>City</h1>
+  <p class="tag">How the city is built</p>
+  <p class="lead">Nothing in the city is placed by hand. Before a ride, the game plans the whole street from the song, then builds it from a small kit of pieces made from our <a href="../models/">models</a>. Every piece below is shown three ways: the sketch it started as, the piece built on its own by the game's code, and the same piece in the game.</p>
+  <p class="note" style="margin-top:10px">Contents: <a href="#street">The street</a> · <a href="#walls">Wall chunks</a> · <a href="#across">Across the street</a> · <a href="#crossings">Street crossings</a> · <a href="#ground">Ground</a> · <a href="#rules">How the song places them</a> · <a href="#counts">The three cities</a></p>
+
+  <h2 id="street">The street</h2>
+  <p>Looking down the track. The flying space, where the trail and the board can go, is 16 m wide and 22 m tall, and it slowly rises 120 m over a song. Building faces stand just outside it, so nothing in the city can block the trail. Behind every wall stand two more rows of buildings and a far skyline, and the buildings reach 80 m below the street into the haze, so you never see where they end.</p>
+  <div class="street" style="margin-top:12px"><svg id="section" viewBox="0 0 120 90" role="img" aria-label="Front view of the street: the flying space in the middle, building walls on both sides with back rows, cables above, haze below"></svg></div>
+  <div class="legend"><span><i style="border-color:#7fe9ff"></i>flying space and trail</span><span><i style="border-color:#f08a24"></i>buildings and structure</span><span><i style="border-color:#8f7b63;border-top-style:dashed"></i>cables, back rows, below the street</span></div>
+
+  <h2 id="walls">Wall chunks</h2>
+  <p>Six kinds of wall, each 30 to 54 m of street. Both sides of the street use the same chunks, with the building sometimes turned around. Blue dots are anchors, where cables and signs attach.</p>
+  <div id="walls-list"></div>
+
+  <h2 id="across">Across the street</h2>
+  <p>Seven kinds of pieces span the street from one building to the other, above the flying space or below it, at least every 14 seconds of song and at every section change. Every one reaches into both buildings or stands on columns, so nothing hangs in the air.</p>
+  <div id="spans-list"></div>
+
+  <h2 id="crossings">Street crossings</h2>
+  <p>Smaller scenery across the street, about every 9 seconds, only where the trail stays at least 7 m away from them. They are never in your way.</p>
+  <div id="cross-list"></div>
+
+  <h2 id="ground">Ground</h2>
+  <p>What is under you, in 24 m pieces. The grate deck is the base, with the others mixed in. Quiet parts of the song get more rubble and pipes.</p>
+  <div id="ground-list"></div>
+
+  <h2 id="rules">How the song places them</h2>
+  <ul style="margin:8px 0 0;max-width:68ch">
+    <li><b>Loudness</b> sets height and busyness. Quiet parts get low tenements and tank gaps with open sky; loud parts get towers, hanging blocks and sign alleys.</li>
+    <li><b>Section changes</b> in the song get a piece across the street, so you feel the change.</li>
+    <li><b>The whole song</b> lifts the flying space 120 m, faster when it is loud, so you rise away from the ground.</li>
+    <li><b>Each song has its own seed</b>, so every ride of a song builds the same city, and each difficulty's song builds a different one.</li>
+    <li><b>Variety:</b> no wall kind follows itself, about two thirds of the buildings get a colour wash, and the same sign never shows twice in a row.</li>
+  </ul>
+
+  <h2 id="counts">The three cities</h2>
+  <p>Each difficulty has its own song, so its own city. The numbers come straight from the game's city plan.</p>
+  <div class="cities">
+    <figure><img src="img/g_song_easy.jpg" alt="The Easy city, in a yellow haze" loading="lazy" width="1280" height="720"><figcaption>Easy: Synthwave, a calmer, yellower city</figcaption></figure>
+    <figure><img src="img/g_song_medium.jpg" alt="The Medium city, in an orange haze" loading="lazy" width="1280" height="720"><figcaption>Medium: Stranger, the full orange haze</figcaption></figure>
+    <figure><img src="img/g_song_hard.jpg" alt="The Hard city, in a red haze" loading="lazy" width="1280" height="720"><figcaption>Hard: Hard Cyberpunk, loud all the way, a redder city</figcaption></figure>
+  </div>
+  <div class="table-wrap" style="margin-top:16px"><table id="counts-table"></table></div>
+
+  <footer class="bar">
+    <span>RIT Croatia // Interactive IV // Project 02</span>
+    <span>Space Surfers // 2026</span>
+  </footer>
+</div>
+<script src="../theme.js"></script>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const OR='#f08a24',BL='#7fe9ff',MU='#8f7b63',DIM='#5a4532';
+function el(s,tag,a){const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);s.appendChild(e);return e;}
+function R(s,x,y,w,h,c,o){return el(s,'rect',Object.assign({x,y,width:w,height:h,fill:'none',stroke:c||OR,'stroke-width':.35},o||{}));}
+function L(s,x1,y1,x2,y2,c,o){return el(s,'line',Object.assign({x1,y1,x2,y2,stroke:c||OR,'stroke-width':.35},o||{}));}
+function C(s,cx,cy,r,c,o){return el(s,'circle',Object.assign({cx,cy,r,fill:'none',stroke:c||OR,'stroke-width':.35},o||{}));}
+function Tx(s,x,y,t,c,sz){const e=el(s,'text',{x,y,fill:c||MU,'font-size':sz||2.6,'font-family':'IBM Plex Mono, monospace'});e.textContent=t;return e;}
+function sag(s,x1,y1,x2,y2,d,c){el(s,'path',{d:`M${x1} ${y1} Q${(x1+x2)/2} ${(y1+y2)/2+d} ${x2} ${y2}`,fill:'none',stroke:c||MU,'stroke-width':.3});}
+function windows(s,x,y,w,h,cols,rows){for(let i=0;i<cols;i++)for(let j=0;j<rows;j++)R(s,x+1+i*(w-2)/cols,y+1+j*(h-2)/rows,(w-2)/cols*.55,(h-2)/rows*.5,DIM,{'stroke-width':.25});}
+function anchor(s,x,y){C(s,x,y,.7,BL,{fill:BL});}
+function pipe(s,x,y,h,r){R(s,x-r,y,r*2,h,OR);L(s,x-r,y+h*.3,x+r,y+h*.3);L(s,x-r,y+h*.7,x+r,y+h*.7);}
+function flyband(s,top,bottom){R(s,4,top,32,bottom-top,BL,{'stroke-dasharray':'1 1','stroke-width':.25});Tx(s,5,bottom-1,'flying space',BL,2);}
+function walls2(s){R(s,0,0,4,60);R(s,36,0,4,60);}
+
+// 1. the street, front view: x 0..120 = -60..60 m, y 0..90 = 70..-20 m
+(function(){const s=document.getElementById('section');const X=m=>60+m,Y=m=>70-m;
+ R(s,X(-8),Y(22),16,22,BL,{'stroke-dasharray':'1.2 1'});Tx(s,X(-7.4),Y(20.5),'flying space',BL,2.4);Tx(s,X(-7.4),Y(18),'16 m x 22 m',BL,2.2);
+ el(s,'path',{d:`M${X(-1.5)} ${Y(6)} L${X(1.5)} ${Y(6)} L${X(2)} ${Y(5.6)} L${X(-2)} ${Y(5.6)}Z`,fill:BL,stroke:BL,'stroke-width':.3});Tx(s,X(2.6),Y(5.2),'trail + board',BL,2);
+ C(s,X(1),Y(9.5),1,BL,{fill:'#0d0906'});Tx(s,X(2.6),Y(10.2),'orb ahead',BL,2);
+ for(const side of[-1,1]){const f=x=>X(side*x);
+  const bx=side<0?f(26):f(9);R(s,bx,Y(36),17,36);windows(s,bx,Y(36),17,36,4,8);R(s,bx,Y(0),17,14,DIM,{'stroke-dasharray':'1 1'});
+  const ux=side<0?f(24):f(10.5);R(s,ux,Y(58),13.5,22);windows(s,ux,Y(58),13.5,22,3,5);
+  const rx=side<0?f(44):f(27);R(s,rx,Y(52),15,66,DIM,{'stroke-dasharray':'1 1'});
+  L(s,f(14),Y(58),f(14),Y(64));L(s,f(12.5),Y(63),f(15.5),Y(63));anchor(s,f(14),Y(63.5));
+  anchor(s,f(9.2),Y(26));anchor(s,f(9.2),Y(31));
+ }
+ sag(s,X(-9.2),Y(26),X(9.2),Y(26),6);sag(s,X(-9.2),Y(31),X(9.2),Y(31),4);sag(s,X(-14),Y(63.5),X(14),Y(63.5),5);
+ Tx(s,X(-7.8),Y(36),'cables only above 22 m',MU,1.9);
+ R(s,X(-9),Y(0),18,.8,OR);Tx(s,X(-7.5),Y(-2.2),'ground deck',MU,2.2);
+ Tx(s,X(-7),Y(-8),'buildings go on 80 m',MU,1.9);Tx(s,X(-5),Y(-10.6),'down into haze',MU,1.9);
+ Tx(s,X(-58),Y(68),'back rows',MU,2.2);Tx(s,X(42),Y(68),'back rows',MU,2.2);Tx(s,X(-26),Y(68),'wall chunk',OR,2.2);Tx(s,X(10),Y(68),'wall chunk',OR,2.2);
+ L(s,X(-8),Y(-4),X(8),Y(-4),MU);Tx(s,X(-1.5),Y(-5.2),'16 m',MU,2);
+ L(s,X(-9),Y(-17),X(9),Y(-17),MU);Tx(s,X(-5),Y(-18.4),'building faces at 9 m',MU,2);
+})();
+
+const COUNTS={"wall:tower":[27,24,30],"wall:tenement":[17,12,6],"wall:pipewall":[23,21,24],"wall:tankgap":[15,14,5],"wall:hanging":[25,6,21],"wall:signs":[25,10,29],
+ "span:block":[4,3,5],"span:block_below":[2,1,2],"span:skybridge":[2,2,2],"span:gantry":[2,2,2],"span:pipes_over":[2,1,2],"span:cables":[2,1,2],"span:tramline":[2,1,2],
+ "cross:crates":[11,7,10],"cross:catwalk":[6,4,5],"cross:containers":[5,3,5],
+ "ground:grate":[48,36,34],"ground:mesh":[20,4,19],"ground:pipes":[18,14,19],"ground:rubble":[15,15,18]};
+
+const WALLS=[
+ ['tower','W1','Tower','The main wall: panel blocks stacked from 80 m below the street to the roof, with signs, air conditioners and a downpipe on the face. The most common wall in every city.','panel block, pipes, neon and RIT signs, AC units, rooftop pole',s=>{R(s,8,22,24,38);windows(s,8,22,24,38,5,8);R(s,10,6,20,16);windows(s,10,6,20,16,4,3);L(s,26,6,26,1);L(s,24.5,2,27.5,2);anchor(s,26,1.6);pipe(s,12,8,52,.8);R(s,28,30,3,6,OR,{fill:OR});anchor(s,9,40);anchor(s,9,30);}],
+ ['tenement','W2','Tenements','An old apartment building with a lower roof, so light comes in from above. Sometimes tanks on the roof. For quiet parts of the song.','old apartment, storage tanks, rooftop pole',s=>{R(s,8,30,24,30);windows(s,8,30,24,30,5,5);C(s,14,27,2.4);R(s,11.6,27,4.8,3);L(s,26,30,26,22);L(s,24,23,28,23);anchor(s,26,22.6);el(s,'path',{d:'M2 0 L8 30 M38 0 L32 30',stroke:'#f0e2ce','stroke-width':.25,'stroke-dasharray':'1 1.4',fill:'none'});}],
+ ['pipewall','W3','Pipe wall','Panel blocks set back 1.5 m, with two or three big pipe runs climbing the face in front of them.','panel block, pipes bundle, scaled up',s=>{R(s,10,4,22,56,DIM);windows(s,10,4,22,56,4,10);pipe(s,13,4,56,2);pipe(s,20,4,56,1.4);pipe(s,27,4,56,2.2);el(s,'path',{d:'M27 34 Q27 40 33 40',stroke:OR,'stroke-width':.35,fill:'none'});anchor(s,9,20);anchor(s,9,44);}],
+ ['tankgap','W4','Tank gap','A low apartment building with a tank farm on its roof. The gap in the skyline lets light in and breaks up the corridor.','old apartment, storage tanks',s=>{R(s,8,36,24,24);windows(s,8,36,24,24,5,4);C(s,15,30,4.5);C(s,26,31,3.5);R(s,10.5,30,9,6);R(s,22.5,31,7,5);anchor(s,9,40);}],
+ ['hanging','W5','Hanging blocks','The building stands 7.5 m back, and three to five shipping containers hang in front of it from steel beams, with a fire escape on the face.','panel block, shipping container, fire escape',s=>{R(s,14,0,18,60,DIM);windows(s,14,0,18,60,3,10);for(const [y,h] of [[10,7],[26,6],[42,7]]){R(s,6,y,10,h);L(s,6,y-3,32,y-3,OR);L(s,8,y-3,8,y,MU);L(s,14,y-3,14,y,MU);}R(s,27,20,4,26,OR,{'stroke-dasharray':'.8 .8'});anchor(s,14,50);}],
+ ['signs','W6','Sign alley','An apartment building covered in signs: neon signs and our RIT signs, flat on the wall or sticking out toward you. For loud parts of the song.','old apartment, neon sign, RIT signs',s=>{R(s,8,14,24,46);windows(s,8,14,24,46,4,7);R(s,9,18,4,10,OR,{fill:'rgba(240,138,36,.25)'});R(s,15,22,6,3,OR,{fill:'rgba(127,233,255,.25)'});R(s,24,16,3,12,OR,{fill:'rgba(240,138,36,.25)'});R(s,14,36,10,4,OR,{fill:'rgba(240,138,36,.25)'});Tx(s,15,39,'RIT',BL,2.6);L(s,32,30,38,30,OR);R(s,36,26,4,9,OR,{fill:'rgba(240,138,36,.25)'});anchor(s,9,32);anchor(s,9,46);}],
+];
+const SPANS=[
+ ['block','S1','Building block, above','A whole building block bridging the street above the flying space, its ends deep inside both buildings.','panel block',s=>{walls2(s);flyband(s,32,60);R(s,0,6,40,18);windows(s,0,6,40,18,8,3);}],
+ ['block_below','S2','Building block, below','The same block, but under the flying space, so you ride over it through the haze.','panel block',s=>{walls2(s);flyband(s,4,32);R(s,0,38,40,16);windows(s,0,38,40,16,8,3);el(s,'path',{d:'M0 56 L40 56',stroke:MU,'stroke-width':.3,'stroke-dasharray':'1 1'});Tx(s,5,59,'haze',MU,2);}],
+ ['skybridge','S3','Skybridge','An enclosed walkway between the buildings, with windows, above the flying space.','made in code',s=>{walls2(s);flyband(s,32,60);R(s,0,18,40,6);for(let x=2;x<38;x+=3)R(s,x,19.5,1.8,2.2,DIM,{'stroke-width':.25});}],
+ ['gantry','S4','Crane gantry','A portal crane: two legs outside the flying space, a girder across, and the overhead crane model on top.','overhead crane',s=>{walls2(s);flyband(s,32,60);R(s,4,12,32,2.4);L(s,6,14.4,6,60);L(s,34,14.4,34,60);R(s,15,8,10,4);L(s,20,12,20,18,MU);}],
+ ['pipes_over','S5','Pipe bridge','A big pipe crossing the street on a steel rack, above the flying space.','pipes bundle, scaled up',s=>{walls2(s);flyband(s,32,60);R(s,0,14,40,3.4,OR);L(s,0,17.4,40,17.4,OR);L(s,8,17.4,8,60,MU);L(s,32,17.4,32,60,MU);}],
+ ['cables','S6','Cable web','Several cables sagging between anchors on both walls, only above the flying space.','made in code',s=>{walls2(s);flyband(s,32,60);anchor(s,4,10);anchor(s,36,8);anchor(s,4,18);anchor(s,36,20);anchor(s,4,26);anchor(s,36,24);sag(s,4,10,36,8,6);sag(s,4,18,36,20,5);sag(s,4,26,36,24,3);sag(s,4,10,36,20,7);}],
+ ['tramline','S7','Tram line','A cable on two pylons with tram cabins hanging from it.','cable car',s=>{walls2(s);flyband(s,32,60);L(s,4,16,36,16);L(s,8,16,8,60,MU);L(s,32,16,32,60,MU);R(s,13,18,5,4);L(s,15.5,16,15.5,18);R(s,22,18,5,4);L(s,24.5,16,24.5,18);}],
+];
+const CROSS=[
+ ['crates','X1','Crates on a beam','A steel beam across the street with our crates on it, some stacked two high, in five colours.','storage crate (ours)',s=>{walls2(s);flyband(s,8,52);L(s,0,30,40,30,OR,{'stroke-width':.6});R(s,8,26,5,4);R(s,14,26,5,4);R(s,14,22,5,4);R(s,24,26,5,4);Tx(s,6,36,'7 m clear of the trail',MU,2);}],
+ ['catwalk','X2','Catwalk','Our catwalk across the street on two steel rails, with a hazard-striped plate closing its middle gap.','catwalk (ours)',s=>{walls2(s);flyband(s,8,52);L(s,0,30,40,30,OR);L(s,0,31.2,40,31.2,OR);for(let x=4;x<36;x+=2.5)L(s,x,27,x,30,OR,{'stroke-width':.25});L(s,4,27,36,27,OR);el(s,'path',{d:'M17 30 L23 30',stroke:'#e8c23a','stroke-width':1,'stroke-dasharray':'.8 .8'});}],
+ ['containers','X3','Two containers','Two shipping containers on a beam, end to end across the street.','shipping container',s=>{walls2(s);flyband(s,8,52);L(s,0,31,40,31,OR,{'stroke-width':.6});R(s,6,24,13,7);R(s,21,24,13,7);for(let x=7;x<34;x+=2)if(x<19||x>21)L(s,x,24,x,31,DIM,{'stroke-width':.25});}],
+];
+const GROUND=[
+ ['grate','G1','Grate deck','A metal grate with gaps, and the city going on far below it with faint lit windows. The base of the street.','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=2)L(s,x,12,x,13.2);L(s,4,12,36,12);L(s,4,13.2,36,13.2);for(let i=0;i<5;i++)R(s,6+i*6,18+(i%2)*4,4,12,DIM,{'stroke-dasharray':'.8 .8'});Tx(s,6,29,'lit windows far below',MU,2);}],
+ ['mesh','G2','Fine mesh','A finer see-through mesh deck, so the drop below shows even more.','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=.8)L(s,x,12,x,12.8,OR,{'stroke-width':.15});L(s,4,12,36,12);L(s,4,12.8,36,12.8);Tx(s,6,26,'see-through',MU,2);}],
+ ['pipes','G3','Pipe deck','Huge pipes running along the street form the floor, with gaps between them.','pipes bundle, scaled up',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(const [x,y,r] of [[10,16,4],[21,18,5],[31,15,3.5]])C(s,x,y,r);Tx(s,6,28,'big pipes, gaps between',MU,2);}],
+ ['rubble','G4','Rubble street','A solid street with rubble piles, trash, crates and barrels.','rubble pile, trash pile, crate, barrel, box',s=>{R(s,0,0,4,30);R(s,36,0,4,30);L(s,4,20,36,20);el(s,'path',{d:'M6 20 L9 16 L12 18 L15 15 L18 20',fill:'none',stroke:OR,'stroke-width':.35});R(s,22,17,3,3);C(s,29,18.5,1.5);C(s,32,18.5,1.5);Tx(s,6,26,'scrap on a solid street',MU,2);}],
+];
+function list(id,group,items,vb,shape){
+ const box=document.getElementById(id);
+ for(const [key,code,name,desc,uses,draw] of items){
+  const n=COUNTS[group+':'+key]||[0,0,0];
+  const a=document.createElement('article');a.className='piece '+shape;
+  a.innerHTML=`<header><span class="code">${code}</span><h3>${name}</h3><p>${desc}</p><p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
+  <div class="trio"><figure><div class="pic sketch"></div><figcaption>Sketch</figcaption></figure>
+  <figure><div class="pic"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></div><figcaption>Built by the game</figcaption></figure>
+  <figure class="game"><div class="pic"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></div><figcaption>In the game</figcaption></figure></div>`;
+  const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',vb);s.setAttribute('role','img');s.setAttribute('aria-label',name+' sketch');draw(s);
+  a.querySelector('.sketch').append(s);box.append(a);
+ }
+}
+list('walls-list','wall',WALLS,'0 0 40 60','tall');
+list('spans-list','span',SPANS,'0 0 40 60','wide');
+list('cross-list','cross',CROSS,'0 0 40 60','wide');
+list('ground-list','ground',GROUND,'0 0 40 30','wide');
+// the counts table
+(function(){const t=document.getElementById('counts-table');
+ const rows=[['Street length','street',[2162,1404,1910],' m'],['Wall chunks','wall'],['Pieces across the street','span'],['Street crossings','cross'],['Ground pieces','ground'],['Cables','cables',[127,65,111],'']];
+ let h='<tr><th>In each city</th><th style="text-align:right">Easy</th><th style="text-align:right">Medium</th><th style="text-align:right">Hard</th></tr>';
+ for(const [label,g,fixed,unit] of rows){const v=fixed||[0,1,2].map(i=>Object.entries(COUNTS).filter(([k])=>k.startsWith(g+':')).reduce((a,[,c])=>a+c[i],0));
+  h+=`<tr><td>${label}</td>${v.map(x=>`<td class="n">${x.toLocaleString('en')}${unit||''}</td>`).join('')}</tr>`;}
+ t.innerHTML=h;})();
+</script>
+</body>
+</html>
