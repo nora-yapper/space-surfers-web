@@ -34,7 +34,10 @@
   .legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: var(--dim); margin-top: 8px; }
   .legend i { display: inline-block; width: 22px; height: 0; border-top: 2px solid; vertical-align: middle; margin-right: 6px; }
   td.n { text-align: right; font-variant-numeric: tabular-nums; }
-  @media (max-width: 760px) { .trio { grid-template-columns: 1fr 1fr; } .trio .game { grid-column: 1 / -1; } }
+  /* column widths follow each picture's shape, so all three pictures in a row are the same height */
+  .wide .trio { grid-template-columns: 1fr 1fr 1fr; }
+  .tall .trio { grid-template-columns: 4fr 4fr 8.89fr; }
+  @media (max-width: 760px) { .wide .trio, .tall .trio { grid-template-columns: 1fr 1fr; } .trio .game { grid-column: 1 / -1; } }
 </style>
 </head>
 <body>
