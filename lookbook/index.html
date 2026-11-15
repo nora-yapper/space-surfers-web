@@ -46,6 +46,13 @@ figcaption b { color: var(--ink); font-family: "Chakra Petch", sans-serif; font-
 ul.refs { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
 </style>
 <link rel="stylesheet" href="../nav.css">
+<style>
+/* click to enlarge: mood board, UI design and screens in the game (Jane 2026-11-15) */
+section[aria-labelledby="h-mood"] img, section[aria-labelledby="h-ui"] img, section[aria-labelledby="h-built"] img { cursor: zoom-in; }
+dialog.big { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 92vh; }
+dialog.big::backdrop { background: rgba(0, 0, 0, 0.85); }
+dialog.big img { display: block; max-width: 96vw; max-height: 92vh; width: auto; height: auto; border-radius: 6px; cursor: zoom-out; }
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -128,5 +135,12 @@ ul.refs { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
   </footer>
 </div>
 <script src="../nav.js"></script>
+<dialog class="big" aria-label="Enlarged picture"><img alt=""></dialog>
+<script>
+// click a picture to see it big; click, tap or Esc closes it
+(function(){const big=document.querySelector('dialog.big');const sel='section[aria-labelledby="h-mood"] img, section[aria-labelledby="h-ui"] img, section[aria-labelledby="h-built"] img';
+ document.addEventListener('click',e=>{const im=e.target.closest(sel);if(!im)return;const b=big.querySelector('img');b.src=im.currentSrc||im.src;b.alt=im.alt;big.showModal();});
+ big.addEventListener('click',()=>big.close());})();
+</script>
 </body>
 </html>
