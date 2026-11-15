@@ -123,25 +123,45 @@ function pipe(s,x,y,h,r){R(s,x-r,y,r*2,h,OR);L(s,x-r,y+h*.3,x+r,y+h*.3);L(s,x-r,
 function flyband(s,top,bottom){R(s,4,top,32,bottom-top,BL,{'stroke-dasharray':'1 1','stroke-width':.25});Tx(s,5,bottom-1,'flying space',BL,2);}
 function walls2(s){R(s,0,0,4,60);R(s,36,0,4,60);}
 
-// 1. the street, front view: x 0..120 = -60..60 m, y 0..90 = 70..-20 m
-(function(){const s=document.getElementById('section');const X=m=>60+m,Y=m=>70-m;
- R(s,X(-8),Y(22),16,22,BL,{'stroke-dasharray':'1.2 1'});Tx(s,X(-7.4),Y(20.5),'flying space',BL,2.4);Tx(s,X(-7.4),Y(18),'16 m x 22 m',BL,2.2);
- el(s,'path',{d:`M${X(-1.5)} ${Y(6)} L${X(1.5)} ${Y(6)} L${X(2)} ${Y(5.6)} L${X(-2)} ${Y(5.6)}Z`,fill:BL,stroke:BL,'stroke-width':.3});Tx(s,X(2.6),Y(5.2),'trail + board',BL,2);
- C(s,X(1),Y(9.5),1,BL,{fill:'#0d0906'});Tx(s,X(2.6),Y(10.2),'orb ahead',BL,2);
- for(const side of[-1,1]){const f=x=>X(side*x);
-  const bx=side<0?f(26):f(9);R(s,bx,Y(36),17,36);windows(s,bx,Y(36),17,36,4,8);R(s,bx,Y(0),17,14,DIM,{'stroke-dasharray':'1 1'});
-  const ux=side<0?f(24):f(10.5);R(s,ux,Y(58),13.5,22);windows(s,ux,Y(58),13.5,22,3,5);
-  const rx=side<0?f(44):f(27);R(s,rx,Y(52),15,66,DIM,{'stroke-dasharray':'1 1'});
-  L(s,f(14),Y(58),f(14),Y(64));L(s,f(12.5),Y(63),f(15.5),Y(63));anchor(s,f(14),Y(63.5));
-  anchor(s,f(9.2),Y(26));anchor(s,f(9.2),Y(31));
+// 1. the street, front view. Drawing in the middle (x 40..120), every label outside it with a pointer line.
+// x: 80 = centre of the street, 1 unit = 1 m. y: street level at 76, up is minus.
+(function(){const s=document.getElementById('section');s.setAttribute('viewBox','0 0 160 100');
+ const X=m=>80+m,Y=m=>76-m;
+ const lab=(x,y,t,c,anchor)=>{const e=Tx(s,x,y,t,c||MU,2.3);if(anchor)e.setAttribute('text-anchor',anchor);return e;};
+ const ptr=(x1,y1,x2,y2,c)=>{L(s,x1,y1,x2,y2,c||MU,{'stroke-width':.2});C(s,x2,y2,.45,c||MU,{fill:c||MU});};
+ // back rows, behind both walls
+ for(const side of[-1,1]){const x0=side<0?X(-38):X(27);R(s,x0,Y(48),11,64,DIM,{'stroke-dasharray':'1 1'});}
+ // the two wall chunks: a lower block at the face, a narrower one on top, a pole on the roof, dashed below the street
+ for(const side of[-1,1]){const f=m=>side<0?X(-m):X(m);
+  const lx=side<0?X(-26):X(9);R(s,lx,Y(36),17,36);windows(s,lx,Y(36),17,36,4,7);
+  const ux=side<0?X(-24.5):X(11);R(s,ux,Y(56),13.5,20);windows(s,ux,Y(56),13.5,20,3,4);
+  R(s,lx,Y(0),17,12,DIM,{'stroke-dasharray':'1 1'});
+  L(s,f(15),Y(56),f(15),Y(61));L(s,f(13.5),Y(60.5),f(16.5),Y(60.5));anchor(s,f(15),Y(61));
+  anchor(s,f(9),Y(27));anchor(s,f(9),Y(32));
  }
- sag(s,X(-9.2),Y(26),X(9.2),Y(26),6);sag(s,X(-9.2),Y(31),X(9.2),Y(31),4);sag(s,X(-14),Y(63.5),X(14),Y(63.5),5);
- Tx(s,X(-7.8),Y(36),'cables only above 22 m',MU,1.9);
- R(s,X(-9),Y(0),18,.8,OR);Tx(s,X(-7.5),Y(-2.2),'ground deck',MU,2.2);
- Tx(s,X(-7),Y(-8),'buildings go on 80 m',MU,1.9);Tx(s,X(-5),Y(-10.6),'down into haze',MU,1.9);
- Tx(s,X(-58),Y(68),'back rows',MU,2.2);Tx(s,X(42),Y(68),'back rows',MU,2.2);Tx(s,X(-26),Y(68),'wall chunk',OR,2.2);Tx(s,X(10),Y(68),'wall chunk',OR,2.2);
- L(s,X(-8),Y(-4),X(8),Y(-4),MU);Tx(s,X(-1.5),Y(-5.2),'16 m',MU,2);
- L(s,X(-9),Y(-17),X(9),Y(-17),MU);Tx(s,X(-5),Y(-18.4),'building faces at 9 m',MU,2);
+ sag(s,X(-9),Y(27),X(9),Y(27),4);sag(s,X(-9),Y(32),X(9),Y(32),3);sag(s,X(-15),Y(61),X(15),Y(61),4);
+ // the flying space, trail, board and orb
+ R(s,X(-8),Y(22),16,22,BL,{'stroke-dasharray':'1.2 1'});
+ el(s,'path',{d:`M${X(-2)} ${Y(5)} L${X(2)} ${Y(5)} L${X(2.6)} ${Y(4.5)} L${X(-2.6)} ${Y(4.5)}Z`,fill:BL,stroke:BL,'stroke-width':.3});
+ C(s,X(1.5),Y(12),1.1,BL,{fill:'#0d0906'});
+ // ground deck
+ R(s,X(-9),Y(0),18,.9,OR);
+ // labels on the right
+ lab(126,Y(61),'cables only above 22 m');ptr(125,Y(61)-.8,X(6),Y(59.3));
+ lab(126,Y(40),'wall chunk',OR);ptr(125,Y(40)-.8,X(18),Y(40));
+ lab(126,Y(18),'flying space, 16 x 22 m',BL);ptr(125,Y(18)-.8,X(8),Y(18));
+ lab(126,Y(12),'orb, ahead of you',BL);ptr(125,Y(12)-.8,X(2.6),Y(12));
+ lab(126,Y(5.5),'trail and board',BL);ptr(125,Y(5.5)-.8,X(2.6),Y(4.8));
+ lab(126,Y(-6),'buildings go on 80 m');lab(126,Y(-9),'down into the haze');ptr(125,Y(-6)-.8,X(18),Y(-6));
+ // labels on the left
+ lab(34,Y(46),'back rows','',  'end');ptr(35,Y(46)-.8,X(-33),Y(44));
+ lab(34,Y(30),'anchors on the','', 'end');lab(34,Y(27),'building faces','', 'end');ptr(35,Y(28)-.8,X(-9),Y(27));
+ lab(34,Y(0.5),'ground deck','', 'end');ptr(35,Y(0.5)-.8,X(-9),Y(0.4));
+ // measurements, under everything
+ L(s,X(-8),Y(-15),X(8),Y(-15),BL,{'stroke-width':.25});L(s,X(-8),Y(-14),X(-8),Y(-16),BL,{'stroke-width':.25});L(s,X(8),Y(-14),X(8),Y(-16),BL,{'stroke-width':.25});
+ lab(X(0),Y(-17.8),'16 m flying space',BL,'middle');
+ L(s,X(-9),Y(-20.5),X(9),Y(-20.5),MU,{'stroke-width':.25});L(s,X(-9),Y(-19.5),X(-9),Y(-21.5),MU,{'stroke-width':.25});L(s,X(9),Y(-19.5),X(9),Y(-21.5),MU,{'stroke-width':.25});
+ lab(X(0),Y(-23.3),'building faces 9 m from the centre','', 'middle');
 })();
 
 const COUNTS={"wall:tower":[27,24,30],"wall:tenement":[17,12,6],"wall:pipewall":[23,21,24],"wall:tankgap":[15,14,5],"wall:hanging":[25,6,21],"wall:signs":[25,10,29],
