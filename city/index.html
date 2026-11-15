@@ -68,28 +68,62 @@
   <div class="legend"><span><i style="border-color:#7fe9ff"></i>flying space and trail</span><span><i style="border-color:#f08a24"></i>buildings and structure</span><span><i style="border-color:#8f7b63;border-top-style:dashed"></i>cables, back rows, below the street</span></div>
 
   <h2 id="walls">Wall chunks</h2>
-  <p>Six kinds of wall, each 30 to 54 m of street. Both sides of the street use the same chunks, with the building sometimes turned around. Blue dots are anchors, where cables and signs attach.</p>
+  <p>Six kinds of wall, each 30 to 54 m of street. The game lays out each side of the street on its own, chunk after chunk, and picks every chunk from how loud the song is at that spot. Loudness is averaged over 4 seconds, so the walls change with the song's sections, not with single beats.</p>
+  <div class="table-wrap" style="margin-top:12px"><table>
+    <tr><th>Chance of each wall</th><th style="text-align:right">Quiet</th><th style="text-align:right">Middle</th><th style="text-align:right">Loud</th></tr>
+    <tr><td>W1 Tower</td><td class="n">15%</td><td class="n">32%</td><td class="n">35%</td></tr>
+    <tr><td>W2 Tenements</td><td class="n">35%</td><td class="n">9%</td><td class="n">never</td></tr>
+    <tr><td>W3 Pipe wall</td><td class="n">25%</td><td class="n">23%</td><td class="n">15%</td></tr>
+    <tr><td>W4 Tank gap</td><td class="n">25%</td><td class="n">9%</td><td class="n">never</td></tr>
+    <tr><td>W5 Hanging blocks</td><td class="n">never</td><td class="n">18%</td><td class="n">20%</td></tr>
+    <tr><td>W6 Sign alley</td><td class="n">never</td><td class="n">9%</td><td class="n">30%</td></tr>
+  </table></div>
+  <ul style="margin:12px 0 0;max-width:68ch">
+    <li><b>Quiet, middle, loud:</b> under 35% of the song's loudness, 35 to 70%, and above 70%.</li>
+    <li><b>Never twice in a row:</b> a wall is never followed by the same kind on its side of the street.</li>
+    <li><b>Roof height:</b> towers, pipe walls, hanging blocks and sign alleys rise 10 m above the flying space when it's quiet, up to 45 m when it's loud. Tenements and tank gaps stay low, between 6 m under and 4 m over its top, so light comes in.</li>
+    <li><b>Anchors:</b> four on each tall wall and two on each low one, on the face above the flying space, plus a pole on the roof of towers, tenements and tank gaps.</li>
+    <li><b>Cables:</b> each joins a left anchor to a right anchor at most 8 m further along the street, face to face or pole to pole, and never sags into the flying space. About a third of anchors get none, so the sky never fills up.</li>
+    <li><b>Both sides:</b> the same chunks, mirrored, with the building sometimes turned around. Behind each one the game adds two back rows and a far skyline, and about two thirds of the buildings get a colour wash so copies don't look the same.</li>
+  </ul>
   <div id="walls-list"></div>
 
   <h2 id="across">Across the street</h2>
-  <p>Seven kinds of pieces span the street from one building to the other, above the flying space or below it, at least every 14 seconds of song and at every section change. Every one reaches into both buildings or stands on columns, so nothing hangs in the air.</p>
+  <p>Big pieces that join the two buildings, always <b>outside</b> the flying space, so they mark the song without ever being in your way. They follow the song's <b>structure</b>:</p>
+  <ul style="margin:10px 0 0;max-width:68ch">
+    <li><b>When:</b> one at every section change the song analysis finds (for example verse to chorus). Where a stretch of the song has no section change for 14 seconds, the game adds one anyway, so you never go long without one.</li>
+    <li><b>Which:</b> they take turns in a fixed order: block above, skybridge, gantry, pipe bridge, block above, cable web, tram line, block below, then round again. That's why the block above shows up twice as often.</li>
+    <li><b>How high:</b> 4 to 9 m above the top of the flying space. The block below sits under the flying space, in the haze.</li>
+    <li><b>Held up:</b> every one reaches deep into both buildings or stands on columns that go down 70 m, so nothing hangs in the air.</li>
+  </ul>
   <div id="spans-list"></div>
 
   <h2 id="crossings">Street crossings</h2>
-  <p>Smaller scenery across the street, about every 9 seconds, only where the trail stays at least 7 m away from them. They are never in your way.</p>
+  <p>Smaller pieces that cross <b>inside</b> the flying space, the part of the street you ride through. They follow the <b>trail</b>, which itself comes from the song's loudness and brightness:</p>
+  <ul style="margin:10px 0 0;max-width:68ch">
+    <li><b>When:</b> the game tries one every 9 seconds or so (6 to 13 s, so they don't feel like a metronome).</li>
+    <li><b>Where:</b> it looks at where the trail goes for 1.5 seconds before and after. A crossing goes in only if it fits at least 7 m below or above the trail over that whole stretch, measured from its full height. If there's no room, it tries again a second later.</li>
+    <li><b>Which:</b> they take turns: crates, catwalk, containers, crates. Crates are the smallest, so they come up most.</li>
+    <li><b>Never hit:</b> the 7 m clearance means you ride past them close up but never into them. They are scenery that makes the street feel lived in, not obstacles.</li>
+  </ul>
   <div id="cross-list"></div>
 
   <h2 id="ground">Ground</h2>
-  <p>What is under you, in 24 m pieces. The grate deck is the base, with the others mixed in. Quiet parts of the song get more rubble and pipes.</p>
+  <p>What is under you, laid out in 24 m pieces from the start of the song to the end:</p>
+  <ul style="margin:10px 0 0;max-width:68ch">
+    <li><b>Usually:</b> half of all pieces are grate deck, and the fine mesh, pipe deck and rubble street share the other half equally.</li>
+    <li><b>Quiet parts:</b> where the song is quiet (under 35% loudness), about a third of the pieces become rubble street or pipe deck instead, so calm stretches look more worn and solid.</li>
+    <li><b>Below the deck:</b> under the see-through grate and mesh, the city keeps going with faint lit windows far down.</li>
+  </ul>
   <div id="ground-list"></div>
 
   <h2 id="rules">How the song places them</h2>
   <ul style="margin:8px 0 0;max-width:68ch">
-    <li><b>Loudness</b> sets height and busyness. Quiet parts get low tenements and tank gaps with open sky; loud parts get towers, hanging blocks and sign alleys.</li>
-    <li><b>Section changes</b> in the song get a piece across the street, so you feel the change.</li>
+    <li><b>Loudness</b> picks the walls and how tall they are, and how much the ground is grate or rubble.</li>
+    <li><b>Section changes</b> place the big pieces across the street, above or below you.</li>
+    <li><b>The trail</b> decides where the street crossings fit around you.</li>
     <li><b>The whole song</b> lifts the flying space 120 m, faster when it is loud, so you rise away from the ground.</li>
-    <li><b>Each song has its own seed</b>, so every ride of a song builds the same city, and each difficulty's song builds a different one.</li>
-    <li><b>Variety:</b> no wall kind follows itself, about two thirds of the buildings get a colour wash, and the same sign never shows twice in a row.</li>
+    <li><b>Not random each time:</b> the random choices come from a seed made from the song's name, so every ride of a song builds exactly the same city, and each difficulty's song builds a different one.</li>
   </ul>
 
   <h2 id="counts">The three cities</h2>
