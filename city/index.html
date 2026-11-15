@@ -162,17 +162,17 @@ const CROSS=[
  ['containers','X3','Two containers','Two shipping containers on a beam, end to end across the street.','shipping container',s=>{walls2(s);flyband(s,8,52);L(s,0,31,40,31,OR,{'stroke-width':.6});R(s,6,24,13,7);R(s,21,24,13,7);for(let x=7;x<34;x+=2)if(x<19||x>21)L(s,x,24,x,31,DIM,{'stroke-width':.25});}],
 ];
 const GROUND=[
- ['grate','G1','Grate deck','A metal grate with gaps, and the city going on far below it with faint lit windows. The base of the street.','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=2)L(s,x,12,x,13.2);L(s,4,12,36,12);L(s,4,13.2,36,13.2);for(let i=0;i<5;i++)R(s,6+i*6,18+(i%2)*4,4,12,DIM,{'stroke-dasharray':'.8 .8'});Tx(s,6,29,'lit windows far below',MU,2);}],
- ['mesh','G2','Fine mesh','A finer see-through mesh deck, so the drop below shows even more.','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=.8)L(s,x,12,x,12.8,OR,{'stroke-width':.15});L(s,4,12,36,12);L(s,4,12.8,36,12.8);Tx(s,6,26,'see-through',MU,2);}],
- ['pipes','G3','Pipe deck','Huge pipes running along the street form the floor, with gaps between them.','pipes bundle, scaled up',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(const [x,y,r] of [[10,16,4],[21,18,5],[31,15,3.5]])C(s,x,y,r);Tx(s,6,28,'big pipes, gaps between',MU,2);}],
- ['rubble','G4','Rubble street','A solid street with rubble piles, trash, crates and barrels.','rubble pile, trash pile, crate, barrel, box',s=>{R(s,0,0,4,30);R(s,36,0,4,30);L(s,4,20,36,20);el(s,'path',{d:'M6 20 L9 16 L12 18 L15 15 L18 20',fill:'none',stroke:OR,'stroke-width':.35});R(s,22,17,3,3);C(s,29,18.5,1.5);C(s,32,18.5,1.5);Tx(s,6,26,'scrap on a solid street',MU,2);}],
+ ['grate','G1','Grate deck','','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=2)L(s,x,12,x,13.2);L(s,4,12,36,12);L(s,4,13.2,36,13.2);for(let i=0;i<5;i++)R(s,6+i*6,18+(i%2)*4,4,12,DIM,{'stroke-dasharray':'.8 .8'});Tx(s,6,29,'lit windows far below',MU,2);}],
+ ['mesh','G2','Fine mesh','','made in code',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(let x=4;x<36;x+=.8)L(s,x,12,x,12.8,OR,{'stroke-width':.15});L(s,4,12,36,12);L(s,4,12.8,36,12.8);Tx(s,6,26,'see-through',MU,2);}],
+ ['pipes','G3','Pipe deck','','pipes bundle, scaled up',s=>{R(s,0,0,4,30);R(s,36,0,4,30);for(const [x,y,r] of [[10,16,4],[21,18,5],[31,15,3.5]])C(s,x,y,r);Tx(s,6,28,'big pipes, gaps between',MU,2);}],
+ ['rubble','G4','Rubble street','','rubble pile, trash pile, crate, barrel, box',s=>{R(s,0,0,4,30);R(s,36,0,4,30);L(s,4,20,36,20);el(s,'path',{d:'M6 20 L9 16 L12 18 L15 15 L18 20',fill:'none',stroke:OR,'stroke-width':.35});R(s,22,17,3,3);C(s,29,18.5,1.5);C(s,32,18.5,1.5);Tx(s,6,26,'scrap on a solid street',MU,2);}],
 ];
 function list(id,group,items,vb,shape){
  const box=document.getElementById(id);
  for(const [key,code,name,desc,uses,draw] of items){
   const n=COUNTS[group+':'+key]||[0,0,0];
   const a=document.createElement('article');a.className='piece '+shape;
-  a.innerHTML=`<header><span class="code">${code}</span><h3>${name}</h3><p>${desc}</p><p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
+  a.innerHTML=`<header><span class="code">${code}</span><h3>${name}</h3>${desc?`<p>${desc}</p>`:""}<p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
   <div class="trio"><figure><div class="pic sketch"></div><figcaption>Sketch</figcaption></figure>
   <figure><div class="pic"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></div><figcaption>Built by the game</figcaption></figure>
   <figure class="game"><div class="pic"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></div><figcaption>In the game</figcaption></figure></div>`;
