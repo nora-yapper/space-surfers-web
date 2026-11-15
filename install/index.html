@@ -31,6 +31,10 @@
   .part .tag { margin: 0; }
   .wrap > h3 { margin: 32px 0 12px; color: var(--orange); }
   ol.steps li b { color: var(--ink); }
+  .need { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .need .card { padding: 12px 14px; }
+  .need .card h3 { font-size: 15px; }
+  .need .card p { font-size: 14px; }
   .key { font: 600 14px "Chakra Petch", sans-serif; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; }
 </style>
 </head>
@@ -45,14 +49,6 @@
   <h1>Setup</h1>
   <p class="tag">How we demo it in class</p>
   <p class="lead">The real Space Surfers is played standing on a board in front of a big screen. A Kinect v2 camera under the screen watches the rider, and the game reads how they lean. This page shows how we set it up for our class demo: the room, once, and a short calibration for every rider.</p>
-
-  <h2>What you need</h2>
-  <div class="grid">
-    <div class="card"><h3>Camera</h3><p>A Kinect v2 with its adapter. It needs a USB 3 port and its own power plug.</p></div>
-    <div class="card"><h3>Computer</h3><p>A computer running our tracker and the game.</p></div>
-    <div class="card"><h3>Screen</h3><p>A projector or large screen.</p></div>
-    <div class="card"><h3>Board</h3><p>A board sticker on the floor. The tracker watches a 1.4 by 1.0 m area around it. Riders 160 cm and up.</p></div>
-  </div>
 
   <div class="part"><h2>1. Set up the room</h2><p class="tag">Once per room, by whoever runs it</p></div>
 
@@ -115,7 +111,7 @@
   </ol>
   <p class="note" style="margin-top:14px">The setup is saved. Next time, only repeat it if the camera, the board or the furniture moved.</p>
 
-  <div class="part"><h2>2. Each rider</h2><p class="tag">Before every ride, guided by the game, under a minute</p></div>
+  <div class="part"><h2>2. Each rider</h2></div>
   <p class="lead" style="margin-top:6px">When someone steps on the board, the game walks them through it on screen. Nobody needs to touch the computer. Directions always mean the screen, not the body, because the rider stands sideways.</p>
   <div class="table-wrap" style="margin-top:18px"><table>
     <tr><th>On screen</th><th>What the rider does</th></tr>
@@ -129,8 +125,16 @@
     <tr><td>Now try it</td><td>Moves the dot freely. This is exactly how the board will move</td></tr>
   </table></div>
 
+  <h2>What you need</h2>
+  <div class="grid need">
+    <div class="card"><h3>Camera</h3><p>A Kinect v2 with its adapter. It needs a USB 3 port and its own power plug.</p></div>
+    <div class="card"><h3>Computer</h3><p>A computer running our tracker and the game.</p></div>
+    <div class="card"><h3>Screen</h3><p>A projector or large screen.</p></div>
+    <div class="card"><h3>Board</h3><p>A board sticker on the floor. The tracker watches a 1.4 by 1.0 m area around it. Riders 160 cm and up.</p></div>
+  </div>
+
   <h2>The software</h2>
-  <p class="note" style="margin-top:4px">We are not packaging the tracker and the game for download right now, because this setup is for exploring the idea and showing it in class. If you would like to run it yourself, get in touch and we will write the install steps. Until then, the <a href="../play/">browser version</a> plays the same game with the arrow keys.</p>
+  <p class="note" style="margin-top:4px">We are not packaging the tracker and the game for download right now, because this setup is for exploring the idea and showing it in class. If the full submission needs it, we will package it and write the install steps. Until then, the <a href="../play/">browser version</a> plays the same game with the arrow keys.</p>
 
   <footer class="bar">
     <span>RIT Croatia // Interactive IV // Project 02</span>
