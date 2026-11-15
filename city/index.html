@@ -21,6 +21,15 @@
   .trio .pic { background: #0d0906; border-radius: 4px; overflow: hidden; display: grid; place-items: center; min-height: 160px; }
   .trio img, .trio svg { width: 100%; height: 100%; object-fit: contain; display: block; }
   .trio .game img { object-fit: cover; }
+  .trio .sketch svg { box-sizing: border-box; padding: 12%; }
+  .street svg { box-sizing: border-box; padding: 3%; }
+  .zoom { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+  .zoom:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+  dialog.big { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 92vh; }
+  dialog.big::backdrop { background: rgba(0, 0, 0, 0.85); }
+  dialog.big img { display: block; max-width: 96vw; max-height: 92vh; width: auto; height: auto; border-radius: 6px; cursor: zoom-out; }
+  dialog.big svg { display: block; width: min(80vw, 70vh); height: auto; background: #0d0906; border-radius: 6px; padding: 4%; box-sizing: border-box; cursor: zoom-out; }
+  dialog.big .street-big { width: min(92vw, 120vh); }
   .trio figcaption { font: 600 11px "Chakra Petch", sans-serif; color: var(--dim); text-transform: uppercase; letter-spacing: 0.14em; }
   .tall .pic { aspect-ratio: 4 / 5; }
   .tall .game .pic { aspect-ratio: 16 / 9; }
@@ -55,7 +64,7 @@
 
   <h2 id="street">The street</h2>
   <p>Looking down the track. The flying space, where the trail and the board can go, is 16 m wide and 22 m tall, and it slowly rises 120 m over a song. Building faces stand just outside it, so nothing in the city can block the trail. Behind every wall stand two more rows of buildings and a far skyline, and the buildings reach 80 m below the street into the haze, so you never see where they end.</p>
-  <div class="street" style="margin-top:12px"><svg id="section" viewBox="0 0 120 90" role="img" aria-label="Front view of the street: the flying space in the middle, building walls on both sides with back rows, cables above, haze below"></svg></div>
+  <div class="street" style="margin-top:12px"><button class="zoom" type="button" aria-label="Enlarge sketch"><svg id="section" viewBox="0 0 120 90" role="img" aria-label="Front view of the street: the flying space in the middle, building walls on both sides with back rows, cables above, haze below"></svg></button></div>
   <div class="legend"><span><i style="border-color:#7fe9ff"></i>flying space and trail</span><span><i style="border-color:#f08a24"></i>buildings and structure</span><span><i style="border-color:#8f7b63;border-top-style:dashed"></i>cables, back rows, below the street</span></div>
 
   <h2 id="walls">Wall chunks</h2>
@@ -86,9 +95,9 @@
   <h2 id="counts">The three cities</h2>
   <p>Each difficulty has its own song, so its own city. The numbers come straight from the game's city plan.</p>
   <div class="cities">
-    <figure><img src="img/g_song_easy.jpg" alt="The Easy city, in a yellow haze" loading="lazy" width="1280" height="720"><figcaption>Easy: Synthwave, a calmer, yellower city</figcaption></figure>
-    <figure><img src="img/g_song_medium.jpg" alt="The Medium city, in an orange haze" loading="lazy" width="1280" height="720"><figcaption>Medium: Stranger, the full orange haze</figcaption></figure>
-    <figure><img src="img/g_song_hard.jpg" alt="The Hard city, in a red haze" loading="lazy" width="1280" height="720"><figcaption>Hard: Hard Cyberpunk, loud all the way, a redder city</figcaption></figure>
+    <figure><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_song_easy.jpg" alt="The Easy city, in a yellow haze" loading="lazy" width="1280" height="720"></button><figcaption>Easy: Synthwave, a calmer, yellower city</figcaption></figure>
+    <figure><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_song_medium.jpg" alt="The Medium city, in an orange haze" loading="lazy" width="1280" height="720"></button><figcaption>Medium: Stranger, the full orange haze</figcaption></figure>
+    <figure><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_song_hard.jpg" alt="The Hard city, in a red haze" loading="lazy" width="1280" height="720"></button><figcaption>Hard: Hard Cyberpunk, loud all the way, a redder city</figcaption></figure>
   </div>
   <div class="table-wrap" style="margin-top:16px"><table id="counts-table"></table></div>
 
@@ -97,6 +106,7 @@
     <span>Space Surfers // 2026</span>
   </footer>
 </div>
+<dialog class="big" aria-label="Enlarged picture"></dialog>
 <script src="../theme.js"></script>
 <script>
 const NS='http://www.w3.org/2000/svg';
@@ -173,17 +183,25 @@ function list(id,group,items,vb,shape){
   const n=COUNTS[group+':'+key]||[0,0,0];
   const a=document.createElement('article');a.className='piece '+shape;
   a.innerHTML=`<header><span class="code">${code}</span><h3>${name}</h3>${desc?`<p>${desc}</p>`:""}<p class="meta">Built from: ${uses} · In the cities: ${n[0]} Easy, ${n[1]} Medium, ${n[2]} Hard</p></header>
-  <div class="trio"><figure><div class="pic sketch"></div><figcaption>Sketch</figcaption></figure>
-  <figure><div class="pic"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></div><figcaption>Built by the game</figcaption></figure>
-  <figure class="game"><div class="pic"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></div><figcaption>In the game</figcaption></figure></div>`;
+  <div class="trio"><figure><div class="pic sketch"><button class="zoom" type="button" aria-label="Enlarge sketch"></button></div><figcaption>Sketch</figcaption></figure>
+  <figure><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/r_${group}_${key}.jpg" alt="${name}, built on its own by the game" loading="lazy"></button></div><figcaption>Built by the game</figcaption></figure>
+  <figure class="game"><div class="pic"><button class="zoom" type="button" aria-label="Enlarge picture"><img src="img/g_${group}_${key}.jpg" alt="${name} in the game" loading="lazy"></button></div><figcaption>In the game</figcaption></figure></div>`;
   const s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',vb);s.setAttribute('role','img');s.setAttribute('aria-label',name+' sketch');draw(s);
-  a.querySelector('.sketch').append(s);box.append(a);
+  a.querySelector('.sketch .zoom').append(s);box.append(a);
  }
 }
 list('walls-list','wall',WALLS,'0 0 40 60','tall');
 list('spans-list','span',SPANS,'0 0 40 60','wide');
 list('cross-list','cross',CROSS,'0 0 40 60','wide');
 list('ground-list','ground',GROUND,'0 0 40 30','wide');
+// click a picture or sketch to see it big; click, tap or Esc closes it
+const big=document.querySelector('dialog.big');
+document.addEventListener('click',e=>{const b=e.target.closest('.zoom');if(!b)return;
+ const im=b.querySelector('img'),sv=b.querySelector('svg');big.replaceChildren();
+ if(im){const c=new Image();c.src=im.src;c.alt=im.alt;big.append(c);}
+ else if(sv){const c=sv.cloneNode(true);c.removeAttribute('id');if(sv.id==='section')c.classList.add('street-big');big.append(c);}
+ big.showModal();});
+big.addEventListener('click',()=>big.close());
 // the counts table
 (function(){const t=document.getElementById('counts-table');
  const rows=[['Street length','street',[2162,1404,1910],' m'],['Wall chunks','wall'],['Pieces across the street','span'],['Street crossings','cross'],['Ground pieces','ground'],['Cables','cables',[127,65,111],'']];
